@@ -20,7 +20,7 @@ con.connect(function (err) {
     console.log("Connected!");
 });
 
-con.query("SELECT 1+1").on("result", function (row) {
-    console.log("in con.query");
-    console.log(row);
+con.query("SELECT * FROM event", function (err, result) {
+    if (err) throw err;
+    console.log(result);
 });
