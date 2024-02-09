@@ -2,7 +2,7 @@
 
 Ohjelmistotuotantoprojekti 1/2, Ryhmä 5
 
-## ## Links
+## Links
 
 - Project layout ([Figma](https://www.figma.com/file/oMQdAAOeVtyCCwMxgPvboC/Group-5?type=design&node-id=0-1&mode=design&t=wgUdDLkQM28wL9oW-0))
 - User stories and tickets ([Trello](https://trello.com/b/T1QhjNGs/product-description-and-goal))
