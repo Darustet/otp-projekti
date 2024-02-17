@@ -1,11 +1,5 @@
 import '@mobiscroll/react/dist/css/mobiscroll.min.css'
-import {
-    Eventcalendar,
-    setOptions,
-    Toast,
-    localeFi,
-    getJson,
-} from '@mobiscroll/react';
+import {Eventcalendar, setOptions, Toast, localeFi, getJson} from '@mobiscroll/react';
 import {useCallback, useEffect, useMemo, useState} from 'react';
 
 setOptions({
@@ -49,16 +43,7 @@ const Calendar = () => {
     }, []);
 
     useEffect(() => {
-        /*
-        source implementation
-        getJson(
-            'https://trial.mobiscroll.com/events/?vers=5',
-            (events) => {
-                setEvents(events);
-            },
-            'jsonp',
-        );
-        * */
+        /* source implementation */
         getJson('https://trial.mobiscroll.com/events/?vers=5',
             (events) => {
                 setEvents(events)
