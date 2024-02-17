@@ -9,9 +9,10 @@ const userSchema = new mongoose.Schema(
 			min: 3,
 			max: 20,
 		},
-		Data: {
+
+		sensitiveData: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "Data",
+			ref: "SensitiveData",
 		},
 		username: {
 			type: String,
@@ -33,7 +34,7 @@ const userSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-const DataSchema = new mongoose.Schema({
+const sensitiveDataSchema = new mongoose.Schema({
 	email: {
 		type: String,
 		required: true,
@@ -47,8 +48,8 @@ const DataSchema = new mongoose.Schema({
 	},
 });
 
-const Data = mongoose.model("Data", DataSchema);
+const SensitiveData = mongoose.model("SensitiveData", sensitiveDataSchema);
 
 const User = mongoose.model("User", userSchema);
 
-module.exports = { User, Data };
+module.exports = { User, SensitiveData };

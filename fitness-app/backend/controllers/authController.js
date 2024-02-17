@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const { User } = require("../models/users");
+const { User, SensitiveData} = require("../models/users");
 
 // Generate access token
 const login = async (req, res) => {

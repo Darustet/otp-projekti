@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { User, UserData } = require("../models/users");
+const { User, SensitiveData } = require("../models/users");
 const bcrypt = require("bcryptjs");
 
 // get all users
@@ -40,21 +40,21 @@ const getUserByUserTag = async (req, res) => {
 const createUser = async (req, res) => {
 	const { userTag, email, password } = req.body;
 
-	if (!email || !password) return res.status(400).json({ message: "Username, email, and password are required." });
+	if (!userTag || !email || !password) return res.status(400).json({ message: "Username, email, and password are required." });
 
 	try {
 		const existingName = await User.findOne({ userTag });
 		if (existingName) return res.status(409).json({ message: "Username already exists." });
 
-		const existingEmail = await Data.findOne({ email });
+		const existingEmail = await SensitiveData.findOne({ email });
 		if (existingEmail) return res.status(409).json({ message: "Email already exists." });
 
 		const encryptedPassword = await bcrypt.hash(password, 10);
-		const Data = new Data({ email, password: encryptedPassword });
-		const user = new User({ userTag, username: userTag, Data });
+		const sensitiveData = new SensitiveData({ email, password: encryptedPassword });
+		const user = new User({ userTag, username: userTag, sensitiveData });
 
 		await user.save();
-		await Data.save();
+		await sensitiveData.save();
 		res.status(201).json(user);
 	} catch (error) {
 		res.status(409).json({ message: error.message });
