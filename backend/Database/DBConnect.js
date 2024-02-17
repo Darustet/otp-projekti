@@ -20,7 +20,24 @@ con.connect(function (err) {
     console.log("Connected!");
 });
 
+/*con.query("SHOW TABLES", function(err, result) {
+    if(err) throw err;
+    console.log(result);
+});*/
+
 con.query("SELECT * FROM event", function (err, result) {
     if (err) throw err;
     console.log(result);
 });
+
+/*
+const config = require("../config");
+const mongoose = require("mongoose");
+
+const connectDB = async () => {
+    const conn = await mongoose.connect(config.MONGO_URI);
+    console.log("MongoDB connected");
+};
+
+module.exports = connectDB;
+* */
