@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { User, SensitiveData } = require("../models/users");
 const bcrypt = require("bcryptjs");
 
+
 // get all users
 const getUsers = async (req, res) => {
 	try {
@@ -59,6 +60,10 @@ const createUser = async (req, res) => {
 	} catch (error) {
 		res.status(409).json({ message: error.message });
 	}
+
+	// poista käytäjä
+
+
 };
 
 module.exports = {
