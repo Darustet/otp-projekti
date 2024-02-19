@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import CreateEvent from './pages/CreateEvent';
 
 function App() {
     const routes = [
@@ -18,7 +19,8 @@ function App() {
         },
         {
             name: 'Create Event',
-            url: '/create-event'
+            url: '/CreateEvent',
+            component: <CreateEvent />
         },
         {
             name: 'Login',
