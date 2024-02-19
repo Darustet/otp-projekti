@@ -5,9 +5,10 @@ const Login = () => {
         <div className="login-container">
             <h2>Login</h2>
             <div className="form-group">
-                <label htmlFor={"username"}></label>
+
+                <label htmlFor="username">Username:</label>
                 <input type="text" id="username" name="username"
-                       placeholder="Enter your username"/>
+                       placeholder="Enter your email adress or username"/>
             </div>
 
             <div className="form-group">
@@ -19,6 +20,7 @@ const Login = () => {
             <div className="form-group">
                 <button type="button">Login</button>
             </div>
+
 
             <div className="options">
                 <a href="#">Register</a>

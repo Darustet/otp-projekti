@@ -2,7 +2,6 @@
 
 ```shell
 npm start
-echo Hello
 cd frontend
 cd fitness-app
 ```

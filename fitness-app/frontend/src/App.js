@@ -8,18 +8,19 @@ import Login from './pages/Login';
 function App() {
     const routes = [
         {
-            name: 'Home',
+            name: 'Main',
             url: '/',
             component: <Home />
         },
+
         {
-            name: 'Explore',
-            url: '/explore'
+            name: 'Settings',
+            url: '/',
+            component: <Home />
         },
-        {
-            name: 'Create Event',
-            url: '/create-event'
-        },
+
+
+
         {
             name: 'Login',
             url: '/login',
