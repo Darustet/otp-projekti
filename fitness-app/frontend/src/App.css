@@ -56,10 +56,10 @@ main {
 
 #main-aside {
   position: fixed;
-  top: 10%;
-  right: 16px;
-  width: auto;
-  height: 80%;
+  top: 1%;
+  right: 8px;
+  width: 35%;
+  height: 98%;
   border: black solid 2px;
 }
 
