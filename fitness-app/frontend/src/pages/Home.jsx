@@ -15,9 +15,8 @@ const Home = () => {
             <main>
                 <Posts postData={placeholderPosts}/>
                 <form>
-                    <input type="button" value="New event"/>
+                    <input type="button" value="New event (not implemented)"/>
                 </form>
-                <p>-- Insert Map --</p>
             </main>
             <Calendar />
         </>

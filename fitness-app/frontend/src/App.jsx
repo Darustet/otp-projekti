@@ -1,9 +1,11 @@
 import './App.css';
 import React from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import NavBar from './components/NavBar';
+import DomainRouting from './components/DomainRouting';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Explore from './pages/Explore';
+import CreateEvent from './pages/CreateEvent';
 
 function App() {
     const routes = [
@@ -14,11 +16,13 @@ function App() {
         },
         {
             name: 'Explore',
-            url: '/explore'
+            url: '/explore',
+            component: <Explore />
         },
         {
             name: 'Create Event',
-            url: '/create-event'
+            url: '/create-event',
+            component: <CreateEvent />
         },
         {
             name: 'Login',
@@ -26,23 +30,11 @@ function App() {
             component: <Login />
         },
     ]
-    const routing = (routingItems) => {
-        return routingItems.map((item, index) =>
-            <Route
-                key={index}
-                path={item.url}
-                element={item.component} />
-        )
-    }
 
     return (
         <div>
             <NavBar routes={routes} />
-            <Router basename="/">
-                <Routes>
-                    {routing(routes)}
-                </Routes>
-            </Router>
+            <DomainRouting routes={routes} />
         </div>
     );
 }

@@ -9,19 +9,7 @@ setOptions({
 })
 
 const Calendar = () => {
-    const sampleEvents = [
-        {
-            title: 'Koris'
-        },
-        {
-            title: 'Ottelu'
-        },
-        {
-            title: 'Juoksu'
-        }
-    ]
-
-    const [myEvents, setEvents] = useState(sampleEvents),
+    const [myEvents, setEvents] = useState([]),
         [isToastOpen, setToastOpen] = useState(false),
         [toastMessage, setToastMessage] = useState()
 
