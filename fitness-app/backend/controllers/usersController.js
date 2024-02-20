@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const { User, SensitiveData } = require("../models/users");
 const bcrypt = require("bcryptjs");
 
-
 // get all users
 const getUsers = async (req, res) => {
 	try {
@@ -60,10 +59,26 @@ const createUser = async (req, res) => {
 	} catch (error) {
 		res.status(409).json({ message: error.message });
 	}
+};
+// delete user by id
+const deleteUserByAuth = async (req, res) => {
+	const { userId } = req.user;
+	try {
+		if (!mongoose.Types.ObjectId.isValid(userId)) {
+			return res.status(404).send(`No user with id: ${userId}`);
+		}
+		const user = await User.findById(userId);
 
-	// poista käytäjä
+		if (!user) return res.status(404).json({ message: `User with id ${userId} not found.` });
+		// delete posts by user tähä lisätään myöhemmin
 
+		await User.findByIdAndDelete(userId);
+		await SensitiveData.findByIdAndDelete(user.sensitiveData);
 
+		res.status(200).json({ message: "User and their posts deleted successfully." });
+	} catch (err) {
+		res.status(500).json({ message: err.message });
+	}
 };
 
 module.exports = {
@@ -71,4 +86,5 @@ module.exports = {
 	getUserById,
 	createUser,
 	getUserByUserTag,
+	deleteUserByAuth,
 };
