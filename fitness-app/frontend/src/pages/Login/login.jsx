@@ -1,3 +1,4 @@
+// Login.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
@@ -13,6 +14,15 @@ const Login = () => {
 			<div className={styles.container}>
 				<div className={styles.formContainer}>
 					<h2>Login</h2>
+					<div className={styles.formGroup}>
+						<label htmlFor="fullName">Full Name:</label>
+						<input
+							type="text"
+							id="fullName"
+							name="fullName"
+							placeholder="Enter your full name"
+						/>
+					</div>
 					<div className={styles.formGroup}>
 						<label htmlFor="username">Username:</label>
 						<input
@@ -35,7 +45,7 @@ const Login = () => {
 						<button type="button">Login</button>
 					</div>
 					<div className={styles.options}>
-						<Link to="#">Forgot password</Link>
+						<Link to="/forgotpassword">Forgot password</Link>
 					</div>
 				</div>
 			</div>
