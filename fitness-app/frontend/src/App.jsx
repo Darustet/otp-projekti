@@ -6,6 +6,7 @@ import Explore from './pages/Explore';
 import CreateEvent from './pages/CreateEvent';
 import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
+import Register from "./pages/Register/Register.jsx"; // Import the Register component
 import "./App.scss";
 
 function App() {
@@ -38,8 +39,13 @@ function App() {
         {
             name: "Settings",
             url: "/settings",
+        },
+        {
+            name: "Register",
+            url: "/register",
+            component: <Register />
         }
-    ]
+    ];
 
     return (
         <div>
