@@ -1,55 +1,28 @@
-<<<<<<< Updated upstream
 $color_1: #333;
 $color_2: #555;
 $color_3: #fff;
 $color_4: #007bff;
-$font-family_1: Arial, sans-serif;
-$background-color_1: #f4f4f4;
-$background-color_2: #fff;
-$background-color_3: #4caf50;
-$background-color_4: #45a049;
+$background-color_1: #fff;
+$background-color_2: #4caf50;
+$background-color_3: #45a049;
 
-body {
-	font-family: $font-family_1;
-	background-color: $background-color_1;
-	margin: 0;
-=======
 .container {
->>>>>>> Stashed changes
 	display: flex;
 	justify-content: space-around;
 }
-<<<<<<< Updated upstream
-.login-container {
-	background-color: $background-color_2;
-	margin: 30px;
-=======
-
 .formContainer {
-	background-color: #fff;
->>>>>>> Stashed changes
+	background-color: $background-color_1;
 	padding: 20px;
-	border-radius: 40px;
+	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	width: 300px;
-<<<<<<< Updated upstream
+	margin-bottom: 20px;
 	h2 {
 		text-align: center;
 		color: $color_1;
 	}
 }
-.form-group {
-=======
-	margin-bottom: 20px;
-}
-
-.formContainer h2 {
-	text-align: center;
-	color: #333;
-}
-
 .formGroup {
->>>>>>> Stashed changes
 	margin-bottom: 15px;
 	label {
 		display: block;
@@ -67,49 +40,16 @@ body {
 		width: 100%;
 		padding: 10px;
 		box-sizing: border-box;
-		background-color: $background-color_3;
+		background-color: $background-color_2;
 		color: $color_3;
 		border: none;
 		border-radius: 4px;
 		cursor: pointer;
 		&:hover {
-			background-color: $background-color_4;
+			background-color: $background-color_3;
 		}
 	}
 }
-<<<<<<< Updated upstream
-=======
-
-.formGroup label {
-	display: block;
-	margin-bottom: 5px;
-	color: #555;
-}
-
-.formGroup input {
-	width: 100%;
-	padding: 8px;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-}
-
-.formGroup button {
-	width: 100%;
-	padding: 10px;
-	box-sizing: border-box;
-	background-color: #4caf50;
-	color: #fff;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-.formGroup button:hover {
-	background-color: #45a049;
-}
-
->>>>>>> Stashed changes
 .options {
 	text-align: center;
 	margin-top: 10px;
@@ -117,9 +57,8 @@ body {
 		text-decoration: none;
 		color: $color_4;
 		cursor: pointer;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
-}
-
-.options a:hover {
-	text-decoration: underline;
 }
