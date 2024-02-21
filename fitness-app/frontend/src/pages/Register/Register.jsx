@@ -14,6 +14,15 @@ const Register = () => {
                 <div className={styles.formContainer}>
                     <h2>Register</h2>
                     <div className={styles.formGroup}>
+                        <label htmlFor="fullName">Full Name:</label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
                         <label htmlFor="reg-username">Username:</label>
                         <input
                             type="text"

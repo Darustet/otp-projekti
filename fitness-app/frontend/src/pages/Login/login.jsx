@@ -14,15 +14,7 @@ const Login = () => {
 			<div className={styles.container}>
 				<div className={styles.formContainer}>
 					<h2>Login</h2>
-					<div className={styles.formGroup}>
-						<label htmlFor="fullName">Full Name:</label>
-						<input
-							type="text"
-							id="fullName"
-							name="fullName"
-							placeholder="Enter your full name"
-						/>
-					</div>
+
 					<div className={styles.formGroup}>
 						<label htmlFor="username">Username:</label>
 						<input
