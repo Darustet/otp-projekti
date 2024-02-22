@@ -7,8 +7,8 @@ const Home = () => {
 	const placeholderPosts = ["Post", "Post", "Post", "Post"];
 	return (
 		<>
-			<h1>Home</h1>
 			<main>
+				<h1>Home</h1>
 				<Posts postData={placeholderPosts} />
 				<form>
 					<input type="button" value="New event (not implemented)" />

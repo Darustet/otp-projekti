@@ -49,7 +49,7 @@ function App() {
             component: <Register />
         },
         {
-            name: "ForgotPassword",
+            name: "Forgot Password",
             url: "/forgotpassword",
             component: <ForgotPassword />
         }
