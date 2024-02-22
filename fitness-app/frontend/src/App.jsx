@@ -1,12 +1,13 @@
+import "./App.scss";
 import React from "react";
 import NavBar from "./components/NavBar";
 import DomainRouting from './components/DomainRouting';
+import TopBar from './components/TopBar';
 import Home from "./pages/Home";
 import Explore from './pages/Explore';
 import CreateEvent from './pages/CreateEvent';
 import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
-import "./App.scss";
 
 function App() {
     const routes = [
@@ -38,11 +39,13 @@ function App() {
         {
             name: "Settings",
             url: "/settings",
+            component: <></>
         }
     ]
 
     return (
         <div>
+            <TopBar />
             <NavBar routes={routes} />
             <DomainRouting routes={routes} />
         </div>

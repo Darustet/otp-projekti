@@ -4,13 +4,14 @@ Jos terminaali on auki, varmista että sijainti on oikein (projektin root kansio
 
 Molemmat komennot ohjaavat itsestään cd-komennolla oikeaan kansioon ja käynnistävät ohjelman sieltä. Jos komennon ajon aikana tapahtuu virhe, terminaalin sijainti jää viimeiseen cd-komennon osoittamaan kansioon. Jos haluat uudelleen käynnistää samaa komentoa, aja ylin rivin komento 'npm start' tai 'node server.js', riippuen kyseisestä sijainnista.
 
+### Start the frontend
 ```shell
 npm start
-echo Hello
 cd frontend
 cd fitness-app
 ```
 
+### Start the server
 ```shell
 node server.js
 cd backend
