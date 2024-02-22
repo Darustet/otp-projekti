@@ -36,43 +36,4 @@
     transform: rotate(360deg);
   }
 }
-
-nav#nav-bar {
-  position: fixed;
-  left: 0;
-  width: auto;
-}
-
-nav ul {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-
-main {
-  width: auto;
-  margin: auto;
-}
-
-#main-aside {
-  position: fixed;
-  top: 10%;
-  right: 16px;
-  width: auto;
-  height: 80%;
-  border: black solid 2px;
-}
-
-.main-posts {
-  list-style-type: none;
-  padding-inline-start: 0;
-}
-
-.main-posts {
-}
-
-.main-listed-post {
-  background: #007bff;
-  padding: 4px;
-  margin: 8px 0;
-  border-radius: 8px;
-} */
+*/

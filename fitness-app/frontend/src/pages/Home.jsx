@@ -1,6 +1,7 @@
 import Calendar from "../components/Calendar/Calendar";
 import { useState } from "react";
 import Posts from "../components/Posts";
+import './home.scss'
 
 const Home = () => {
 	const placeholderPosts = ["Post", "Post", "Post", "Post"];
