@@ -9,6 +9,9 @@ import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Register from "./pages/Register/Register.jsx";
 import ForgotPassword from "./pages/ForgotPassword/Forgot_password.jsx";
+import { NotificationProvider } from "./NotificationsData/Notification";
+
+
 import "./App.scss";
 
 function App() {
@@ -56,11 +59,13 @@ function App() {
     ];
 
     return (
+        < NotificationProvider >    
         <div>
             <TopBar />
             <NavBar routes={routes} />
             <DomainRouting routes={routes} />
         </div>
+        </NotificationProvider>
     );
 }
 

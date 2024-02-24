@@ -70,8 +70,8 @@ const deleteUserByAuth = async (req, res) => {
 		const user = await User.findById(userId);
 
 		if (!user) return res.status(404).json({ message: `User with id ${userId} not found.` });
-		// delete posts by user tähä lisätään myöhemmin
-
+		
+		await Post.deleteMany({ user: user._id });
 		await User.findByIdAndDelete(userId);
 		await SensitiveData.findByIdAndDelete(user.sensitiveData);
 

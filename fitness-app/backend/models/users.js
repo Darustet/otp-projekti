@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema(
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "SensitiveData",
 		},
+		profilePicture: {
+			type: String,
+			default: "",
+		},
 		username: {
 			type: String,
 			required: true,
