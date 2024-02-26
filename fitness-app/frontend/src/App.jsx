@@ -4,7 +4,7 @@ import DomainRouting from './components/DomainRouting';
 import TopBar from './components/TopBar';
 import Home from "./pages/Home";
 import Explore from './pages/Explore';
-import CreateEvent from './pages/CreateEvent';
+import CreateEvent from './pages/CreateEvent/CreateEvent';
 import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Register from "./pages/Register/Register.jsx";
