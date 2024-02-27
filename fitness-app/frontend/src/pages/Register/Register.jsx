@@ -5,6 +5,7 @@ const Register = () => {
     const [userTag, setUserTag] = useState("");
     const [email , setUserEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const handleSubmit = async (e) => {
         // implement for Register button
@@ -62,10 +63,10 @@ const Register = () => {
                             <input
                                 type="password"
                                 id="password"
-                                value={password}
+                                value={confirmPassword}
                                 name="password"
                                 placeholder="Confirm your password"
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                         </div>
 
