@@ -10,6 +10,7 @@ import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Register from "./pages/Register/Register.jsx";
 import ForgotPassword from "./pages/ForgotPassword/Forgot_password.jsx";
+import Settings from "./pages/Settings/Settings.jsx";
 import { NotificationProvider } from "./NotificationsData/Notification";
 
 import "./App.scss";
@@ -32,11 +33,12 @@ function App() {
 						<Route path="/profile" element={<Profile />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/forgot-password" element={<ForgotPassword />} />
-						
+						<Route path="/settings" element={<Settings />} />
+
 					</Routes>
 				</NotificationProvider>
-	
-			</BrowserRouter>	
+
+			</BrowserRouter>
 		</div>
 	);
 }
