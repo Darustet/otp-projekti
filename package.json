@@ -1,6 +1,10 @@
 {
   "dependencies": {
+<<<<<<< Updated upstream
     "react": "^18.2.0",
+=======
+    "all": "^0.0.0",
+>>>>>>> Stashed changes
     "react-dnd-html5-backend": "^14.1.0",
     "react-tag-input": "^6.9.0"
   }
