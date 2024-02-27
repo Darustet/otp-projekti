@@ -26,3 +26,4 @@ yarn-error.log*
 node_modules
 .env
 fitness-app/frontend/package-lock.json
+*.xml
