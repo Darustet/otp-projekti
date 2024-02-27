@@ -31,8 +31,8 @@ function Login() {
 			<div className={styles["login-container"]}>
 				<div className={styles["login-content"]}>
 					<header className={styles["login-header"]}>
-						<h1>Welcome Back</h1>
-						<p>Sign in to continue</p>
+						<h1>Welcome</h1>
+						<p>Sign in to FitnessApp</p>
 					</header>
 					<form className={styles["login-form"]} onSubmit={handleSubmit}>
 						<div className={styles["input-group"]}>
@@ -42,7 +42,7 @@ function Login() {
 								id="usertag"
 								value={userTag}
 								name="userTag"
-								placeholder="Username or Email"
+								placeholder=" Enter your username or email"
 								onChange={(e) => setUserTag(e.target.value)}
 							/>
 				
@@ -69,19 +69,21 @@ function Login() {
 								/>
 								<label htmlFor="remember-me">Remember me</label>
 							</div>
-							<Link to="/forgot-password" className={styles["forgot-password"]}>
+							<Link to="/forgotpassword" className={styles["forgotpassword"]}>
 								Forgot Password
 							</Link>
+
 						</div>
 						<button type="submit" className={styles["sign-in-button"]}>
 							Sign In
 						</button>
 					</form>
 					<div className={styles["sign-up-prompt"]}>
-						<span>Don’t have an account?</span>
+						<span>Don’t have an account? </span>
 						<Link to="/register" className={styles["sign-up-link"]}>
 							Sign Up
 						</Link>
+
 					</div>
 				</div>
 			</div>
