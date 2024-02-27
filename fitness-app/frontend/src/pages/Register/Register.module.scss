@@ -10,25 +10,30 @@ $background-color_3: #45a049;
   display: flex;
   justify-content: space-around;
 }
+
 .formContainer {
   background-color: $background-color_1;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 50px; /* Rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 300px;
   margin-bottom: 20px;
+
   h2 {
     text-align: center;
     color: $color_1;
   }
 }
+
 .formGroup {
   margin-bottom: 15px;
+
   label {
     display: block;
     margin-bottom: 5px;
     color: $color_2;
   }
+
   input {
     width: 100%;
     padding: 8px;
@@ -36,6 +41,7 @@ $background-color_3: #45a049;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+
   button {
     width: 100%;
     padding: 10px;
@@ -45,18 +51,22 @@ $background-color_3: #45a049;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
     &:hover {
       background-color: $background-color_3;
     }
   }
 }
+
 .options {
   text-align: center;
   margin-top: 10px;
+
   a {
     text-decoration: none;
     color: $color_4;
     cursor: pointer;
+
     &:hover {
       text-decoration: underline;
     }
