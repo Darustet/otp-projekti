@@ -1,3 +1,143 @@
+// register.module.scss
+.register-page {
+  display: flex;
+  min-height: 100vh;
+  color: #fff; // Change as per your design
+
+
+  .image-container {
+    flex: 1;
+    background: url('../../images/picture.png') no-repeat center center;
+    background-size: cover;
+  }
+
+  .register-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px; // Adjust as necessary
+    background: #fff; // Change as per your design
+    // ... rest of your styles for the register-container
+  }
+
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f2; // Adjust the background color as needed
+  }
+
+  .register-content {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    header {
+      text-align: center;
+
+      h1 {
+        color: #333;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .register-form {
+      display: flex;
+      flex-direction: column;
+
+      .input-group {
+        margin-bottom: 1rem;
+
+        label {
+          display: block;
+          font-size: 1rem;
+          color: #333;
+          margin-bottom: 0.5rem;
+        }
+
+        input {
+          width: 100%;
+          padding: 1rem 0.5rem;
+          font-size: 1rem;
+          border-radius: 20px;
+          border: 1px solid #ddd;
+          &::placeholder {
+            color: #aaa;
+          }
+        }
+      }
+
+      .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        .checkbox-group {
+          display: flex;
+          align-items: center;
+
+          input[type="checkbox"] {
+            margin-right: 0.5rem;
+          }
+        }
+
+        .forgot-password {
+          color: #333;
+          text-decoration: none;
+          font-size: 0.9rem;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .register-button {
+        padding: 1rem 2rem;
+        width: 100%;
+        font-size: 1rem;
+        border-radius: 20px;
+        border: none;
+        background-color: #000;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover {
+          background-color: #333;
+        }
+      }
+    }
+
+    .sign-up-prompt {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #333;
+
+      .sign-up-link {
+        color: #0056b3;
+        text-decoration: none;
+        font-weight: bold;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/*
 $color_1: #333;
 $color_2: #555;
 $color_3: #fff;
@@ -8,18 +148,23 @@ $background-color_3: #45a049;
 
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f2; // Adjust the background color as needed
 }
 .formContainer {
-  background-color: $background-color_1;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  margin-bottom: 20px;
-  h2 {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  h1 {
     text-align: center;
-    color: $color_1;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
   }
 }
 .formGroup {
@@ -62,3 +207,4 @@ $background-color_3: #45a049;
     }
   }
 }
+*/
