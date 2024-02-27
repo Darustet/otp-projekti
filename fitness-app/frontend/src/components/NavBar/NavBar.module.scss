@@ -1,5 +1,5 @@
 .Nav-bar {
-	background-color: var(--clr-primary-500);
+	background-color: var(--clr-accent-500);
 	position: relative;
 	height: 50px;
 	flex-shrink: 0;
@@ -10,6 +10,6 @@
 	font-size: var(--fs-400);
 
 	a {
-		color: white;
+		color: black;
 	}
 }

@@ -2,7 +2,7 @@
 .login-page {
 	display: flex;
 	min-height: 100vh;
-	color: #fff; // Change as per your design
+	background: var(--clr-primary-500); // Change as per your design
 
   
 	.image-container {
@@ -17,7 +17,7 @@
 	  justify-content: center;
 	  align-items: center;
 	  padding: 50px; // Adjust as necessary
-	  background: #fff; // Change as per your design
+	  background: var(--clr-accent-300); // Change as per your design
 	  // ... rest of your styles for the login-container
 	}
 
@@ -110,12 +110,12 @@
 		font-size: 1rem;
 		border-radius: 20px;
 		border: none;
-		background-color: #000;
+		background-color: var(--clr-background-500);
 		color: white;
 		cursor: pointer;
 		transition: background-color 0.3s ease;
 		&:hover {
-		  background-color: #333;
+		  background-color: var(--clr-accent-500);
 		}
 	  }
 	}

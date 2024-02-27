@@ -1,6 +1,6 @@
 import './CreateEvent.css';
-import '../../styles/InputTag.module.scss';
-import InputTag from "../../components/InputTag";
+import '../../components/InputTag/InputTag.module.scss';
+import InputTag from "../../components/InputTag/InputTag";
 
 const CreateEvent = () => {
     return (

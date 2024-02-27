@@ -11,6 +11,11 @@ router.delete("/", strongAuthentication, usersController.deleteUserByAuth);
 router.get("/:id", usersController.getUserById);
 router.get("/userTag/:userTag", usersController.getUserByUserTag);
 
+// kuvien luominen
+
+// tapahtumien luominen
+
+//tapahtumien muokkaaminen
 
 // router.delete("/:id", strongAuthentication, usersController.deleteUser);
 
