@@ -1,0 +1,15 @@
+.Nav-bar {
+	background-color: var(--clr-primary-500);
+	position: relative;
+	height: 50px;
+	flex-shrink: 0;
+	display: flex;
+	gap: 25px;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fs-400);
+
+	a {
+		color: white;
+	}
+}
