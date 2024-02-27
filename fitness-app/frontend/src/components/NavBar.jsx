@@ -1,12 +1,18 @@
-const NavBar = ({routes}) => {
+// NavBar.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+
+const NavBar = () => {
     return (
-        <nav id="nav-bar">
+        <nav className="nav-bar">
             <ul>
-                {routes.map((route, index) =>
-                    <li key={index}>
-                        <a href={route.url}>{route.name}</a>
-                    </li>
-                )}
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/explore">Explore</Link></li>
+                <li><Link to="/create-event">Create Event</Link></li>
+                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/register">Register</Link></li>
+                {/* Lisää linkkejä tarpeen mukaan */}
             </ul>
         </nav>
     );

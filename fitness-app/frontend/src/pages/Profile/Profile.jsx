@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import './Profile.scss'
 
 function Profile() {
-	const [name, setName] = useState("Matti Meikäläinen"),
-		[age, setAge] = useState(26);
+	const [name] = useState("Matti Meikäläinen"),
+		[age] = useState(26);
 
 	return (
 		<div className="profile-container">

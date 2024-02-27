@@ -1,8 +1,7 @@
-
 const express = require("express");
 const postController = require("../controllers/postController");
 const router = express.Router();
-const { optionalAuthentication, weakAuthentication } = require("../middleware/authenticateToken");
+const { optionalAuthentication, weakAuthentication } = require("../middleware/auth");
 
 router.get("/", optionalAuthentication, postController.getPosts);
 router.get("/home", weakAuthentication, postController.getFeedPosts);

@@ -1,0 +1,22 @@
+.notifications-container {
+	--_margin: 10px;
+	--_notification-width: 300px;
+	position: sticky;
+	width: 100%;
+	height: 0px;
+	top: 10px;
+	display: grid;
+	pointer-events: none;
+	transform: translateY(10px);
+	--_content-width: calc(100% - var(--_margin) * 2);
+	grid-template-columns:
+		minmax(var(--_margin), 1fr) [notification-start]
+		min(var(--_content-width), var(--_notification-width))
+		[notification-end] minmax(var(--_margin), 1fr);
+	z-index: 1000;
+
+	> * {
+		grid-column: notification;
+		pointer-events: all;
+	}
+}

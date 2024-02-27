@@ -1,28 +1,44 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useNotifications } from "../../NotificationsData/Notification"; // Adjust the import path as necessary
+import React from "react";
+import { useState, useContext } from "react";
+import { Link,useNavigate } from "react-router-dom";
 import styles from "./Login.module.scss";
-import picture from "../../images/picture.png"; // Import the background image
+import { api } from "../../utils/api";
+import { AuthenticationContext } from "../../context/AuthenticationContext/AuthenticationContext";
 
-function Login() {
-    const [userTag, setUserTag] = useState("");
-    const [password, setPassword] = useState("");
-    const [rememberMe, setRememberMe] = useState(false);
-    const navigate = useNavigate();
-    const { addNotification } = useNotifications(); // Correctly use the hook here
+//import picture from "../../images/picture.png"; // Import the background image
+
+
+export default function Login() {
+	const [addNotification] = useContext(AuthenticationContext);
+	const { dispatchAuthentication } = useContext(AuthenticationContext);
+	const navigate = useNavigate();
+	const [userTag, setUsertag] = useState("");
+	const [password, setPassword] = useState("");
+	const [rememberPassword, setRememberPassword] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// Simulate an API call with a timeout
-		setTimeout(() => {
-			if (userTag === "testUser" && password === "testPassword") {
-				addNotification({ type: "success", message: "Login successful", title: "Success", duration: 5000 });
-				// Navigate or update state as needed
+		const user = { userTag, password, rememberPassword };
+		try {
+			const { status } = await api.login(user);
+			if (status === 400) {
+				addNotification({ type: "error", message: "Wrong password", title: "Login failed", duration: 5000 });
+			} else if (status === 404) {
+				addNotification({ type: "error", message: "User not found", title: "Login failed", duration: 5000 });
+			} else if (status === 200) {
+				const { status, data } = await api.getAuthUserInfo();
+				if (status !== 200) return;
+
+				dispatchAuthentication({ type: "login", user: data, rememberPassword });
+				addNotification({ type: "success", message: "Login successful", title: "Login successful", duration: 2000 });
 				navigate(`/user/${userTag}`);
-			} else {
-				addNotification({ type: "error", message: "Incorrect username or password", title: "Login Failed", duration: 5000 });
 			}
-		}, 1000); // Simulate network delay
+		} catch (error) {
+			addNotification({ type: "error", message: "Internal server error", title: "Network problems", duration: 5000 });
+		}
+
+		setUsertag("");
+		setPassword("");
 	};
 
 	return (
@@ -36,16 +52,15 @@ function Login() {
 					</header>
 					<form className={styles["login-form"]} onSubmit={handleSubmit}>
 						<div className={styles["input-group"]}>
-						<label htmlFor="password">Username</label>
+							<label htmlFor="password">Username</label>
 							<input
 								type="text"
 								id="usertag"
 								value={userTag}
 								name="userTag"
 								placeholder="Username or Email"
-								onChange={(e) => setUserTag(e.target.value)}
+								onChange={(e) => setUsertag(e.target.value)}
 							/>
-				
 						</div>
 						<div className={styles["input-group"]}>
 							<label htmlFor="password">Password</label>
@@ -64,8 +79,8 @@ function Login() {
 									type="checkbox"
 									id="remember-me"
 									name="remember-me"
-									checked={rememberMe}
-									onChange={(e) => setRememberMe(e.target.checked)}
+									checked={rememberPassword}
+									onChange={(e) => setRememberPassword(e.target.checked)}
 								/>
 								<label htmlFor="remember-me">Remember me</label>
 							</div>
@@ -89,4 +104,3 @@ function Login() {
 	);
 }
 
-export default Login;

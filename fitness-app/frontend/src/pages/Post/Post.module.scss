@@ -1,0 +1,53 @@
+// Post.scss
+.post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+  
+    .post-images {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+  
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+  
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  
+    p {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 10px;
+  
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  
+    .post-tags {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+  
+      strong {
+        color: #333;
+      }
+    }
+  }
+  
