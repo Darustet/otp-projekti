@@ -16,23 +16,23 @@
 	--fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
 
 	--clr-primary-400: #e5e4e0; // Perusvaaleanharmaa
-    --clr-primary-500: #cfcac6; // Hieman tummempi
-    --clr-primary-600: #b9b0a2; // Vielä tummempi
-    --clr-primary-700: #a39f94; // Tummempi
+	--clr-primary-500: #cfcac6; // Hieman tummempi
+	--clr-primary-600: #b9b0a2; // Vielä tummempi
+	--clr-primary-700: #a39f94; // Tummempi
 
-    // Secondary-värit (musta)
-    --clr-secondary-400: #000000; // Musta
-    --clr-secondary-500: #000000; // Musta
-    --clr-secondary-600: #000000; // Musta
+	// Secondary-värit (musta)
+	--clr-secondary-400: #000000; // Musta
+	--clr-secondary-500: #000000; // Musta
+	--clr-secondary-600: #000000; // Musta
 
 	// Accent-värit (vihreän sävyt)
-    // Accent-värit (oranssin sävyt)
-    --clr-accent-300: hsl(30, 100%, 67%); // Vaaleampi oranssi
-    --clr-accent-400: hsl(30, 100%, 58%); // Keskitason oranssi
-    --clr-accent-450: hsl(30, 100%, 50%); // Perusoranssi
-    --clr-accent-500: hsl(30, 100%, 45%); // Hieman tummempi oranssi
-    --clr-accent-550: hsl(30, 100%, 37%); // Tummempi oranssi
-    --clr-accent-600: hsl(30, 100%, 35%); // Vielä tummempi oranssi
+	// Accent-värit (oranssin sävyt)
+	--clr-accent-300: hsl(30, 100%, 67%); // Vaaleampi oranssi
+	--clr-accent-400: hsl(30, 100%, 58%); // Keskitason oranssi
+	--clr-accent-450: hsl(30, 100%, 50%); // Perusoranssi
+	--clr-accent-500: hsl(30, 100%, 45%); // Hieman tummempi oranssi
+	--clr-accent-550: hsl(30, 100%, 37%); // Tummempi oranssi
+	--clr-accent-600: hsl(30, 100%, 35%); // Vielä tummempi oranssi
 
 	--clr-background-500: hsl(270, 22%, 9%);
 	--clr-text-500: hsl(240, 20%, 99%);
@@ -46,4 +46,13 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+#root {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
 }
