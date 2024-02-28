@@ -13,7 +13,6 @@ export default function NavBar() {
 			<Link to="/login">login</Link>
 			<Link to="/register">register</Link>
 			<Link to="/forgot-password">forgot password</Link>
-			<Link to="/settings">settings</Link>
 		</nav>
 	);
 }
