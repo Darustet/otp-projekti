@@ -1,3 +1,4 @@
+import "./App.scss";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import Home from "./pages/Home";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
@@ -16,6 +17,51 @@ const { BrowserRouter, Routes, Route, Navigate } = require("react-router-dom");
 
 function App() {
 	const { loginState } = useAuthContext();
+	const routeData = [
+		{
+			name: "Home",
+			url: "/home",
+			component: <Home/>
+		},
+		{
+			name: "Explore",
+			url: "/explore",
+			component: <Explore />
+		},
+		{
+			name: "Create Event",
+			url: "/create-event",
+			component: <CreateEvent />
+		},
+		{
+			name: "Login",
+			url: "/login",
+			component: <Login />
+		},
+		{
+			name: "Profile",
+			url: "/profile",
+			component: <Profile />
+		},
+		{
+			name: "Register",
+			url: "/register",
+			component: <Register />
+		},
+		{
+			url: "/forgot-password",
+			component: <ForgotPassword />
+		}
+	];
+
+	function routing(data) {
+		return data.map((item, index) =>
+			<Route key={index}
+			exact path={item.url}
+			element={item.component}/>
+		)
+	}
+
 	return (
 		<div className="app">
 			<BrowserRouter>

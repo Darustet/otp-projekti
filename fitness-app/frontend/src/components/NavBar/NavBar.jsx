@@ -8,8 +8,9 @@ import LogoutIcon from "../Icons/LogoutIcon/LogoutIcon";
 import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";
 import HomeIcon from "../Icons/HomeIcon/HomeIcon";
 
-export default function NavBar() {
-	
+export default function NavBar({linkData}) {
+	const filteredData = linkData.filter(item => item.name);
+
 	const { loginState } = useAuthContext();
 	console.log(loginState.id);
 	return (
@@ -17,13 +18,13 @@ export default function NavBar() {
 			<ProfileIcon />
 			<HomeIcon />
 			<LogoutIcon  color= {"red"}/>
-		
+
 			{loginState.id ? (<>
-			
+
 					<Link to="/">Feed</Link>
 					<Link to="/profile">Profile</Link>
 					<Link to="/create-event">Create Event</Link>
-					
+
 				</>
 			) : (
 				<>

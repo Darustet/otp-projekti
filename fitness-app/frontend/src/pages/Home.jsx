@@ -3,7 +3,7 @@ import { useState } from "react";
 import Posts from "../components/Posts";
 import './home.scss'
 
-const Home = () => {
+function Home() {
 	const placeholderPosts = ["Post", "Post", "Post", "Post"];
 	return (
 		<>
@@ -17,6 +17,6 @@ const Home = () => {
 			<Calendar />
 		</>
 	);
-};
+}
 
 export default Home;
