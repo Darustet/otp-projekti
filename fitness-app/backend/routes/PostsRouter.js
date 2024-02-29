@@ -11,3 +11,5 @@ router.get("/author/:userTag", postController.getPostsByAuthor);
 router.post("/", weakAuthentication, postController.createPost);
 router.patch("/:id", weakAuthentication, postController.updatePost);
 router.delete("/:id", weakAuthentication, postController.deletePost);
+
+module.exports = router;

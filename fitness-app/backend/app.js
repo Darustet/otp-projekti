@@ -19,7 +19,7 @@ socketIO.on("connection", require("./routes/socketRouter"));
 
 app.use("/api/auth", require("./routes/authRouter"));
 app.use("/api/users", require("./routes/usersRouter"));
-//app.use("/api/posts", require("./routes/postsRouter"));
+app.use("/api/posts", require("./routes/PostsRouter"));
 app.use("/api/profile", require("./routes/profileRouter"));
 app.use("/api/image", require("./routes/imageRouter"));
 
