@@ -23,7 +23,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build"
+    "build": "GENERATE_SOURCEMAP=false react-scripts build --warning-level warning"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

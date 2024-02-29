@@ -4,63 +4,67 @@
 	--font-family: system-ui;
 
 	--fw-500: 500;
-	:root {
-		/* Font sizes remain unchanged */
-		--fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
-		--fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
-		--fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
-		--fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
-		--fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
-		--fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
-		--fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
+	--fw-600: 600;
+	--fw-700: 700;
 
-		/* Primary, secondary, and accent colors changed to shades of your provided colors */
-		--clr-primary-400: #e5e4e0;
-		--clr-primary-500: #d6d5d0;
-		--clr-primary-600: #c6c5c0;
-		--clr-primary-700: #b7b6b1;
+	--fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
+	--fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+	--fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
+	--fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
+	--fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
+	--fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+	--fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
 
-		--clr-secondary-400: #e5e4e0;
-		--clr-secondary-500: #d6d5d0;
-		--clr-secondary-600: #c6c5c0;
+	--clr-primary-400: #e5e4e0; /* Perusvaaleanharmaa */
+	--clr-primary-500: #cfcac6; /* Hieman tummempi */
+	--clr-primary-600: #b9b0a2; /* Vielä tummempi */
+	--clr-primary-700: #a39f94; /* Tummempi */
 
-		--clr-accent-300: #e5e4e0;
-		--clr-accent-400: #d6d5d0;
-		--clr-accent-450: #c6c5c0;
-		--clr-accent-500: #b7b6b1;
-		--clr-accent-550: #a8a7a2;
-		--clr-accent-600: #999896;
+	/* Secondary-värit (musta) */
+	--clr-secondary-400: #000000; /* Musta */
+	--clr-secondary-500: #000000; /* Musta */
+	--clr-secondary-600: #000000; /* Musta */
 
-		/* Background, text, dark, highlight, and shadow colors */
-		--clr-background-500: #e5e4e0;
-		--clr-text-500: #000000;
-		--clr-dark-500: #000000;
+	/* Accent-värit (vihreän sävyt) */
+	/* Accent-värit (oranssin sävyt) */
+	--clr-accent-300: hsl(30, 100%, 67%); /* Vaaleampi oranssi */
+	--clr-accent-400: hsl(30, 100%, 58%); /* Keskitason oranssi */
+	--clr-accent-450: hsl(30, 100%, 50%); /* Perusoranssi */
+	--clr-accent-500: hsl(30, 100%, 45%); /* Hieman tummempi oranssi */
+	--clr-accent-550: hsl(30, 100%, 37%); /* Tummempi oranssi */
+	--clr-accent-600: hsl(30, 100%, 35%); /* Vielä tummempi oranssi */
 
-		--clr-highlight-500: #ffffff;
-		--clr-shadow-500: #000000;
-	}
+	--clr-background-500: #e5e4e0; // Perusvaaleanharmaa
+	--clr-text-500: #000000; // Musta
+	--clr-dark-500: hsl(0, 0%, 0%);
+
+	--clr-highlight-500: hsl(0, 0%, 100%);
+	--clr-shadow-500: hsl(0, 0%, 0%);
 }
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	color-scheme: var(--color-scheme);
+}
+
+body {
+	margin: 0px;
+	font-family: var(--font-family);
+	font-size: var(--fs-300);
+	color: var(--clr-text-500);
+	background-color: var(--clr-background-500);
+}
+
 #root {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	inset: 0;
+	inset: 0px;
 	display: flex;
 	flex-direction: column;
-}
-
-nav#nav-bar {
-	position: fixed;
-	left: 0;
-	width: auto;
-}
-
-nav ul {
-	list-style-type: none;
-	display: flex;
-	flex-direction: column;
-}
-.top-bar {
-	display: flex;
-	flex-direction: row-reverse;
 }
