@@ -23,11 +23,8 @@ function App() {
 					<Route path="/create-event" element={<CreateEvent />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/profile" element={<Profile />} />
-					{/* Oletan, että haluat /settings reitin johtavan tyhjään sivuun, koska komponentti on määritelty <></> */}
-					<Route path="/settings" element={<div>Settings Page</div>} />
 					<Route path="/register" element={<Register />} />
 					<Route path="/forgotpassword" element={<ForgotPassword />} />
-					{/* Voit lisätä muita reittejä täällä tarpeen mukaan */}
 				</Routes>
 			</div>
 		</BrowserRouter>
