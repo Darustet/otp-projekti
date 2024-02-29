@@ -1,4 +1,4 @@
-$bg-color-e1: #e1e1e1;
+$bg-color-e1: #ea7cd4;
 $input-border-radius: 8px;
 
 body {
@@ -60,8 +60,11 @@ body {
 }
 
 .new-task-form {
+	display: flex;
+	margin-bottom: 30px;
 	input {
-		padding: 8px 32px;
+		flex: 1;
+		padding: 8px;
 		border-radius: $input-border-radius;
 
 		&:first-child {
@@ -69,12 +72,13 @@ body {
 			border-top-left-radius: $input-border-radius;
 			border-left-color: black;
 		}
+	}
 
-		&:last-child {
-			border-bottom-right-radius: $input-border-radius;
-			border-top-right-radius: $input-border-radius;
-			background-color: purple;
-			color: white;
-		}
+	button {
+		padding: 8px;
+		border-bottom-right-radius: $input-border-radius;
+		border-top-right-radius: $input-border-radius;
+		background-color: purple;
+		color: white;
 	}
 }
