@@ -1,4 +1,5 @@
 $bg-color-e1: #e1e1e1;
+$input-border-radius: 8px;
 
 body {
 	font-family: "Arial", sans-serif;
@@ -6,6 +7,7 @@ body {
 	margin: 0;
 	padding: 20px;
 }
+
 .profile-container {
 	background-color: #ffffff;
 	border-radius: 8px;
@@ -13,16 +15,19 @@ body {
 	max-width: 495px;
 	margin: auto 25%;
 }
+
 .top-banner {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 }
+
 .greeting {
 	font-size: 24px;
 	color: #333;
 	margin-bottom: 10px;
 }
+
 .wellness-guide {
 	background-color: $bg-color-e1;
 	border-radius: 8px;
@@ -30,6 +35,7 @@ body {
 	margin-bottom: 20px;
 	font-size: 18px;
 }
+
 .task-list {
 	display: flex;
 	flex-direction: row;
@@ -39,33 +45,36 @@ body {
 	padding: 0;
 
 	li {
-		max-width: 33%;
+		max-width: 32%;
 		background-color: $bg-color-e1;
 		border-radius: 8px;
 		margin-bottom: 10px;
 		padding: 10px;
 		font-size: 18px;
 		cursor: pointer;
-	}
 
-	li:hover {
-		background-color: #d1d1d1;
+		&:hover {
+			background-color: #d1d1d1;
+		}
 	}
 }
+
 .new-task-form {
-	$input-border-radius: 8px;
 	input {
 		padding: 8px 32px;
-	}
-	input[type="text"] {
-		border-bottom-left-radius: $input-border-radius;
-		border-top-left-radius: $input-border-radius;
-		border-left-color: black;
-	}
-	input[type="button"] {
-		border-bottom-right-radius: $input-border-radius;
-		border-top-right-radius: $input-border-radius;
-		background-color: purple;
-		color: white;
+		border-radius: $input-border-radius;
+
+		&:first-child {
+			border-bottom-left-radius: $input-border-radius;
+			border-top-left-radius: $input-border-radius;
+			border-left-color: black;
+		}
+
+		&:last-child {
+			border-bottom-right-radius: $input-border-radius;
+			border-top-right-radius: $input-border-radius;
+			background-color: purple;
+			color: white;
+		}
 	}
 }
