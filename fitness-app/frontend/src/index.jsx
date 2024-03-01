@@ -12,5 +12,6 @@ root.render(
 				<App />
 			</AuthenticationControls>
 		</NotificationControls>
+		<App />
 	</React.StrictMode>
 );

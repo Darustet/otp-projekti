@@ -7,7 +7,7 @@ import Login from "./pages/Login/Login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Register from "./pages/Register/Register.jsx";
 import ForgotPassword from "./pages/ForgotPassword/Forgot_password.jsx";
-import NavBar from "./components/NavBar/Navbar.jsx";
+import NavBar from "./components/NavBar/NavBar.jsx";
 import "./App.scss";
 
 function App() {

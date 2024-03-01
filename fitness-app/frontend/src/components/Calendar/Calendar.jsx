@@ -34,8 +34,7 @@ const Calendar = () => {
         /* source implementation */
         getJson('https://trial.mobiscroll.com/events/?vers=5',
             (events) => {
-                setEvents(events)
-                console.log(events);
+                setEvents(events);
             },
             'jsonp')
         // get the data and call setEvents()

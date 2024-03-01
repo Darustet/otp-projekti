@@ -30,13 +30,13 @@ export default function AuthenticationControls(props) {
 	const [authentication, dispatchAuthentication] = useReducer(reducer, initialState);
 
 	useEffect(() => {
-		// const fetchData = async () => {
-		// 	const { data, status } = await api.getAuthUserInfo();
-		// 	setIsLoading(false);
-		// 	if (status !== 200) return;
-		// 	dispatchAuthentication({ type: "login", user: data, rememberPassword: true });
-		// };
-		// fetchData();
+		const fetchData = async () => {
+			const { data, status } = await api.getAuthUserInfo();
+			setIsLoading(false);
+			if (status !== 200) return;
+			dispatchAuthentication({ type: "login", user: data, rememberPassword: true });
+		};
+		fetchData();
 	}, []);
 
 	async function updateAuthentication() {
