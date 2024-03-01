@@ -13,7 +13,7 @@ function Login() {
 	const [rememberMe, setRememberMe] = useState(false);
 	const navigate = useNavigate();
 	const { addNotification } = useNotifications(); // Correctly use the hook here
-	const { dispatch } = useAuthContextDispatch();
+    const { dispatch } = useAuthContextDispatch();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -91,6 +91,7 @@ function Login() {
 						</div>
 						<div className={styles["form-options"]}>
 							<div className={styles["checkbox-group"]}>
+								<label htmlFor="remember-me">Remember me</label>
 								<input
 									type="checkbox"
 									id="remember-me"
@@ -98,7 +99,6 @@ function Login() {
 									checked={rememberMe}
 									onChange={(e) => setRememberMe(e.target.checked)}
 								/>
-								<label htmlFor="remember-me">Remember me</label>
 							</div>
 							<Link to="/forgotpassword" className={styles["forgotpassword"]}>
 								Forgot Password

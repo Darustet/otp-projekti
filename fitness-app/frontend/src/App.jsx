@@ -6,14 +6,12 @@ import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Register from "./pages/Register/Register.jsx";
 import Feed from "./pages/Feed/Feed.jsx";
-import ForgotPassword from "./pages/ForgotPassword/Forgot_password.jsx";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
 import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
 import Layout from "./pages/Layout/Layout.jsx";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import "./App.scss";
-
-const { BrowserRouter, Routes, Route, Navigate } = require("react-router-dom");
 
 function App() {
 	const { loginState } = useAuthContext();
