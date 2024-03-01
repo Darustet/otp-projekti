@@ -25,7 +25,7 @@ function reducer(state, action) {
 	}
 }
 
-export default function AuthenticationControls(props) {
+export default function AuthenticationControls({children}) {
 	const [isLoading, setIsLoading] = useState(true);
 	const [authentication, dispatchAuthentication] = useReducer(reducer, initialState);
 
@@ -47,5 +47,5 @@ export default function AuthenticationControls(props) {
 	}
 
 	if (isLoading) return null;
-	return <AuthenticationContext.Provider value={{ authentication, dispatchAuthentication, updateAuthentication }} {...props} />;
+	return <AuthenticationContext.Provider value={{ authentication, dispatchAuthentication, updateAuthentication }} >{children}</AuthenticationContext.Provider>;
 }

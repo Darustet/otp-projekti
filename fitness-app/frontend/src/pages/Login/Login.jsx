@@ -4,17 +4,20 @@ import { Link,useNavigate } from "react-router-dom";
 import styles from "./Login.module.scss";
 import { api } from "../../utils/api";
 import { AuthenticationContext } from "../../context/AuthenticationContext/AuthenticationContext";
+import {NotificationContext} from "../../context/NotificationControls/NotificationControls";
 
 //import picture from "../../images/picture.png"; // Import the background image
 
 
 export default function Login() {
-	const [addNotification] = useContext(AuthenticationContext);
+	//const {addNotification}= useContext(NotificationContext);
 	const { dispatchAuthentication } = useContext(AuthenticationContext);
 	const navigate = useNavigate();
-	const [userTag, setUsertag] = useState("");
+	const [userTag, setUserTag] = useState("");
 	const [password, setPassword] = useState("");
-	const [rememberPassword, setRememberPassword] = useState(false);
+	const [rememberPassword, setRememberPassword] = useState("false");
+
+	function addNotification () {}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -31,13 +34,13 @@ export default function Login() {
 
 				dispatchAuthentication({ type: "login", user: data, rememberPassword });
 				addNotification({ type: "success", message: "Login successful", title: "Login successful", duration: 2000 });
-				navigate(`/user/${userTag}`);
+				navigate(`/home`);
 			}
 		} catch (error) {
 			addNotification({ type: "error", message: "Internal server error", title: "Network problems", duration: 5000 });
 		}
 
-		setUsertag("");
+		setUserTag("");
 		setPassword("");
 	};
 
@@ -59,7 +62,7 @@ export default function Login() {
 								value={userTag}
 								name="userTag"
 								placeholder="Username or Email"
-								onChange={(e) => setUsertag(e.target.value)}
+								onChange={(e) => setUserTag(e.target.value)}
 							/>
 						</div>
 						<div className={styles["input-group"]}>

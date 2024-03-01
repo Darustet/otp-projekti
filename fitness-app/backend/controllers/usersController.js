@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const { User, SensitiveData } = require("../models/users");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
 
 // get all users
 const getUsers = async (req, res) => {

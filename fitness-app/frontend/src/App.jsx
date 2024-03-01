@@ -12,9 +12,8 @@ import "./App.scss";
 
 function App() {
 	return (
-	
 			<div className="App">
-			<BrowserRouter>
+				<BrowserRouter>
 				<NavBar />
 				<Routes>
 					<Route path="/" element={<Home />} />
@@ -25,11 +24,8 @@ function App() {
 					<Route path="/register" element={<Register />} />
 					<Route path="/forgotpassword" element={<ForgotPassword />} />
 				</Routes>
-
-
 				</BrowserRouter>
 			</div>
-		
 	);
 }
 

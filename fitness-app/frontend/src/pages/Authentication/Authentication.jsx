@@ -13,8 +13,8 @@ export default function Authentication() {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const { status } = await api.login({
-			userTag: authentication.user.userTag,
 			password: password,
+			userTag: authentication.user.userTag,
 			rememberPassword: authentication.rememberPassword,
 		});
 

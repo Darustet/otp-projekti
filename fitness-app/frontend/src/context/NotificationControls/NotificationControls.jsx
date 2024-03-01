@@ -6,6 +6,8 @@ const timePassed = (notification) => performance.now() - notification.startTime 
 export default function NotificationControls(props) {
 	const [notifications, setNotifications] = useState([]);
 
+
+
 	return (
 		<NotificationContext.Provider value={[addNotification, notifications, setNotifications]}>{props.children}</NotificationContext.Provider>
 	);
@@ -19,4 +21,5 @@ export default function NotificationControls(props) {
 		setTimeout(() => setNotifications((notifications) => notifications.filter(timePassed)), notification.duration);
 		setNotifications((notifications) => [...notifications, notification]);
 	}
+
 }
