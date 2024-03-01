@@ -7,7 +7,7 @@ import CreateEvent from './pages/CreateEvent/CreateEvent';
 import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Register from "./pages/Register/Register.jsx";
-import ForgotPassword from "./pages/ForgotPassword/Forgot_password.jsx";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
 import { NotificationProvider } from "./NotificationsData/Notification";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

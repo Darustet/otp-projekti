@@ -5,11 +5,11 @@ import styles from "./Login.module.scss";
 import picture from "../../images/picture.png"; // Import the background image
 
 function Login() {
-    const [userTag, setUserTag] = useState("");
-    const [password, setPassword] = useState("");
-    const [rememberMe, setRememberMe] = useState(false);
-    const navigate = useNavigate();
-    const { addNotification } = useNotifications(); // Correctly use the hook here
+	const [userTag, setUserTag] = useState("");
+	const [password, setPassword] = useState("");
+	const [rememberMe, setRememberMe] = useState(false);
+	const navigate = useNavigate();
+	const { addNotification } = useNotifications(); // Correctly use the hook here
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -36,7 +36,7 @@ function Login() {
 					</header>
 					<form className={styles["login-form"]} onSubmit={handleSubmit}>
 						<div className={styles["input-group"]}>
-						<label htmlFor="password">Username</label>
+							<label htmlFor="password">Username</label>
 							<input
 								type="text"
 								id="usertag"
@@ -45,7 +45,7 @@ function Login() {
 								placeholder=" Enter your username or email"
 								onChange={(e) => setUserTag(e.target.value)}
 							/>
-				
+
 						</div>
 						<div className={styles["input-group"]}>
 							<label htmlFor="password">Password</label>
@@ -60,6 +60,7 @@ function Login() {
 						</div>
 						<div className={styles["form-options"]}>
 							<div className={styles["checkbox-group"]}>
+								<label htmlFor="remember-me">Remember me</label>
 								<input
 									type="checkbox"
 									id="remember-me"
@@ -67,7 +68,6 @@ function Login() {
 									checked={rememberMe}
 									onChange={(e) => setRememberMe(e.target.checked)}
 								/>
-								<label htmlFor="remember-me">Remember me</label>
 							</div>
 							<Link to="/forgotpassword" className={styles["forgotpassword"]}>
 								Forgot Password

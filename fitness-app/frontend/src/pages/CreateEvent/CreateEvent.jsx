@@ -1,37 +1,33 @@
-import './CreateEvent.css';
+import './CreateEvent.scss';
 import '../../components/InputTag/InputTag.module.scss';
 import InputTag from "../../components/InputTag/InputTag";
+import FormTextElement from '../../components/FormTextElement';
 
 const CreateEvent = () => {
+    const formGroupStyle = "form-group";
+
     return (
         <div className="form-container">
             <h2>Create Event</h2>
-            <div className="form-group">
-                <label htmlFor="eventName">Event name:</label>
-                <input type="text" id="eventName" name="eventName"
-                       placeholder="Enter event name"/>
-            </div>
+            <FormTextElement className={formGroupStyle}
+                             innerText="Event name" id="eventName"
+                             name="eventName" placeholder="Enter event name"/>
 
-            <div className="form-group">
-                <label htmlFor="Address">Address:</label>
-                <input type="text" id="address" name="address"
-                       placeholder="Enter address for event"/>
-            </div>
+            <FormTextElement className={formGroupStyle}
+                             innerText="Address" id="address"
+                             name="address" placeholder="Enter address for event"/>
 
-            <div className="form-group">
-                <label htmlFor="City">City:</label>
-                <input type="text" id="city" name="city" placeholder="Enter city"/>
-            </div>
+            <FormTextElement className={formGroupStyle}
+                             innerText="City" id="city"
+                             name="city" placeholder="Enter city"/>
 
-            <div className="form-group">
-                <label htmlFor="country">Country:</label>
-                <input type="text" id="country" name="country" placeholder="Enter county"/>
-            </div>
+            <FormTextElement className={formGroupStyle}
+                             innerText="Country" id="country"
+                             name="country" placeholder="Enter county"/>
 
-            <div className="form-group">
-                <label htmlFor="zip">ZIP:</label>
-                <input type="text" id="zip" name="zip" placeholder="Enter ZIP code"/>
-            </div>
+            <FormTextElement className={formGroupStyle}
+                             innerText="ZIP" id="zip"
+                             name="zip" placeholder="Enter ZIP code"/>
 
             <div className="form-group">
                 <label htmlFor="description">Event description:</label>
