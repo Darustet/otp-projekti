@@ -25,15 +25,7 @@ const userSchema = new mongoose.Schema(
 			min: 3,
 			max: 20,
 		},
-
-		sportsEvents: [
-			{
-				eventName: String,
-				date: Date,
-				location: String,
-				description: String,
-			},
-		],
+	
 	},
 	{ timestamps: true }
 );

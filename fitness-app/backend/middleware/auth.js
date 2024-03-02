@@ -1,39 +1,16 @@
+const env = require("dotenv").config();
 const jwt = require("jsonwebtoken");
-
-const optionalAuthentication = (req, res, next) => {
-	const authHeader = req.headers?.authorization || req.headers?.Authorization;
-	const token = authHeader?.split(" ")[1];
-	if (!token) return next();
-
-	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-		if (err) return res.sendStatus(403);
-		req.user = user;
-		next();
-	});
+module.exports = async (req, res, next) => {
+  try {
+    const authHeader = req.get("authorization");
+    const token = authHeader;
+    verifiedPayload = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    console.log(verifiedPayload);
+    req.account = verifiedPayload.userId;
+    next();
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({ error: "Invalid token" });
+  }
 };
 
-const weakAuthentication = (req, res, next) => {
-	const authHeader = req.headers?.authorization || req.headers?.Authorization;
-	const token = authHeader?.split(" ")[1];
-	if (!token) return res.sendStatus(401);
-
-	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-		if (err) return res.sendStatus(403);
-		req.user = user;
-		next();
-	});
-};
-
-const strongAuthentication = (req, res, next) => {
-	const authHeader = req.headers?.authorization || req.headers?.Authorization;
-	const token = authHeader?.split(" ")[1];
-	if (!token) return res.sendStatus(401);
-
-	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-		if (err || user.type !== "login") return res.sendStatus(403);
-		req.user = user;
-		next();
-	});
-};
-
-module.exports = { optionalAuthentication, weakAuthentication, strongAuthentication };

@@ -9,8 +9,8 @@ const KeyCodes = {
 
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
-const InputTag = () => {
-	const [tags, setTags] = React.useState([]);
+const InputTag = ({tags,setTags}) => {
+
 
 	// Method to delete tag from Array
 	const handleDelete = (i) => {
