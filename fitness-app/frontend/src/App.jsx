@@ -2,7 +2,7 @@
 
 import NavBar from "./components/NavBar/NavBar.jsx";
 //import DomainRouting from './components/DomainRouting';
-import TopBar from './components/TopBar';
+//import TopBar from './components/TopBar';
 import Home from "./pages/Home";
 import Explore from './pages/Explore';
 import CreateEvent from './pages/CreateEvent/CreateEvent';
@@ -22,7 +22,6 @@ function App() {
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
-					<TopBar />
 					<NavBar />
 					<Routes>
 						<Route path="/" element={<Home />} />
