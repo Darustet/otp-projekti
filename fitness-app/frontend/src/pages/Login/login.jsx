@@ -3,26 +3,55 @@ import { Link, useNavigate } from "react-router-dom";
 import { useNotifications } from "../../NotificationsData/Notification"; // Adjust the import path as necessary
 import styles from "./Login.module.scss";
 import picture from "../../images/picture.png"; // Import the background image
+import { useAuthContextDispatch } from "../../context/AuthContext.js";
 
 function Login() {
-    const [userTag, setUserTag] = useState("");
-    const [password, setPassword] = useState("");
-    const [rememberMe, setRememberMe] = useState(false);
-    const navigate = useNavigate();
-    const { addNotification } = useNotifications(); // Correctly use the hook here
+	const [userTag, setUserTag] = useState("");
+	const [password, setPassword] = useState("");
+	const [rememberMe, setRememberMe] = useState(false);
+	const navigate = useNavigate();
+	const { addNotification } = useNotifications(); // Correctly use the hook here
+	const { dispatch } = useAuthContextDispatch();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// Simulate an API call with a timeout
-		setTimeout(() => {
-			if (userTag === "testUser" && password === "testPassword") {
-				addNotification({ type: "success", message: "Login successful", title: "Success", duration: 5000 });
-				// Navigate or update state as needed
-				navigate(`/user/${userTag}`);
+		const loginData = {
+			userTag,
+			password,
+			rememberMe,
+		};
+		console.log(loginData);
+
+		try {
+			const response = await fetch("http://localhost:4000/api/auth/login", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(loginData),
+			});
+
+			// Handle the response accordingly
+			if (response.ok) {
+				const data = await response.json();
+				// Save the token in local storage
+				localStorage.setItem("Token", data.accessToken);
+				console.log("login successful!");
+				dispatch({
+					type: "LOGIN",
+					_id: data.accessToken,
+					token: data.accessToken,
+				});
+				navigate("/");
 			} else {
-				addNotification({ type: "error", message: "Incorrect username or password", title: "Login Failed", duration: 5000 });
+				alert("Login failed");
+
+				// Registration failed, handle errors
+				console.error("login failed");
 			}
-		}, 1000); // Simulate network delay
+		} catch (error) {
+			console.error("Error during login:", error);
+		}
 	};
 
 	return (
@@ -36,7 +65,7 @@ function Login() {
 					</header>
 					<form className={styles["login-form"]} onSubmit={handleSubmit}>
 						<div className={styles["input-group"]}>
-						<label htmlFor="password">Username</label>
+							<label htmlFor="password">Username</label>
 							<input
 								type="text"
 								id="usertag"
@@ -45,7 +74,6 @@ function Login() {
 								placeholder=" Enter your username or email"
 								onChange={(e) => setUserTag(e.target.value)}
 							/>
-				
 						</div>
 						<div className={styles["input-group"]}>
 							<label htmlFor="password">Password</label>
@@ -72,7 +100,6 @@ function Login() {
 							<Link to="/forgotpassword" className={styles["forgotpassword"]}>
 								Forgot Password
 							</Link>
-
 						</div>
 						<button type="submit" className={styles["sign-in-button"]}>
 							Sign In
@@ -83,7 +110,6 @@ function Login() {
 						<Link to="/register" className={styles["sign-up-link"]}>
 							Sign Up
 						</Link>
-
 					</div>
 				</div>
 			</div>

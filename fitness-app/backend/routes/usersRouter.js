@@ -1,6 +1,6 @@
 const express = require("express");
 const usersController = require("../controllers/usersController");
-const { strongAuthentication, weakAuthentication } = require("../middleware/auth");
+const { strongAuthentication, weakAuthentication } = require("../middleware/authentaicateToken.js");
 
 const router = express.Router();
 
@@ -17,6 +17,6 @@ router.get("/userTag/:userTag", usersController.getUserByUserTag);
 
 //tapahtumien muokkaaminen
 
-// router.delete("/:id", strongAuthentication, usersController.deleteUser);
+//tapahtumien poistaminen
 
 module.exports = router;

@@ -1,19 +1,16 @@
+const env = require("dotenv").config();
 const jwt = require("jsonwebtoken");
-const User = require("../models/users");
-
-const generateAuthToken = async (req, res, next) => {
-  const { authorization } = req.headers;
-  if (!authorization) {
-    return res.status(401).json({ error: "Authorization token required" });
-  }
-  const token = authorization.split(" ")[1];
+module.exports = async (req, res, next) => {
   try {
-    const { _id } = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    req.user = await User.findOne({ _id }).select("_id");
+    const authHeader = req.get("authorization");
+    const token = authHeader;
+    verifiedPayload = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    console.log(verifiedPayload);
+    req.account = verifiedPayload.userId;
     next();
   } catch (err) {
-    res.status(401).json({ error: "Request is not authorized" });
+    console.log(err);
+    return res.status(401).json({ error: "Invalid token" });
   }
 };
 
-module.exports = { generateAuthToken };

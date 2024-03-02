@@ -1,79 +1,81 @@
-import React, { useState } from 'react';
-import './Profile.scss';
+import React, { useState, useEffect } from "react";
+import styles from "./Profile.module.scss";
+import { useNavigate } from "react-router-dom";
+import Calendar from "../../components/Calendar/Calendar";
 
-const TaskList = ({ tasks }) => {
+const Profile = () => {
+	const [profileData, setProfileData] = useState(null);
+	const [posts, setPosts] = useState([]);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		// Mock API request to get profile data
+		const fetchProfileData = async () => {
+			try {
+				// Mock profile data
+				const mockProfileData = {
+					username: "example_user",
+					avatar: "https://via.placeholder.com/150",
+					bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+				};
+				setProfileData(mockProfileData);
+			} catch (error) {
+				console.error("Error fetching profile data:", error);
+			}
+		};
+
+		// Mock API request to get posts
+		const fetchPosts = async () => {
+			try {
+		
+				// Mock data
+				const mockPosts = [
+					{ id: 1, title: "Post 1", content: "This is the content of Post 1." },
+					{ id: 2, title: "Post 2", content: "This is the content of Post 2." },
+					{ id: 3, title: "Post 3", content: "This is the content of Post 3." },
+				];
+				setPosts(mockPosts);
+			} catch (error) {
+				console.error("Error fetching posts:", error);
+			}
+		};
+
+		fetchProfileData();
+		fetchPosts();
+	}, []);
+
 	return (
-		<ul className="task-list">
-			{tasks.map((task, index) => (
-				<li key={index}>{task}</li>
-			))}
-		</ul>
+    <>
+		<div className={styles.container}>
+			<button
+				onClick={() => {
+					navigate("/create-event");
+				}}
+				className={styles.newPost}
+			>
+				New Post
+			</button>
+			{profileData && (
+				<div className={styles.profileInfo}>
+					<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
+					<div>
+						<h1 className={styles.username}>{profileData.username}</h1>
+						<p className={styles.bio}>{profileData.bio}</p>
+					</div>
+				</div>
+			)}
+			<h2 className={styles.heading}>Your Posts</h2>
+			<div className={styles.postsContainer}>
+				{posts.map((post) => (
+					<div key={post.id} className={styles.post}>
+						<h3>{post.title}</h3>
+						<p>{post.content}</p>
+					</div>
+				))}
+			</div>
+		</div>
+    <Calendar /> </>
 	);
 };
-
-function Profile() {
-	const [name, setName] = useState("Matti Meikäläinen");
-	const [age, setAge] = useState(26);
-	const [newTask, setNewTask] = useState("");
-	const [tasks, setTasks] = useState([
-		"Determine Benchmark",
-		"Choose your Subscription",
-		"Add Allergies",
-		"Choose Pharmacy",
-		"Upload Driving Licence",
-	]);
-	const [isTasksCompleted, setIsTasksCompleted] = useState(false);
-	const [error, setError] = useState("");
-
-	const handleNewTask = () => {
-		if (newTask.trim() !== "") {
-			setTasks([...tasks, newTask]);
-			setNewTask("");
-			setError("");
-		} else {
-			setError("Task name cannot be empty");
-		}
-	};
-
-	const handleTasksCompletion = () => {
-		// Check if all tasks are completed
-		setIsTasksCompleted(tasks.length === 5);
-	};
-
-	return (
-		<div className="profile-container">
-			<div className="top-banner">
-				<div className="greeting">Hi, {name}! 👋</div>
-				<div className="wellness-guide">
-					<h4>Your wellness guide</h4>
-					{age} years old
-				</div>
-			</div>
-			<h3>Tasks</h3>
-			{isTasksCompleted ? (
-				<p>All tasks completed! 🎉</p>
-			) : (
-				<TaskList tasks={tasks} />
-			)}
-			<form
-				onSubmit={(e) => {
-					e.preventDefault();
-					handleNewTask();
-					handleTasksCompletion();
-				}}
-				className="new-task-form"
-			>
-				<input
-					type="text"
-					placeholder="Add New Task"
-					value={newTask}
-					onChange={(e) => setNewTask(e.target.value)}
-				/>
-				<button type="submit">Save as a new task</button>
-				{error && <p className="error-message">{error}</p>}
-			</form>
-		</div>
-	);
-}
 
 export default Profile;
