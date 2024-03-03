@@ -1,0 +1,75 @@
+.NotificationCard {
+
+    .wrapper: {
+      display: 'flex';
+      height: '100vh'; // Full viewport height
+      width: '100%'; // Full viewport width
+      flex-direction: 'column';
+      gap: '20px';
+      justify-content: 'flex-start';
+      align-content: 'felex-start';
+    }
+
+    .card {
+      background: 'rgb(24; 86; 204)';
+      borderRadius: '20px';
+      padding: '20px';
+      width: '600px';
+      maxWidth: '50%';
+      maxHeight: '300px';
+      color: 'white';
+      fontFamily: '"Arial"; sans-serif';
+      boxShadow: '0 4px 6px rgba(0; 0; 0; 0.1)';
+      display: 'flex';
+      flexDirection: 'column';
+      alignItems: 'center';
+      margin: 'auto';
+      border: '10px';
+    }
+    .timeAndLocation {
+      color: 'rgba(255; 255; 255; 0.81)';
+      display: 'flex';
+      alignItems: 'right';
+      width: '100%';
+      marginBottom: '15px';
+    }
+    .header {
+      display: 'flex';
+      justifyContent: 'space-between';
+      alignItems: 'center';
+      width: '100%';
+    }
+    .headerText {
+      fontSize: '16px';
+    }
+    .description {
+      fontsize: '18px';
+      padding: '20px';
+      marginTop: '20px';
+    }
+    .profileImage {
+      width: '40px';
+      height: '30px';
+      borderRadius: '50%';
+      objectFit: 'cover';
+    }
+    .content {
+      textAlign: 'left';
+      width: '100%';
+    }
+    .title {
+      fontSize: '22px';
+      fontWeight: 'bold';
+    }
+    .button {
+      padding: '10px 20px';
+      fontSize: '16px';
+      backgroundColor: 'white';
+      border: 'none';
+      borderRadius: '20px';
+      cursor: 'pointer';
+      outline: 'none';
+      width: '100%'; // Adjust button width as per design
+      margin: 'auto'; // Center button in the card
+    }
+}

@@ -8,9 +8,6 @@ import Feed from "./pages/Feed/Feed.jsx";
 import ForgotPassword from "./pages/ForgotPassword/Forgot_password.jsx";
 import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
-
-
-
 import "./App.scss";
 
 const { BrowserRouter, Routes, Route, Navigate } = require("react-router-dom");
