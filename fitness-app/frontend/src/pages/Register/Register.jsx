@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./Register.module.scss";
 import X_icon from "../../components/Icons/XIcon/X_icon";
 
-
-
 const Register = () => {
 	const [userTag, setUserTag] = useState("");
 	const [email, setUserEmail] = useState("");
@@ -13,12 +11,13 @@ const Register = () => {
 	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
-		e.preventDefault(); 
-	
+		e.preventDefault();
+
 		const registrationData = {
 			userTag,
 			email,
 			password,
+			confirmPassword,
 		};
 
 		try {

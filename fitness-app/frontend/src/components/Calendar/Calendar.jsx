@@ -1,7 +1,8 @@
+
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
-import { Eventcalendar, setOptions, localeFi } from "@mobiscroll/react";
-import { useCallback, useEffect, useState } from "react";
-import styles from "./Calender.module.scss";
+import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import styles from  "./Calender.module.scss";
 
 setOptions({
 	locale: localeFi,
@@ -10,45 +11,58 @@ setOptions({
 });
 
 const Calendar = () => {
-	const [myEvents, setEvents] = useState([]);
+	const [myEvents, setEvents] = useState([]),
+		[isToastOpen, setToastOpen] = useState(false),
+		[toastMessage, setToastMessage] = useState();
 
-	const myView = {
-		calendar: { type: "week" }, // Viikkonäkymä voi olla parempi aikavälin valintaan
-	};
-
-	const handleEventCreated = useCallback(
-		(event) => {
-			console.log("Event created:", event);
-			setEvents([
-				...myEvents,
-				{
-					...event.event,
-					id: Math.random().toString(36).substr(2, 9), // Luodaan yksilöllinen ID uudelle tapahtumalle
-				},
-			]);
-		},
-		[myEvents]
+	const myView = useMemo(
+		() => ({
+			calendar: { type: "month" },
+			agenda: { type: "month" },
+		}),
+		[]
 	);
+
+	const handleToastClose = useCallback((args) => {
+		setToastOpen(false);
+	}, []);
+
+	const handleEventClick = useCallback((args) => {
+		setToastMessage(args.event.title);
+		setToastOpen(true);
+	}, []);
 
 	useEffect(() => {
 		fetch("http://localhost:4000/api/posts")
-			.then((response) => (response.ok ? response.json() : Promise.reject("Failed to load.")))
-			.then((data) => setEvents(data))
-			.catch((error) => console.error("Fetch error:", error));
+			.then(response => {
+				if (response.ok) {
+					return response.json(); // Parse the JSON data from the response
+				}
+				throw new Error('Network response was not ok.');
+			})
+			.then(data => {
+				setEvents(data); // Update the state with the fetched data
+				console.log(data);
+			})
+			.catch(error => {
+				console.error('There has been a problem with your fetch operation:', error);
+			});
+		// The empty dependency array means this effect will only run once when the component mounts
 	}, []);
-
+	
 	return (
 		<aside className={styles["main-aside"]}>
-			<Eventcalendar
-				className={styles["eventcalendar"]}
-				clickToCreate={true}
-				dragToCreate={true}
-				dragToMove={true}
-				dragToResize={true}
+			<Eventcalendar className={styles["eventcalendar"]}
+				clickToCreate={false}
+				dragToCreate={false}
+				dragToMove={false}
+				dragToResize={false}
+				eventDelete={false}
 				data={myEvents}
 				view={myView}
-				onEventCreated={handleEventCreated}
+				onEventClick={handleEventClick}
 			/>
+			<Toast message={toastMessage} isOpen={isToastOpen} onClose={handleToastClose} />
 		</aside>
 	);
 };
