@@ -1,9 +1,14 @@
 .Nav-bar {
 	background-color: var(--clr-accent-500);
-	position: relative;
-	height: 50px;
+	position: fixed; // Fixed positioning to keep the navbar at the top of the page
+	height: 100vh; // Full height of the viewport
+	left: 0; // Align the navbar to the right side of the viewport
+
 	flex-shrink: 0;
+	top: 0;
+	width: 50px; // Set the width of the navbar
 	display: flex;
+	flex-direction: column;
 	gap: 25px;
 	justify-content: center;
 	align-items: center;

@@ -1,26 +1,23 @@
 const mongoose = require("mongoose");
 const Post = require("../models/posts");
-const { User } = require("../models/users");
-
-
 
 const PostController = {
-  // Create a new post
   createPost: async (req, res) => {
-    const { title, description, date, location, categories, tags } = req.body;
+    const { title, description, start, end, start_time, end_time, location, categories, host, images, tags } = req.body;
     
     const newPost = new Post({
       title,
       description,
-      date,
+      start,
+      end,
+      start_time,
+      end_time,
       location,
       categories,
       tags,
       host: req.account,
+      images: images || [],
     });
-
-    console.log(req.account);
-   
 
     try {
       const savedPost = await newPost.save();
@@ -30,7 +27,34 @@ const PostController = {
     }
   },
 
-  // Get all posts
+  // Sisällytä start_time ja end_time myös updatePost-metodiin
+  updatePost: async (req, res) => {
+    const { id } = req.params;
+    const { title, description, start, end, start_time, end_time, location, categories, host, participants, images, tags } = req.body;
+
+    try {
+      const updatedPost = await Post.findByIdAndUpdate(id, {
+        title,
+        description,
+        start,
+        end,
+        start_time,
+        end_time,
+        location,
+        categories,
+        host,
+        participants,
+        images,
+        tags
+      }, { new: true });
+
+      res.status(200).json(updatedPost);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  },
+
+  // Muut metodit pysyvät ennallaan
   getAllPosts: async (req, res) => {
     try {
       const posts = await Post.find();
@@ -40,7 +64,6 @@ const PostController = {
     }
   },
 
-  // Get a single post by ID
   getPostById: async (req, res) => {
     const { id } = req.params;
     try {
@@ -55,30 +78,6 @@ const PostController = {
     }
   },
 
-  // Update a post
-  updatePost: async (req, res) => {
-    const { id } = req.params;
-    const { title, description, date, location, categories, host, participants, tags } = req.body;
-
-    try {
-      const updatedPost = await Post.findByIdAndUpdate(id, {
-        title,
-        description,
-        date,
-        location,
-        categories,
-        host,
-        participants,
-        tags
-      }, { new: true }); // Return the updated object
-
-      res.status(200).json(updatedPost);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
-  },
-
-  // Delete a post
   deletePost: async (req, res) => {
     const { id } = req.params;
     try {

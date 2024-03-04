@@ -1,9 +1,11 @@
 import React from 'react';
-import Calendar from "../../components/Calendar/Calendar";
+import Calendar from "../../components/Calendar/Calendar.jsx";
+
 
 const NotificationCard = () => {
   return (
     <>
+    <Calendar/>
     <div style={styles.wrapper}>
       <div style={styles.card}>
         <div style={styles.header}>
@@ -18,7 +20,7 @@ const NotificationCard = () => {
 
       </div>
     </div>
-    	<Calendar /> </>
+    	 </>
   );
 };
 
