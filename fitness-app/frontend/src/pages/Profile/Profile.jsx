@@ -50,6 +50,8 @@ const Profile = () => {
 	
 			
 			{profileData && (
+				<>
+				<Calendar/> 
 				<div className={styles.profileInfo}>
 					<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
 					<PostEventIcon/>
@@ -58,6 +60,7 @@ const Profile = () => {
 						<p className={styles.bio}>{profileData.bio}</p>
 					</div>
 				</div>
+				</>
 			)}
 			<h2 className={styles.heading}>Your Posts</h2>
 			<div className={styles.postsContainer}>
