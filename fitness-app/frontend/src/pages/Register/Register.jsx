@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Register.module.scss";
+import X_icon from "../../components/Icons/XIcon/X_icon";
+
+
 
 const Register = () => {
 	const [userTag, setUserTag] = useState("");
 	const [email, setUserEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault(); 
@@ -43,6 +48,12 @@ const Register = () => {
 			<div className={styles["image-container"]}></div>
 			<div className={styles["register-container"]}>
 				<div className={styles["register-content"]}>
+					<div className={styles["return-to-login"]}>
+						<div className={styles["x-icon-container"]}>
+							<X_icon color="black" onClick={() => navigate("/")} />
+						</div>
+					</div>
+
 					<header className={styles["register-header"]}>
 						<h1>Register</h1>
 						<p>Get started by creating your account</p>

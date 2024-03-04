@@ -1,0 +1,19 @@
+// XIcon.module.scss
+
+.closeIcon {
+  width: 24px;  // Set the width of the icon
+  height: 24px; // Set the height of the icon
+  display: inline-block;  // Ensure the icon is inline with text
+  cursor: pointer;  // Change cursor on hover
+  transition: color 0.3s ease;  // Smooth color transition on hover
+
+  &:hover {
+    color: #007bff;  // Change the color on hover if needed
+  }
+
+  path {
+    fill: currentColor;  // Fill the path with the current text color
+  }
+}
+// XIcon.module.scss
+

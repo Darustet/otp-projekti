@@ -1,9 +1,7 @@
-// register.module.scss
 .register-page {
   display: flex;
   min-height: 100vh;
   color: #fff; // Change as per your design
-
 
   .image-container {
     flex: 1;
@@ -21,21 +19,21 @@
     // ... rest of your styles for the register-container
   }
 
-  .register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f2; // Adjust the background color as needed
-  }
-
   .register-content {
+    position: relative;
     width: 100%;
     max-width: 400px;
     padding: 2rem;
     background: #ffffff;
     border-radius: 50px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    .x-icon-container {
+      position: absolute;
+      top: 20px; // Adjust as needed
+      right: 20px; // Adjust as needed
+      cursor: pointer;
+    }
 
     header {
       text-align: center;
@@ -56,6 +54,14 @@
     .register-form {
       display: flex;
       flex-direction: column;
+      position: relative;  // Ensure positioning context for absolute positioning
+
+      .x-icon-container {
+        position: absolute;
+        top: 10px; // Adjust as needed
+        right: 10px; // Adjust as needed
+        cursor: pointer;
+      }
 
       .input-group {
         margin-bottom: 1rem;
@@ -132,6 +138,24 @@
         &:hover {
           text-decoration: underline;
         }
+      }
+    }
+  }
+
+  .return-to-login {
+    display: flex;
+    align-items: center;  // Align items vertically
+    justify-content: center;  // Center content horizontally
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 1rem;  // Add spacing to separate from the sign-up prompt
+
+    .return-to-login-link {
+      color: #0056b3;
+      text-decoration: none;
+      font-weight: bold;
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
