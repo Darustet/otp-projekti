@@ -77,6 +77,7 @@ function Login() {
 								placeholder=" Enter your username or email"
 								onChange={(e) => setUserTag(e.target.value)}
 							/>
+
 						</div>
 						<div className={styles["input-group"]}>
 							<label htmlFor="password">Password</label>
