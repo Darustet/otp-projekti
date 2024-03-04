@@ -1,0 +1,8 @@
+.page-content {
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	display: grid;
+	gap: 25px;
+	grid-template-columns: [page-start] 1fr [left-content] auto [middle-content] min(100%, 600px) [right-content] auto 1fr [page-end];
+}
