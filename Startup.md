@@ -7,13 +7,11 @@ Molemmat komennot ohjaavat itsestään cd-komennolla oikeaan kansioon ja käynni
 ### Start the frontend
 ```shell
 npm start
-cd frontend
-cd fitness-app
+cd fitness-app/frontend
 ```
 
 ### Start the server
 ```shell
 node server.js
-cd backend
-cd fitness-app
+cd fitness-app/backend
 ```
