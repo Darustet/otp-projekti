@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useNotifications } from "../../NotificationsData/Notification.jsx"; // Adjust the import path as necessary
+import { useNotifications } from "../../NotificationsData/Notification"; // Adjust the import path as necessary
 import styles from "./Login.module.scss";
 import picture from "../../images/picture.png"; // Import the background image
 import { useAuthContextDispatch } from "../../context/AuthContext.js";

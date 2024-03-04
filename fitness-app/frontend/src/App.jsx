@@ -1,5 +1,5 @@
 import NavBar from "./components/NavBar/NavBar.jsx";
-import Home from "./pages/Home";
+
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
