@@ -7,10 +7,24 @@ const postSchema = new mongoose.Schema(
 			required: true,
 		},
 		description: String,
-		date: {
+		start: {
 			type: Date,
 			required: true,
 		},
+		end: {
+			type: Date,
+			required: true,
+		},
+		start_time:{
+			type: String,
+			required: true,
+		},
+		
+		 end_time:{
+			type: String,
+			required: true,
+		 },
+		
 		location: {
 			type: String,
 			required: true,

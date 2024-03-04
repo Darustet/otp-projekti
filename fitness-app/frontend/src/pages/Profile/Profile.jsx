@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Profile.module.scss";
 import { useNavigate } from "react-router-dom";
-import Calendar from "../../components/Calendar/Calendar";
+import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
+import Calendar from "../../components/Calendar/Calendar.jsx";
 
 const Profile = () => {
 	const [profileData, setProfileData] = useState(null);
@@ -45,19 +46,13 @@ const Profile = () => {
 	}, []);
 
 	return (
-    <>
 		<div className={styles.container}>
-			<button
-				onClick={() => {
-					navigate("/create-event");
-				}}
-				className={styles.newPost}
-			>
-				New Post
-			</button>
+	
+			
 			{profileData && (
 				<div className={styles.profileInfo}>
 					<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
+					<PostEventIcon/>
 					<div>
 						<h1 className={styles.username}>{profileData.username}</h1>
 						<p className={styles.bio}>{profileData.bio}</p>
@@ -74,7 +69,6 @@ const Profile = () => {
 				))}
 			</div>
 		</div>
-    <Calendar /> </>
 	);
 };
 

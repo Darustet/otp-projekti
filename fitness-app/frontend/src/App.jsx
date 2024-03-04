@@ -8,6 +8,8 @@ import Feed from "./pages/Feed/Feed.jsx";
 import ForgotPassword from "./pages/ForgotPassword/Forgot_password.jsx";
 import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
+import Layout from "./pages/Layout/Layout.jsx";
+
 import "./App.scss";
 
 const { BrowserRouter, Routes, Route, Navigate } = require("react-router-dom");
@@ -20,13 +22,17 @@ function App() {
 				<NotificationProvider>
 					<NavBar />
 					<Routes>
-				
+						<Route path="/login" element={loginState.id ? <Navigate to="/" /> : <Login />} />
+						<Route path="/register" element={loginState.id ? <Navigate to="/" /> : <Register />} />
+
+
+						<Route path="/layout" element={<Layout />} />
 						<Route path="/" element={loginState.id ? <Feed /> : <Navigate to="/login" />} />
 						<Route path="/create-event" element={loginState.id ? <CreateEvent /> : <Navigate to="/login" />} />
-						<Route path="/login" element={loginState.id ? <Navigate to="/" /> : <Login />} />
 						<Route path="/profile" element={loginState.id ? <Profile /> : <Navigate to="/login" />} />
 						<Route path="/register" element={loginState.id ? <Navigate to="/" /> : <Register />} />
 						<Route path="/forgot-password" element={loginState.id ? <Navigate to="/" /> : <ForgotPassword />} />
+						<Route path="*" element={<h1>€404 Page not found </h1>} />
 					</Routes>
 				</NotificationProvider>
 			</BrowserRouter>

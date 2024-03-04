@@ -4,6 +4,8 @@ import { useNotifications } from "../../NotificationsData/Notification.jsx"; // 
 import styles from "./Login.module.scss";
 import picture from "../../images/picture.png"; // Import the background image
 import { useAuthContextDispatch } from "../../context/AuthContext.js";
+ // Logo lisätty tähän
+import logo from "../../images/logo192.png";
 
 function Login() {
 	const [userTag, setUserTag] = useState("");
@@ -60,6 +62,7 @@ function Login() {
 			<div className={styles["login-container"]}>
 				<div className={styles["login-content"]}>
 					<header className={styles["login-header"]}>
+					<img src={logo} alt="Cogie Logo" className={styles["login-logo"]} /> {/* Logo lisätty tähän */}
 						<h1>Welcome</h1>
 						<p>Sign in to FitnessApp</p>
 					</header>

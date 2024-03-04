@@ -1,0 +1,93 @@
+.create-event-page {
+	display: flex;
+	min-height: 100vh;
+	background: var(--clr-primary-500); // Or any appropriate color
+
+
+
+	.create-event-container {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 50px; // Adjust as necessary
+		background: var(--clr-primary-400);  // Or any appropriate color
+	}
+
+	.create-event-content {
+		width: 100%;
+		max-width: 400px;
+		padding: 2rem;
+		background: #ffffff;
+		border-radius: 50px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+		header {
+			text-align: center;
+
+			h1 {
+				color: #333;
+				font-size: 2rem;
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		.create-event-logo {
+			width: 50px; // Adjust size as necessary
+			height: auto;
+			margin-bottom: 1rem; // Adjust as necessary
+		}
+
+		.create-event-form {
+			display: flex;
+			flex-direction: column;
+
+			.input-group {
+				margin-bottom: 1rem;
+
+				label {
+					display: block;
+					font-size: 1rem;
+					color: #333;
+					margin-bottom: 0.5rem;
+				}
+
+				input {
+					width: 100%;
+					padding: 1rem 0.5rem;
+					font-size: 1rem;
+					border-radius: 20px;
+					border: 1px solid #ddd;
+					&::placeholder {
+						color: #aaa;
+					}
+				}
+			}
+
+			.create-event-button {
+				padding: 1rem 2rem;
+				width: 100%;
+				font-size: 1rem;
+				border-radius: 20px;
+				border: none;
+				background-color: var(--clr-background-500);
+				color: white;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+				&:hover {
+					background-color: var(--clr-accent-500);
+				}
+			}
+		}
+		textarea {
+			width: 100%;
+			padding: 8px;
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			max-width: 100%;
+			max-height: 100px;
+		}
+
+	}
+}

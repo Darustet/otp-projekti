@@ -1,61 +1,54 @@
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
-import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Eventcalendar, setOptions, localeFi } from "@mobiscroll/react";
+import { useCallback, useEffect, useState } from "react";
+import styles from "./Calender.module.scss";
 
 setOptions({
 	locale: localeFi,
 	theme: "ios",
-	themeVariant: "light",
+	themeVariant: "dark",
 });
 
 const Calendar = () => {
-	const [myEvents, setEvents] = useState([]),
-		[isToastOpen, setToastOpen] = useState(false),
-		[toastMessage, setToastMessage] = useState();
+	const [myEvents, setEvents] = useState([]);
 
-	const myView = useMemo(
-		() => ({
-			calendar: { type: "month" },
-			agenda: { type: "month" },
-		}),
-		[]
+	const myView = {
+		calendar: { type: "week" }, // Viikkonäkymä voi olla parempi aikavälin valintaan
+	};
+
+	const handleEventCreated = useCallback(
+		(event) => {
+			console.log("Event created:", event);
+			setEvents([
+				...myEvents,
+				{
+					...event.event,
+					id: Math.random().toString(36).substr(2, 9), // Luodaan yksilöllinen ID uudelle tapahtumalle
+				},
+			]);
+		},
+		[myEvents]
 	);
 
-	const handleToastClose = useCallback((args) => {
-		setToastOpen(false);
-	}, []);
-
-	const handleEventClick = useCallback((args) => {
-		setToastMessage(args.event.title);
-		setToastOpen(true);
-	}, []);
-
 	useEffect(() => {
-		/* source implementation */
-		getJson(
-			"mongodb+srv://adeah:21xbe5fey12@cluster0.bzeajrm.mongodb.net/db",
-			(events) => {
-				setEvents(events);
-				console.log(events);
-			},
-			"jsonp"
-		);
-		// get the data and call setEvents()
+		fetch("http://localhost:4000/api/posts")
+			.then((response) => (response.ok ? response.json() : Promise.reject("Failed to load.")))
+			.then((data) => setEvents(data))
+			.catch((error) => console.error("Fetch error:", error));
 	}, []);
 
 	return (
-		<aside id="main-aside">
+		<aside className={styles["main-aside"]}>
 			<Eventcalendar
-				clickToCreate={false}
-				dragToCreate={false}
-				dragToMove={false}
-				dragToResize={false}
-				eventDelete={false}
+				className={styles["eventcalendar"]}
+				clickToCreate={true}
+				dragToCreate={true}
+				dragToMove={true}
+				dragToResize={true}
 				data={myEvents}
 				view={myView}
-				onEventClick={handleEventClick}
+				onEventCreated={handleEventCreated}
 			/>
-			<Toast message={toastMessage} isOpen={isToastOpen} onClose={handleToastClose} />
 		</aside>
 	);
 };

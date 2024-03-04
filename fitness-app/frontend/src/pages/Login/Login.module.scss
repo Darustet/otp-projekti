@@ -52,6 +52,12 @@
 		margin-bottom: 2rem;
 	  }
 	}
+	.login-logo {
+		width: 50px; // Säädä tämä koko sopivaksi
+		height: auto; // Automaattinen korkeus säilyttää kuvan mittasuhteen
+		// Lisää tarvittaessa muita tyylejä
+	  }
+	  
   
 	.login-form {
 	  display: flex;

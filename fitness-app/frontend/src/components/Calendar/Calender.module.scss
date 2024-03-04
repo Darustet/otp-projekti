@@ -1,11 +1,11 @@
 // Assuming a simple layout, directly pushing the aside to the right
-#main-aside {
-	float: right; // Floats the calendar to the right side of its container
-	width: 100%; // Adjust this as needed to fit your design requirements
+.main-aside {
+	//float: right; // Floats the calendar to the right side of its container
+	// Adjust this as needed to fit your design requirements
 
 	// Optional: add some styling to ensure it looks good
-	padding: 20px;
-	box-sizing: border-box;
+	//padding: 20px;
+	//box-sizing: border-box;
 
 	// Assuming your calendar might be in a flex or grid layout
 	// You can uncomment and adapt the following lines as necessary
@@ -17,13 +17,28 @@
 	//   width: 100%;
 	//   float: none;
 	// }
+
+	//float: right;
+	width: 35vw;
+	height: 100vh;
+	z-index: 100;
+	position: fixed;
+	right: 0;
+	top: 0px;
+
+
+
+	//margin-right: 20px;
+
+
 }
 
-// Add additional styling for the calendar and its elements as needed
-.eventcalendar {
-	//color: black;
-	// Your custom styles for the calendar
-}
+// // Add additional styling for the calendar and its elements as needed
+// .eventcalendar {
+// 	width: 400px;
+// 	color: rebeccapurple;
+
+// }
 
 .toast {
 	// Positioning and styles for the toast notification
