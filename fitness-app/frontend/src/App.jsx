@@ -10,7 +10,6 @@ import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
 import Layout from "./pages/Layout/Layout.jsx";
 
-
 import "./App.scss";
 
 const { BrowserRouter, Routes, Route, Navigate } = require("react-router-dom");
