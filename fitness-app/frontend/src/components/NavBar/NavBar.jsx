@@ -2,7 +2,6 @@ import React from "react";
 import style from "./NavBar.module.scss";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
-//import Calendar from "../../components/Calendar/Calendar.jsx";
 //import { useAuthContextDispatch } from "../../context/AuthContext";
 import LogoutIcon from "../Icons/LogoutIcon/LogoutIcon";
 import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";

@@ -1,7 +1,7 @@
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import "./Calender.module.scss";
+import "./Calender.scss";
 
 setOptions({
 	locale: localeFi,
