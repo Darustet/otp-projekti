@@ -3,16 +3,17 @@ import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "./Calender.scss";
 
-setOptions({
+const calenderSettings = {
 	locale: localeFi,
 	theme: "ios",
 	themeVariant: "dark"
-});
-
+};
+setOptions(calenderSettings);
 const Calendar = () => {
 	const [myEvents, setEvents] = useState([]),
 		[isToastOpen, setToastOpen] = useState(false),
-		[toastMessage, setToastMessage] = useState();
+		[toastMessage, setToastMessage] = useState(),
+		[themeChecked, setThemeChecked] = useState(false);
 
 	const myView = useMemo(
 		() => ({
@@ -30,6 +31,15 @@ const Calendar = () => {
 		setToastMessage(args.event.title);
 		setToastOpen(true);
 	}, []);
+
+	function handleThemeChange() {
+		setThemeChecked(!themeChecked);
+		const newThemeVariant = (themeChecked ? "dark" : "light");
+		setOptions({
+			...calenderSettings,
+			themeVariant: newThemeVariant
+		});
+	}
 
 	useEffect(() => {
 		fetch("http://localhost:4000/api/posts")
@@ -51,17 +61,22 @@ const Calendar = () => {
 
 	return (
 		<aside className="main-aside">
+			<label>
+				<input type="checkbox" checked={themeChecked} onChange={handleThemeChange}/>
+				{themeChecked ? "Light" : "Dark"}
+			</label>
 			<Eventcalendar className="eventcalendar"
-				clickToCreate={false}
-				dragToCreate={false}
-				dragToMove={false}
-				dragToResize={false}
-                eventDelete={false}
-				data={myEvents}
-				view={myView}
-				onEventClick={handleEventClick}
+						   clickToCreate={false}
+						   dragToCreate={false}
+						   dragToMove={false}
+						   dragToResize={false}
+						   eventDelete={false}
+						   data={myEvents}
+						   view={myView}
+						   onEventClick={handleEventClick}
 			/>
-			<Toast message={toastMessage} isOpen={isToastOpen} onClose={handleToastClose} />
+			<Toast message={toastMessage} isOpen={isToastOpen}
+				   onClose={handleToastClose}/>
 		</aside>
 	);
 };
