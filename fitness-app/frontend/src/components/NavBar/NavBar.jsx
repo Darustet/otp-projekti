@@ -19,19 +19,15 @@ export default function NavBar() {
 			<HomeIcon />
 			<LogoutIcon  color= {"red"}/>
 
-			{loginState.id ? (<>
-
-					<Link to="/">Feed</Link>
-					<Link to="/profile">Profile</Link>
-					<Link to="/create-event">Create Event</Link>
-
-				</>
-			) : (
-				<>
-					<Link to="/login">Login</Link>
-					<Link to="/register">Register</Link>
-				</>
-			)}
+			{loginState.id ? <>
+				<Link to="/">Feed</Link>
+				<Link to="/profile">Profile</Link>
+				<Link to="/create-event">Create Event</Link>
+			</> : <>
+				<Link to="/login">Login</Link>
+				<Link to="/register">Register</Link>
+			</>
+			}
 		</nav>
 	);
 }

@@ -56,7 +56,7 @@ const CreateEvent = () => {
     };
 
     return (
-        <div className="form-container">
+        <div className="create-event-page">
             <h2>Create Event</h2>
             <FormTextElement className={formGroupStyle}
                              innerText="Event name" id="eventName"
