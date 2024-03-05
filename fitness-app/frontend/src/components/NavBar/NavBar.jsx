@@ -8,8 +8,8 @@ import LogoutIcon from "../Icons/LogoutIcon/LogoutIcon";
 import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";
 import HomeIcon from "../Icons/HomeIcon/HomeIcon";
 
-export default function NavBar({linkData}) {
-	const filteredData = linkData.filter(item => item.name);
+export default function NavBar() {
+	//const filteredData = linkData.filter(item => item.name);
 
 	const { loginState } = useAuthContext();
 	console.log(loginState.id);

@@ -1,16 +1,13 @@
-import './CreateEvent.scss';
+import "./CreateEvent.module.scss";
 import '../../components/InputTag/InputTag.module.scss';
 import InputTag from "../../components/InputTag/InputTag";
 import FormTextElement from '../../components/FormTextElement';
-import styles from "./CreateEvent.module.scss";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 
 const CreateEvent = () => {
-    const formGroupStyle = "form-group";
-
     const formGroupStyle = "form-group";
 
     const navigate = useNavigate();

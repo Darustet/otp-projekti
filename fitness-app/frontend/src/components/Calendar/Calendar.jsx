@@ -1,7 +1,7 @@
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { Eventcalendar, setOptions, localeFi } from "@mobiscroll/react";
 import { useCallback, useEffect, useState } from "react";
-import styles from "./Calender.module.scss";
+import "./Calender.module.scss";
 
 setOptions({
 	locale: localeFi,
@@ -38,9 +38,9 @@ const Calendar = () => {
 	}, []);
 
 	return (
-		<aside className={styles["main-aside"]}>
+		<aside className="main-aside">
 			<Eventcalendar
-				className={styles["eventcalendar"]}
+				className="eventcalendar"
 				clickToCreate={true}
 				dragToCreate={true}
 				dragToMove={true}

@@ -6,7 +6,7 @@
 
 	flex-shrink: 0;
 	top: 0;
-	width: 50px; // Set the width of the navbar
+	width: fit-content; // Set the width of the navbar
 	display: flex;
 	flex-direction: column;
 	gap: 25px;
