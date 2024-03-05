@@ -1,13 +1,12 @@
-
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import styles from  "./Calender.module.scss";
+import "./Calender.module.scss";
 
 setOptions({
 	locale: localeFi,
 	theme: "ios",
-	themeVariant: "dark",
+	themeVariant: "dark"
 });
 
 const Calendar = () => {
@@ -49,15 +48,15 @@ const Calendar = () => {
 			});
 		// The empty dependency array means this effect will only run once when the component mounts
 	}, []);
-	
+
 	return (
-		<aside className={styles["main-aside"]}>
-			<Eventcalendar className={styles["eventcalendar"]}
+		<aside className="main-aside">
+			<Eventcalendar className="eventcalendar"
 				clickToCreate={false}
 				dragToCreate={false}
 				dragToMove={false}
 				dragToResize={false}
-				eventDelete={false}
+                eventDelete={false}
 				data={myEvents}
 				view={myView}
 				onEventClick={handleEventClick}

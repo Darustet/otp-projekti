@@ -9,7 +9,8 @@ import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";
 import HomeIcon from "../Icons/HomeIcon/HomeIcon";
 
 export default function NavBar() {
-	
+	//const filteredData = linkData.filter(item => item.name);
+
 	const { loginState } = useAuthContext();
 	console.log(loginState.id);
 	return (
@@ -17,20 +18,16 @@ export default function NavBar() {
 			<ProfileIcon />
 			<HomeIcon />
 			<LogoutIcon  color= {"red"}/>
-		
-			{loginState.id ? (<>
-			
-					<Link to="/">Feed</Link>
-					<Link to="/profile">Profile</Link>
-					<Link to="/create-event">Create Event</Link>
-					
-				</>
-			) : (
-				<>
-					<Link to="/login">Login</Link>
-					<Link to="/register">Register</Link>
-				</>
-			)}
+
+			{loginState.id ? <>
+				<Link to="/">Feed</Link>
+				<Link to="/profile">Profile</Link>
+				<Link to="/create-event">Create Event</Link>
+			</> : <>
+				<Link to="/login">Login</Link>
+				<Link to="/register">Register</Link>
+			</>
+			}
 		</nav>
 	);
 }

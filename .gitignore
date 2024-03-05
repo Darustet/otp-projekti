@@ -24,4 +24,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 node_modules
+package.json
+package-lock.json
 fitness-app/frontend/package-lock.json
