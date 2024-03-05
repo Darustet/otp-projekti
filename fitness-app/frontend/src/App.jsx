@@ -6,7 +6,6 @@ import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Register from "./pages/Register/Register.jsx";
 import Feed from "./pages/Feed/Feed.jsx";
-import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
 import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
 import Layout from "./pages/Layout/Layout.jsx";
@@ -46,11 +45,6 @@ function App() {
 			idFailed: <Register />
 		},
 		{
-			url: "/forgot-password",
-			idFound: <Navigate to="/"/>,
-			idFailed: <ForgotPassword />
-		},
-		{
 			url: "/layout",
 			component: <Layout />
 		},
@@ -79,7 +73,7 @@ function App() {
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
-					<NavBar linkData={[]} />
+					<NavBar />
 					<Routes>{routing(routeData)}</Routes>
 				</NotificationProvider>
 			</BrowserRouter>

@@ -101,9 +101,6 @@ function Login() {
 									onChange={(e) => setRememberMe(e.target.checked)}
 								/>
 							</div>
-							<Link to="/forgotpassword" className={styles["forgotpassword"]}>
-								Forgot Password
-							</Link>
 						</div>
 						<button type="submit" className={styles["sign-in-button"]}>
 							Sign In

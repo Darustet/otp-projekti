@@ -1,8 +1,7 @@
 "use client"
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import {NotificationCard} from "../../components/NotificationCard/NotificationCard";
-import { useState, useEffect} from 'react';
 
 
 const NotificationFeed = () => {
