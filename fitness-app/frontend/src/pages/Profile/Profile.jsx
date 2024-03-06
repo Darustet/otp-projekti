@@ -3,6 +3,10 @@ import styles from "./Profile.module.scss";
 import { useNavigate } from "react-router-dom";
 import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
 import Calendar from "../../components/Calendar/Calendar.jsx";
+import TopBar from "../../components/TopBar/TopBar.jsx";
+
+import NavBar from "../../components/NavBar/NavBar.jsx";
+
 
 const Profile = () => {
 	const [profileData, setProfileData] = useState(null);
@@ -28,7 +32,6 @@ const Profile = () => {
 		// Mock API request to get posts
 		const fetchPosts = async () => {
 			try {
-		
 				// Mock data
 				const mockPosts = [
 					{ id: 1, title: "Post 1", content: "This is the content of Post 1." },
@@ -47,19 +50,21 @@ const Profile = () => {
 
 	return (
 		<div className={styles.container}>
-	
-			
 			{profileData && (
 				<>
-				<Calendar/> 
-				<div className={styles.profileInfo}>
-					<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
-					<PostEventIcon/>
-					<div>
-						<h1 className={styles.username}>{profileData.username}</h1>
-						<p className={styles.bio}>{profileData.bio}</p>
+				<TopBar />
+				<NavBar />
+				
+				
+
+					<div className={styles.profileInfo}>
+						<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
+						<PostEventIcon />
+						<div>
+							<h1 className={styles.username}>{profileData.username}</h1>
+							<p className={styles.bio}>{profileData.bio}</p>
+						</div>
 					</div>
-				</div>
 				</>
 			)}
 			<h2 className={styles.heading}>Your Posts</h2>

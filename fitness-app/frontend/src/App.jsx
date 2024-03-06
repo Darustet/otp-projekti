@@ -20,7 +20,7 @@ function App() {
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
-					<NavBar />
+				
 					<Routes>
 						<Route path="/login" element={loginState.id ? <Navigate to="/" /> : <Login />} />
 						<Route path="/register" element={loginState.id ? <Navigate to="/" /> : <Register />} />

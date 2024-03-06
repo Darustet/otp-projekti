@@ -58,7 +58,7 @@ function Login() {
 
 	return (
 		<div className={styles["login-page"]}>
-			<div className={styles["image-container"]}></div> {/* Container for the image */}
+			{/* Container for the image */}
 			<div className={styles["login-container"]}>
 				<div className={styles["login-content"]}>
 					<header className={styles["login-header"]}>

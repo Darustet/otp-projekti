@@ -7,7 +7,7 @@ import styles from  "./Calender.module.scss";
 setOptions({
 	locale: localeFi,
 	theme: "ios",
-	themeVariant: "dark",
+	themeVariant: "light",
 });
 
 const Calendar = () => {

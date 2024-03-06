@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext"; 
 import logo from "../../images/logo192.png";
+import NavBar from '../../components/NavBar/NavBar';
 
 const CreateEvent = () => {
     const navigate = useNavigate(); 
@@ -53,6 +54,9 @@ const CreateEvent = () => {
     };
 
     return (
+        <>1
+        <NavBar />
+        
         <div className={styles["create-event-page"]}>
             <div className={styles["create-event-container"]}>
                 <div className={styles["create-event-content"]}>
@@ -142,6 +146,7 @@ const CreateEvent = () => {
                 </div>
             </div>
         </div>
+    </> 
     );
 }
 
