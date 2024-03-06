@@ -1,13 +1,13 @@
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import "./Calender.scss";
+import "./Calendar.module.scss";
 
 const calenderSettings = {
 	locale: localeFi,
 	theme: "ios",
 	themeVariant: "light",
-});
+};
 
 const Calendar = () => {
 	const [myEvents, setEvents] = useState([]),

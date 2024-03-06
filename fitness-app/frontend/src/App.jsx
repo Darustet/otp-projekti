@@ -46,10 +46,12 @@ function App() {
 		},
 		{
 			url: "/layout",
+			isSimple: true,
 			component: <Layout />
 		},
 		{
 			url: "*",
+			isSimple: true,
 			component: <h1>€404 Page not found</h1>
 		}
 	];
@@ -74,19 +76,7 @@ function App() {
 			<BrowserRouter>
 				<NotificationProvider>
 					<NavBar />
-					<Routes>
-						<Route path="/login" element={loginState.id ? <Navigate to="/" /> : <Login />} />
-						<Route path="/register" element={loginState.id ? <Navigate to="/" /> : <Register />} />
-
-
-						<Route path="/layout" element={<Layout />} />
-						<Route path="/" element={loginState.id ? <Feed /> : <Navigate to="/login" />} />
-						<Route path="/create-event" element={loginState.id ? <CreateEvent /> : <Navigate to="/login" />} />
-						<Route path="/profile" element={loginState.id ? <Profile /> : <Navigate to="/login" />} />
-						<Route path="/register" element={loginState.id ? <Navigate to="/" /> : <Register />} />
-						<Route path="/forgot-password" element={loginState.id ? <Navigate to="/" /> : <ForgotPassword />} />
-						<Route path="*" element={<h1>€404 Page not found </h1>} />
-					</Routes>
+					<Routes>{routing(routeData)}</Routes>
 				</NotificationProvider>
 			</BrowserRouter>
 		</div>

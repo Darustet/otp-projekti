@@ -117,7 +117,6 @@ const CreateEvent = () => {
                 </div>
             </div>
         </div>
-    </> 
     );
 }
 
