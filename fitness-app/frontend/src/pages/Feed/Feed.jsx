@@ -1,36 +1,35 @@
-"use client"
-import React, { useState, useEffect} from 'react';
+"use client";
+import React from "react";
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import {NotificationCard} from "../../components/NotificationCard/NotificationCard";
+import { useState, useEffect} from 'react';
 
 
 const NotificationFeed = () => {
 
   const [list, setList] = useState(null);
-
-  // used for fetching events by id, for now testing only
-  // const [event, setEvent] = useState(null);
+  //const [event, setEvent] = useState(null);
 
 
-  // Fetches all events and puts them in a list
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:4000/api/posts/');
-        const eventList = await response.json();
-        setList(eventList);
-        console.log(eventList);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+	// Fetches all events and puts them in a list
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fetch("http://localhost:4000/api/posts/");
+				const eventList = await response.json();
+				setList(eventList);
+				console.log(eventList);
+			} catch (error) {
+				console.error("Error fetching data:", error);
+			}
+		};
 
-    fetchData();
-  }, []);
+		fetchData();
+	}, []);
 
-  // Fetches and stores a single event by id
-  // For testing, so currently no functionality to choose a specific id
-  // If used, also uncomment const [event, setEvent] = useState(null);
+  // Fetches a single event by id and puts in a const
+  // For testing so currently no functionality to choose id
+  // If used, also uncomment const [event, setEvent]
   /*
   useEffect(()=> {
     const fetchData = async () => {
@@ -52,7 +51,8 @@ const NotificationFeed = () => {
   // First goes through the JSON list of events and
   // creates NotificationCards for each of them
   return (
-      <div style={styles.layout}>
+    <div>
+      <div>
         {list && Array.isArray(list) && list.map((event) => (
           <div>
           {event && <NotificationCard key={event._id} event={event}/>}
@@ -62,6 +62,7 @@ const NotificationFeed = () => {
         {event && <NotificationCard key={event._id} event={event}/>}*/}
         <Calendar/>
       </div>
+    </div>
   );
 };
 

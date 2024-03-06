@@ -6,9 +6,9 @@ import "./Calender.scss";
 const calenderSettings = {
 	locale: localeFi,
 	theme: "ios",
-	themeVariant: "dark"
-};
-setOptions(calenderSettings);
+	themeVariant: "light",
+});
+
 const Calendar = () => {
 	const [myEvents, setEvents] = useState([]),
 		[isToastOpen, setToastOpen] = useState(false),

@@ -1,68 +1,85 @@
 :root {
-	--color-scheme: dark;
+    --color-scheme: dark;
 
-	--font-family: system-ui;
+    --font-family: system-ui;
 
-	--fw-500: 500;
-	--fw-600: 600;
-	--fw-700: 700;
+    --fw-500: 500;
+    --fw-600: 600;
+    --fw-700: 700;
 
-	--fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
-	--fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
-	--fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
-	--fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
-	--fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
-	--fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
-	--fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
+    --fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
+    --fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+    --fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
+    --fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
+    --fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
+    --fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+    --fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
 
-	--clr-primary-400: #e5e4e0; // Perusvaaleanharmaa
-	--clr-primary-500: #cfcac6; // Hieman tummempi
-	--clr-primary-600: #b9b0a2; // Vielä tummempi
-	--clr-primary-700: #a39f94; // Tummempi
+    --clr-primary-300: #ffffff; 
+    --clr-primary-400: #e5e4e0;
+    --clr-primary-500: #cfcac6;
+    --clr-primary-600: #b9b0a2;
+    --clr-primary-700: #a39f94;
 
-	// Secondary-värit (musta)
-	--clr-secondary-400: #000000; // Musta
-	--clr-secondary-500: #000000; // Musta
-	--clr-secondary-600: #000000; // Musta
+    --clr-secondary-400: #000000;
+    --clr-secondary-500: #000000;
+    --clr-secondary-600: #000000;
 
-	// Accent-värit (vihreän sävyt)
-	// Accent-värit (oranssin sävyt)
-	--clr-accent-300: hsl(30, 100%, 67%); // Vaaleampi oranssi
-	--clr-accent-400: hsl(30, 100%, 58%); // Keskitason oranssi
-	--clr-accent-450: hsl(30, 100%, 50%); // Perusoranssi
-	--clr-accent-500: hsl(30, 100%, 45%); // Hieman tummempi oranssi
-	--clr-accent-550: hsl(30, 100%, 37%); // Tummempi oranssi
-	--clr-accent-600: hsl(30, 100%, 35%); // Vielä tummempi oranssi
+    --clr-accent-300: hsl(30, 100%, 67%);
+    --clr-accent-400: hsl(30, 100%, 58%);
+    --clr-accent-450: hsl(30, 100%, 50%);
+    --clr-accent-500: hsl(30, 100%, 45%);
+    --clr-accent-550: hsl(30, 100%, 37%);
+    --clr-accent-600: hsl(30, 100%, 35%);
 
-	--clr-background-500: hsl(270, 22%, 9%);
-	--clr-text-500: hsl(240, 20%, 99%);
-	--clr-dark-500: hsl(0, 0%, 0%);
+    --clr-background-500: hsl(270, 22%, 9%);
+    --clr-text-500: hsl(240, 20%, 99%);
+    --clr-dark-500: hsl(0, 0%, 0%);
 
-	--clr-highlight-500: hsl(0, 0%, 100%);
-	--clr-shadow-500: hsl(0, 0%, 0%);
+    --clr-highlight-500: hsl(0, 0%, 100%);
+    --clr-shadow-500: hsl(0, 0%, 0%);
+
+    // Lisätyt värit
+    --color-white: #fff;
+    --color-on-surface: #1f1f1f;
+    --color-scrim-video-container: rgba(31, 31, 31, 0.64);
+    --color-scrim-video-control: rgba(255, 255, 255, 0.12);
+    --color-scrim-video-control-pressed: rgba(255, 255, 255, 0.24);
+    --color-primary: #0b57d0;
+    --color-on-primary: #fff;
+    --color-primary-container: #d3e3fd;
+    --color-on-primary-container: #041e49;
+    --color-secondary: #00639b;
+    --color-on-secondary: #fff;
+    --color-secondary-container: #c2e7ff;
+    --color-on-secondary-container: #001d35;
+    --color-tertiary-container: #c4eed0;
+    --color-on-tertiary-container: #072711;
+    --color-utility-error: #b3261e;
+    --color-utility-on-error: #fff;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 #root {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	inset: 0;
-	display: flex;
-	flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	font-family: var(--font-family);
-	font-size: var(--fs-400);
-	line-height: 1.5;
-	color: var(--clr-secondary-600);
-	background-color: var(--clr-primary-400); 
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    font-size: var(--fs-400);
+    line-height: 1.5;
+    color: var(--clr-secondary-600);
+    background-color: var( --color-secondary #00639b)
 }

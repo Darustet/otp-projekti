@@ -1,0 +1,35 @@
+// TopBar.module.scss
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffecec; // Vaihda taustaväri haluamaksesi
+
+  .searchContainer {
+    // Hakupalkin tyyli
+    .searchInput {
+      padding: 8px;
+      border: 1px solid #ccc; // Vaihda reunusväri haluamaksesi
+      border-radius: 4px; // Pyöristä tarvittaessa
+    }
+  }
+
+  .userSettings {
+    display: flex;
+    align-items: center;
+
+    .userDetails {
+      // Käyttäjän tietojen tyyli
+    }
+
+    .settingsButton {
+      // Asetuspainikkeen tyyli
+      margin-left: 20px; // Väli käyttäjän tietojen ja asetusnapin välillä
+      cursor: pointer;
+      background: none;
+      border: none;
+      // Tässä voisi olla ikonin tyyli, jos käytät <i>-tagia tai vastaavaa
+    }
+  }
+}
