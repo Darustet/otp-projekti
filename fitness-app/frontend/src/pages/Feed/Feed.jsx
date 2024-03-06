@@ -1,14 +1,15 @@
 "use client"
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import {NotificationCard} from "../../components/NotificationCard/NotificationCard";
-import { useState, useEffect} from 'react';
 
 
 const NotificationFeed = () => {
 
   const [list, setList] = useState(null);
-  //const [event, setEvent] = useState(null);
+
+  // used for fetching events by id, for now testing only
+  // const [event, setEvent] = useState(null);
 
 
   // Fetches all events and puts them in a list
@@ -27,9 +28,9 @@ const NotificationFeed = () => {
     fetchData();
   }, []);
 
-  // Fetches a single event by id and puts in a const
-  // For testing so currently no functionality to choose id
-  // If used, also uncomment const [event, setEvent]
+  // Fetches and stores a single event by id
+  // For testing, so currently no functionality to choose a specific id
+  // If used, also uncomment const [event, setEvent] = useState(null);
   /*
   useEffect(()=> {
     const fetchData = async () => {
@@ -51,8 +52,7 @@ const NotificationFeed = () => {
   // First goes through the JSON list of events and
   // creates NotificationCards for each of them
   return (
-    <div>
-      <div>
+      <div style={styles.layout}>
         {list && Array.isArray(list) && list.map((event) => (
           <div>
           {event && <NotificationCard key={event._id} event={event}/>}
@@ -62,8 +62,16 @@ const NotificationFeed = () => {
         {event && <NotificationCard key={event._id} event={event}/>}*/}
         <Calendar/>
       </div>
-    </div>
   );
 };
+
+const styles = {
+  layout: {
+    position: 'left',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+}
 
 export default NotificationFeed;

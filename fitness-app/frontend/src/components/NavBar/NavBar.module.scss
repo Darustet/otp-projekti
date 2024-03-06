@@ -2,11 +2,11 @@
 	background-color: var(--clr-accent-500);
 	position: fixed; // Fixed positioning to keep the navbar at the top of the page
 	height: 100vh; // Full height of the viewport
+	width: 75px; // Set the width of the navbar
 	left: 0; // Align the navbar to the right side of the viewport
-
-	flex-shrink: 0;
 	top: 0;
-	width: 50px; // Set the width of the navbar
+	flex-shrink: 0;
+	padding: 16px;
 	display: flex;
 	flex-direction: column;
 	gap: 25px;
