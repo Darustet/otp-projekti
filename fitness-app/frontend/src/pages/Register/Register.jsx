@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
+<<<<<<< Updated upstream
+=======
+import X_icon from "../../components/Icons/XIcon/X_icon";
+import {Link} from "react-router-dom";
+>>>>>>> Stashed changes
 
 const Register = () => {
     const [userTag, setUserTag] = useState("");

@@ -49,7 +49,12 @@ const CreateEvent = () => {
             </div>
 
         </div>
+<<<<<<< Updated upstream
     );
+=======
+
+    )
+>>>>>>> Stashed changes
 }
 
 export default CreateEvent;

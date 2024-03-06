@@ -33,6 +33,16 @@ function App() {
 						<Route path="/register" element={<Register />} />
 						<Route path="/forgot-password" element={<ForgotPassword />} />
 
+<<<<<<< Updated upstream
+=======
+
+						<Route path="/layout" element={<Layout />} />
+						<Route path="/" element={loginState.id ? <Feed /> : <Navigate to="/login" />} />
+						<Route path="/create-event" element={loginState.id ? <CreateEvent /> : <Navigate to="/login" />} />
+						<Route path="/profile" element={loginState.id ? <Profile /> : <Navigate to="/login" />} />
+						<Route path="/register" element={loginState.id ? <Navigate to="/" /> : <Register />} />
+						<Route path="*" element={<h1>€404 Page not found </h1>} />
+>>>>>>> Stashed changes
 					</Routes>
 				</NotificationProvider>
 
