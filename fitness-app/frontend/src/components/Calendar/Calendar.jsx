@@ -1,10 +1,9 @@
-
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import styles from  "./Calender.module.scss";
+import "./Calender.scss";
 
-setOptions({
+const calenderSettings = {
 	locale: localeFi,
 	theme: "ios",
 	themeVariant: "light",
@@ -13,7 +12,8 @@ setOptions({
 const Calendar = () => {
 	const [myEvents, setEvents] = useState([]),
 		[isToastOpen, setToastOpen] = useState(false),
-		[toastMessage, setToastMessage] = useState();
+		[toastMessage, setToastMessage] = useState(),
+		[themeChecked, setThemeChecked] = useState(false);
 
 	const myView = useMemo(
 		() => ({
@@ -32,6 +32,15 @@ const Calendar = () => {
 		setToastOpen(true);
 	}, []);
 
+	function handleThemeChange() {
+		setThemeChecked(!themeChecked);
+		const newThemeVariant = (themeChecked ? "dark" : "light");
+		setOptions({
+			...calenderSettings,
+			themeVariant: newThemeVariant
+		});
+	}
+
 	useEffect(() => {
 		fetch("http://localhost:4000/api/posts")
 			.then(response => {
@@ -49,20 +58,25 @@ const Calendar = () => {
 			});
 		// The empty dependency array means this effect will only run once when the component mounts
 	}, []);
-	
+
 	return (
-		<aside className={styles["main-aside"]}>
-			<Eventcalendar className={styles["eventcalendar"]}
-				clickToCreate={false}
-				dragToCreate={false}
-				dragToMove={false}
-				dragToResize={false}
-				eventDelete={false}
-				data={myEvents}
-				view={myView}
-				onEventClick={handleEventClick}
+		<aside className="main-aside">
+			<label>
+				<input type="checkbox" checked={themeChecked} onChange={handleThemeChange}/>
+				{themeChecked ? "Light" : "Dark"}
+			</label>
+			<Eventcalendar className="eventcalendar"
+						   clickToCreate={false}
+						   dragToCreate={false}
+						   dragToMove={false}
+						   dragToResize={false}
+						   eventDelete={false}
+						   data={myEvents}
+						   view={myView}
+						   onEventClick={handleEventClick}
 			/>
-			<Toast message={toastMessage} isOpen={isToastOpen} onClose={handleToastClose} />
+			<Toast message={toastMessage} isOpen={isToastOpen}
+				   onClose={handleToastClose}/>
 		</aside>
 	);
 };

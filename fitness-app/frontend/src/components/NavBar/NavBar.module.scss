@@ -1,19 +1,20 @@
 /* NavBar.module.scss */
 
 .Nav-bar {
-    background-color: var(--clr-primary-500);
-    position: fixed;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    width: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--fs-400);
-    z-index: 10; /* Ensure it's above other content */
+	background-color: var(--clr-accent-500);
+	position: fixed; // Fixed positioning to keep the navbar at the top of the page
+	height: 100vh; // Full height of the viewport
+	width: 75px; // Set the width of the navbar
+	left: 0; // Align the navbar to the right side of the viewport
+	top: 0;
+	flex-shrink: 0;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fs-400);
 
     a {
         color: black;

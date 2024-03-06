@@ -7,6 +7,7 @@ import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";
 import HomeIcon from "../Icons/HomeIcon/HomeIcon";
 
 export default function NavBar() {
+	
 	const { loginState } = useAuthContext();
 	console.log(loginState.id);
 	return (
