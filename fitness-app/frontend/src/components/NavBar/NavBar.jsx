@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, createContext} from 'react';
 import style from "./NavBar.module.scss";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
@@ -7,30 +7,29 @@ import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";
 import HomeIcon from "../Icons/HomeIcon/HomeIcon";
 
 export default function NavBar() {
-	
+
 	const { loginState } = useAuthContext();
+	const [pageTheme, setPageTheme] = useState(false);
 	console.log(loginState.id);
 	return (
 		<nav className={style["Nav-bar"]}>
-			<ProfileIcon className={style["profileIcon"]} />
-			<HomeIcon className={style["homeIcon"]} />
-			<LogoutIcon className={style["logout-icon"]} />
-			{loginState.id ? (
-				<>
-					<Link to="/" className={style["link"]}></Link>
-					<Link to="/profile" className={style["link"]}></Link>
-					<Link to="/create-event" className={style["link"]}></Link>
-				</>
-			) : (
-				<>
-					<Link to="/login" className={style["link"]}>
-						Login
-					</Link>
-					<Link to="/register" className={style["link"]}>
-						Register
-					</Link>
-				</>
-			)}
+			<ProfileIcon className="profileIcon" />
+			<HomeIcon className="homeIcon"/>
+			<LogoutIcon className="logout-icon"  color= {"red"}/>
+
+			{loginState.id ? <>
+				<Link to="/" className="link"></Link>
+				<Link to="/profile" className="link"></Link>
+				<Link to="/create-event" className="link"></Link>
+			</> : <>
+				<Link to="/login" className="link">Login</Link>
+				<Link to="/register" className="link">Register</Link>
+			</>
+			}
+            <div>
+                <input type="checkbox" onClick={()=>setPageTheme(!pageTheme)}/>
+                {pageTheme ? "Light" : "Dark"}
+            </div>
 		</nav>
 	);
 }
