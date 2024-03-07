@@ -62,7 +62,7 @@ const createUser = async (req, res) => {
 };
 // delete user by id
 const deleteUserByAuth = async (req, res) => {
-	const { userId } = req.user;
+	const  userId  = req.account;
 	try {
 		if (!mongoose.Types.ObjectId.isValid(userId)) {
 			return res.status(404).send(`No user with id: ${userId}`);
@@ -71,7 +71,7 @@ const deleteUserByAuth = async (req, res) => {
 
 		if (!user) return res.status(404).json({ message: `User with id ${userId} not found.` });
 		
-		await Post.deleteMany({ user: user._id });
+		//await Post.deleteMany({ user: user._id });
 		await User.findByIdAndDelete(userId);
 		await SensitiveData.findByIdAndDelete(user.sensitiveData);
 

@@ -57,6 +57,7 @@ const CreateEvent = () => {
 
     const formGroupStyle = "input-group";
     return (
+        <>
         <div className="create-event-page">
             <div className="create-event-container">
                 <div className="create-event-content">
