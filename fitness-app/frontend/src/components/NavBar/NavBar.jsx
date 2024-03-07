@@ -13,11 +13,11 @@ export default function NavBar() {
 	console.log(loginState.id);
 	return (
 		<nav className={style["Nav-bar"]}>
-			<ProfileIcon className="profileIcon" />
-			<HomeIcon className="homeIcon"/>
-			<LogoutIcon className="logout-icon"  color= {"red"}/>
+			<ProfileIcon />
+			<HomeIcon />
+			<LogoutIcon color="red"/>
 
-			{loginState.id ? <>
+			{/*loginState.id ? <>
 				<Link to="/" className="link"></Link>
 				<Link to="/profile" className="link"></Link>
 				<Link to="/create-event" className="link"></Link>
@@ -25,11 +25,15 @@ export default function NavBar() {
 				<Link to="/login" className="link">Login</Link>
 				<Link to="/register" className="link">Register</Link>
 			</>
-			}
-            <div>
-                <input type="checkbox" onClick={()=>setPageTheme(!pageTheme)}/>
-                {pageTheme ? "Light" : "Dark"}
-            </div>
+			*/(!loginState.id && <>
+				<Link to="/login" className="link">Login</Link>
+				<Link to="/register" className="link">Register</Link>
+			</>)}
+			{/*<div>
+				<input type="checkbox"
+					   onClick={() => setPageTheme(!pageTheme)}/>
+				{pageTheme ? 'Light' : 'Dark'}
+			</div>*/}
 		</nav>
 	);
 }

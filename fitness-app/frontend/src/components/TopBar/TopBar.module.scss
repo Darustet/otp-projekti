@@ -1,10 +1,12 @@
 // TopBar.module.scss
 .topBar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  margin-top: 16px;
+  margin-left: 75px;
   padding: 10px;
-  background-color: #ffecec; // Vaihda taustaväri haluamaksesi
+  background-color: white;//var(--clr-primary-500); // Vaihda taustaväri haluamaksesi
 
   .searchContainer {
     // Hakupalkin tyyli

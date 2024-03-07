@@ -6,9 +6,9 @@ const TopBar = () => {
 
   return (
     <div className={styles.topBar}>
-      <div className={styles.searchContainer}>
-        <input type="text" placeholder="Search" className={styles.searchInput} />
-      </div>
+        {/*<div className={styles.searchContainer}>
+        <input type="search" placeholder="Search" className={styles.searchInput} />
+      </div>*/}
       <div className={styles.userSettings}>
         {/* Esimerkiksi käyttäjän kuva ja nimi, asetuspainike jne. */}
         <div className={styles.userDetails}>

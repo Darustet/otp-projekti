@@ -3,6 +3,7 @@ import styles from "./Profile.module.scss";
 import { useNavigate } from "react-router-dom";
 import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
 import Calendar from "../../components/Calendar/Calendar.jsx";
+import SettingsIcon from '../../components/Icons/SettingsIcon/SettingsIcon';
 import TopBar from "../../components/TopBar/TopBar.jsx";
 
 import NavBar from "../../components/NavBar/NavBar.jsx";
@@ -49,34 +50,33 @@ const Profile = () => {
 	}, []);
 
 	return (
-		<div className={styles.container}>
-			{profileData && (
-				<>
-				<TopBar />
-				<NavBar />
-				
-				
-
-					<div className={styles.profileInfo}>
-						<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
-						<PostEventIcon />
-						<div>
-							<h1 className={styles.username}>{profileData.username}</h1>
-							<p className={styles.bio}>{profileData.bio}</p>
+		<>
+			<div className={styles.container}>
+				{profileData && (
+					<>
+						{/*<NavBar/>*/}
+						<div className={styles.profileInfo}>
+							<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
+							<div>
+								<h1 className={styles.username}>{profileData.username}</h1>
+								<p className={styles.bio}>{profileData.bio}</p>
+							</div>
 						</div>
-					</div>
-				</>
-			)}
-			<h2 className={styles.heading}>Your Posts</h2>
-			<div className={styles.postsContainer}>
-				{posts.map((post) => (
-					<div key={post.id} className={styles.post}>
-						<h3>{post.title}</h3>
-						<p>{post.content}</p>
-					</div>
-				))}
+					</>
+				)}
+				<h2 className={styles.heading}>Your Posts</h2>
+				<div className={styles.postsContainer}>
+					{posts.map((post) => (
+						<div key={post.id} className={styles.post}>
+							<h3>{post.title}</h3>
+							<p>{post.content}</p>
+						</div>
+					))}
+				</div>
+				<PostEventIcon />
 			</div>
-		</div>
+			<SettingsIcon />
+		</>
 	);
 };
 

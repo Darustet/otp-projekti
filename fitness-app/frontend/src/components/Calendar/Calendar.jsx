@@ -1,13 +1,14 @@
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import "./Calendar.module.scss";
+import "./Calendar.scss";
 
 const calenderSettings = {
 	locale: localeFi,
 	theme: "ios",
 	themeVariant: "light",
 };
+setOptions(calenderSettings)
 
 const Calendar = () => {
 	const [myEvents, setEvents] = useState([]),
@@ -61,10 +62,11 @@ const Calendar = () => {
 
 	return (
 		<aside className="main-aside">
-			<label>
-				<input type="checkbox" checked={themeChecked} onChange={handleThemeChange}/>
-				{themeChecked ? "Light" : "Dark"}
-			</label>
+			{/*<label>
+				<input type="checkbox" checked={themeChecked}
+					   onChange={handleThemeChange}/>
+				{themeChecked ? 'Light' : 'Dark'}
+			</label>*/}
 			<Eventcalendar className="eventcalendar"
 						   clickToCreate={false}
 						   dragToCreate={false}
