@@ -38,8 +38,6 @@ const PostController = {
         description,
         start,
         end,
-        start_time,
-        end_time,
         location,
         categories,
         host,
