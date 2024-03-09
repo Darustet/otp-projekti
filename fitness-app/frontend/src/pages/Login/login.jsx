@@ -6,7 +6,7 @@ import picture from "../../images/picture.png"; // Import the background image
 import { useAuthContextDispatch } from "../../context/AuthContext.js";
 // Logo lisätty tähän
 import logo from "../../images/logo192.png";
-import Button from "../../components/Button/Button.jsx";
+
 
 function Login() {
 	const [userTag, setUserTag] = useState("");

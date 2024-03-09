@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
 import X_icon from '../../components/Icons/XIcon/X_icon';
-import Button from "../../components/Button/Button";
+
 
 const Register = () => {
 	const [userTag, setUserTag] = useState("");

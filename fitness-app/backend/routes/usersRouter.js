@@ -14,13 +14,4 @@ router.get("/:id", usersController.getUserById);
 router.get("/userTag/:userTag", usersController.getUserByUserTag);
 
 
-
-// kuvien luominen
-
-// tapahtumien luominen
-
-//tapahtumien muokkaaminen
-
-//tapahtumien poistaminen
-
 module.exports = router;

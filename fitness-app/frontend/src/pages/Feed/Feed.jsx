@@ -5,6 +5,7 @@ import {NotificationCard} from "../../components/NotificationCard/NotificationCa
 import { useState, useEffect} from 'react';
 
 
+
 const NotificationFeed = () => {
 
   const [list, setList] = useState(null);
@@ -51,6 +52,8 @@ const NotificationFeed = () => {
   // First goes through the JSON list of events and
   // creates NotificationCards for each of them
   return (
+    <>
+    <Calendar />
     <div>
       <div>
         {list && Array.isArray(list) && list.map((event) => (
@@ -63,6 +66,7 @@ const NotificationFeed = () => {
         
       </div>
     </div>
+    </>
   );
 };
 
