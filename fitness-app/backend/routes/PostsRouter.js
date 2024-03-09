@@ -6,6 +6,7 @@ const authenticateToken = require("../middleware/auth");
 //Get all posts
 router.get("/", PostController.getAllPosts);
 
+
 //Get posts for the homepage feed - assuming it's similar to getting all posts
 
 //Get a single post by ID

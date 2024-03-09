@@ -1,7 +1,7 @@
 const { User } = require("../models/users");
 
 const getAuthUserInfo = async (req, res) => {
-	const { userId } = req.user;
+	const userId = req.account;
 	const user = await User.findById(userId);
 	return res.status(200).json(user);
 };
