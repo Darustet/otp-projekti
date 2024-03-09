@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Profile.module.scss";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import TopBar from "../../components/TopBar/TopBar.jsx";
@@ -30,6 +30,7 @@ const Profile = () => {
 		};
 
 		// Mock API request to get posts
+		/*
 		const fetchPosts = async () => {
 			try {
 				// Mock data
@@ -39,6 +40,19 @@ const Profile = () => {
 					{ id: 3, title: "Post 3", content: "This is the content of Post 3." },
 				];
 				setPosts(mockPosts);
+			} catch (error) {
+				console.error("Error fetching posts:", error);
+			}
+		};
+		*/
+
+		const fetchPosts = async () => {
+			try {
+				// Mock data
+				const response = await fetch("http://localhost:4000/api/posts/");
+				const eventList = await response.json();
+				const filtered = eventList.filter(post => post.host.includes('65eabb0b82b38b55d05fc317'));
+				setPosts(filtered);
 			} catch (error) {
 				console.error("Error fetching posts:", error);
 			}
@@ -54,9 +68,6 @@ const Profile = () => {
 				<>
 				<TopBar />
 				<NavBar />
-				
-				
-
 					<div className={styles.profileInfo}>
 						<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
 						<PostEventIcon />
@@ -70,9 +81,13 @@ const Profile = () => {
 			<h2 className={styles.heading}>Your Posts</h2>
 			<div className={styles.postsContainer}>
 				{posts.map((post) => (
-					<div key={post.id} className={styles.post}>
+					<div key={post._id} className={styles.post}>
 						<h3>{post.title}</h3>
-						<p>{post.content}</p>
+						<p>{post.description}</p>
+						{console.log(post)},
+						<Link to={{ pathname: "/update-event", state: { post } }} className={styles["sign-up-link"]}>
+							Muokkaa
+						</Link>
 					</div>
 				))}
 			</div>
