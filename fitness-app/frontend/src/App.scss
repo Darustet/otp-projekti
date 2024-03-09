@@ -81,9 +81,9 @@ body {
     font-size: var(--fs-400);
     line-height: 1.5;
     color: var(--clr-secondary-600);
-    background-color: var( --color-secondary #00639b)
+    //background-color: var(--color-secondary)
 }
 
-header {
+.shifted-header {
     margin-left: 80px;
 }

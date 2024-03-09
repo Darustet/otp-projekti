@@ -78,7 +78,7 @@ function App() {
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
-					<NavBar />
+					{/*<NavBar/>*/}
 					<Routes>{routing(routeData)}</Routes>
 				</NotificationProvider>
 			</BrowserRouter>

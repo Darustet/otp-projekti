@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "./Profile.module.scss";
 import { useNavigate } from "react-router-dom";
 import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
-import Calendar from "../../components/Calendar/Calendar.jsx";
+//import Calendar from "../../components/Calendar/Calendar.jsx";
 import SettingsIcon from '../../components/Icons/SettingsIcon/SettingsIcon';
 import TopBar from "../../components/TopBar/TopBar.jsx";
-
 import NavBar from "../../components/NavBar/NavBar.jsx";
 
 
@@ -52,9 +51,9 @@ const Profile = () => {
 	return (
 		<>
 			<div className={styles.container}>
-				{profileData && (
-					<>
-						{/*<NavBar/>*/}
+				{profileData && <>
+						<NavBar/>
+						<TopBar />
 						<div className={styles.profileInfo}>
 							<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
 							<div>
@@ -62,8 +61,7 @@ const Profile = () => {
 								<p className={styles.bio}>{profileData.bio}</p>
 							</div>
 						</div>
-					</>
-				)}
+					</>}
 				<h2 className={styles.heading}>Your Posts</h2>
 				<div className={styles.postsContainer}>
 					{posts.map((post) => (

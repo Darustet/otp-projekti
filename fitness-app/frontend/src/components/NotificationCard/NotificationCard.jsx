@@ -11,6 +11,7 @@ export const NotificationCard = ({event}) => {
   const [isShowMore, setIsShowMore] = useState(true);
   const toggleReadMore = () => setIsShowMore(show => !show);
   const { loginState } = useAuthContext();
+  const displayDate = event.start.substring(0, 10);
 
   // NotificationCard is structured here 
   // Gets event information from argument
@@ -23,7 +24,7 @@ export const NotificationCard = ({event}) => {
             <img style={styles.profileImage} src="path_to_image.jpg" alt="Profile" />
           </div>
           <div style={styles.timeAndLocation}>
-            <span style={styles.headerText}>{event.date}, {event.location}</span>
+            <span style={styles.headerText}>{displayDate}, {event.location}</span>
           </div>
           {/* Following implemets "Show more / show less" functionality. 
           Doesn't show content beyound 300 characters if "Show more" isn't clicked*/}

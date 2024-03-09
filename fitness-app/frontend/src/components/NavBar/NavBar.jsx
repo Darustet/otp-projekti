@@ -15,7 +15,7 @@ export default function NavBar() {
 		<nav className={style["Nav-bar"]}>
 			<ProfileIcon />
 			<HomeIcon />
-			<LogoutIcon color="red"/>
+			<LogoutIcon color="black"/>
 
 			{/*loginState.id ? <>
 				<Link to="/" className="link"></Link>
