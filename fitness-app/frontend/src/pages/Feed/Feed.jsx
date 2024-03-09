@@ -60,7 +60,7 @@ const NotificationFeed = () => {
         ))}
         {/* For fetch by id testing:
         {event && <NotificationCard key={event._id} event={event}/>}*/}
-        <Calendar/>
+        
       </div>
     </div>
   );

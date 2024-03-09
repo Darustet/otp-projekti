@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import TopBar from "../../components/TopBar/TopBar.jsx";
+import logo from "../../images/logo192.png";
+import { useAuthContext } from "../../context/AuthContext.js";
 
 import NavBar from "../../components/NavBar/NavBar.jsx";
 
-
 const Profile = () => {
+	const {loginState} = useAuthContext();
 	const [profileData, setProfileData] = useState(null);
 	const [posts, setPosts] = useState([]);
 	const navigate = useNavigate();
@@ -18,12 +20,15 @@ const Profile = () => {
 		const fetchProfileData = async () => {
 			try {
 				// Mock profile data
-				const mockProfileData = {
-					username: "example_user",
-					avatar: "https://via.placeholder.com/150",
-					bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-				};
-				setProfileData(mockProfileData);
+				const res = await fetch("http://localhost:4000/api/users/me", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `${loginState.token}`,
+					},
+				});
+				const data = await res.json()
+				setProfileData(data);
 			} catch (error) {
 				console.error("Error fetching profile data:", error);
 			}
@@ -52,16 +57,15 @@ const Profile = () => {
 		<div className={styles.container}>
 			{profileData && (
 				<>
-				<TopBar />
-				<NavBar />
-				
-				
+					<TopBar />
+					<NavBar />
+					<Calendar />
 
 					<div className={styles.profileInfo}>
-						<img src={profileData.avatar} alt="Avatar" className={styles.avatar} />
+						<img src={profileData.avatar || logo} alt="Avatar" className={styles.avatar} />
 						<PostEventIcon />
 						<div>
-							<h1 className={styles.username}>{profileData.username}</h1>
+							<h1 className={styles.username}>@{profileData.username}</h1>
 							<p className={styles.bio}>{profileData.bio}</p>
 						</div>
 					</div>

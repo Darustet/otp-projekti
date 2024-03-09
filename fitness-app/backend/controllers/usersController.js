@@ -24,6 +24,7 @@ const getUserById = async (req, res) => {
 	res.status(200).json(user);
 };
 
+
 // get user by userTag
 const getUserByUserTag = async (req, res) => {
 	const { userTag } = req.params;
