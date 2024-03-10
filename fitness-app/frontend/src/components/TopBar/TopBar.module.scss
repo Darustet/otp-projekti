@@ -1,27 +1,27 @@
-// TopBar.module.scss
 .topBar {
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: #ffecec;// Vaihda taustaväri haluamaksesi
-  .header{
+  background-color: #ffecec; // Customize background color
+
+  .header {
     position: absolute;
     top: 20px;
     left: 100px;
     font-size: 25px;
-
-}
+  }
 
   .searchContainer {
-    // Hakupalkin tyyli
+    // Styles for the search bar
     .searchInput {
       padding: 8px;
-      border: 1px solid #ccc; // Vaihda reunusväri haluamaksesi
-      border-radius: 4px; // Pyöristä tarvittaessa
+      border: 1px solid #ccc; // Customize border color
+      border-radius: 4px; // Adjust border radius if necessary
     }
   }
+
   .userSettings {
     display: flex;
     align-items: center;
@@ -32,32 +32,30 @@
       margin-right: 10px;
 
       img.profileImage {
-        width: 40px; // Example width for the profile image
-        height: 40px; // Example height for the profile image
-        border-radius: 50%; // Make the profile image circular
-        margin-right: 8px; // Space between image and user name
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 8px;
       }
 
       span {
-        font-size: 16px; // Example font size for the user name
-        color: #333; // Example text color for the user name
+        font-size: 16px;
+        color: #333;
       }
     }
-
-
-    
   }
+
   .settingsButton {
-    // Asetuspainikkeen tyyli
-    margin-left: 20px; // Väli käyttäjän tietojen ja asetusnapin välillä
+    margin-left: 20px; // Space between user details and settings button
     cursor: pointer;
     background: none;
     border: none;
     position: relative;
-    margin-left: 250px;
-    // Tässä voisi olla ikonin tyyli, jos käytät <i>-tagia tai vastaavaa
+    margin-left: 250px; // Adjust margin-left if needed
+    // Additional styles for the settings button or its icon could be added here
   }
 }
+
 .editProfileModal {
   position: fixed;
   top: 50%;
@@ -67,48 +65,43 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure it's on top of other content */
+  z-index: 1000;
   max-width: 400px;
   width: 100%;
   max-height: 80%;
   overflow-y: auto;
-}
 
-.editProfileForm {
-  display: flex;
-  flex-direction: column;
-}
+  &.absolute {
+    position: absolute;
+    transform: translate(-80%, -50%);
+  }
 
-.editProfileForm input {
-  margin-bottom: 10px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
+  .editProfileForm {
+    display: flex;
+    flex-direction: column;
 
-.editProfileForm button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-}
+    input {
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
 
-.editProfileForm button:hover {
-  background-color: #0056b3;
-}
-.editProfileModal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-80%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    button {
+      padding:  15px;
+      border: none;
+      border-radius: 17px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
 }
 
 .modalBackground {
@@ -123,5 +116,3 @@
   justify-content: center;
   align-items: center;
 }
-
-
