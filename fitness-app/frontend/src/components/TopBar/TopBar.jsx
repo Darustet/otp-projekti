@@ -1,23 +1,157 @@
-import React from 'react';
-import styles from './TopBar.module.scss'; // Oletetaan, että tämä SCSS-tiedosto on olemassa
+import React, { useState, useEffect, useRef } from 'react';
+import styles from './TopBar.module.scss'; // Assume this SCSS file exists
 import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
+import logo from '../../images/logo192.png';
+import { useAuthContext } from '../../context/AuthContext.js';
 
-const TopBar = () => {
+const TopBar = ({ location }) => {
+  const [profileData, setProfileData] = useState(null);
+  const [editMode, setEditMode] = useState(false); // State to control edit mode
+  const [updatedProfileData, setUpdatedProfileData] = useState({}); // State to hold updated profile data
+  const { loginState } = useAuthContext();
+  const modalRef = useRef();
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const res = await fetch("http://localhost:4000/api/users/me", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${loginState.token}`,
+          },
+        });
+        const data = await res.json();
+        setProfileData(data);
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    };
+
+    fetchProfileData();
+  }, [loginState.token]);
+
+  const handleSettingsClick = () => {
+    setEditMode(true); // Activate edit mode when settings button is clicked
+    setUpdatedProfileData({ ...profileData }); // Populate updated profile data with current profile data
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    
+    setUpdatedProfileData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setUpdatedProfileData((prevData) => ({
+      ...prevData,
+      profilePicture: file,
+    }));
+  };
+  
+
+  const handleSaveChanges = async () => {
+    try {
+      const formData = new FormData();
+      Object.entries(updatedProfileData).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+      console.log(formData);
+
+
+      const res = await fetch("http://localhost:4000/api/users/", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${loginState.token}`,
+        },
+        body:JSON.stringify(updatedProfileData) 
+      });
+      const data = await res.json();
+      console.log(data)
+      setProfileData(data); // Update profile data in state
+      setEditMode(false); // Deactivate edit mode after saving changes
+    } catch (error) {
+      console.error("Error updating profile data:", error);
+    }
+  };
+
+  const handleCancel = () => {
+    setEditMode(false); // Deactivate edit mode when cancel button is clicked
+  };
+
+  const handleClickOutside = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      setEditMode(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className={styles.topBar}>
+      <p className={styles.header}>{location}</p>
       <div className={styles.searchContainer}>
         <input type="text" placeholder="Search" className={styles.searchInput} />
       </div>
-      <div className={styles.userSettings}>
-        {/* Esimerkiksi käyttäjän kuva ja nimi, asetuspainike jne. */}
-        <div className={styles.userDetails}>
-          {/* Käyttäjän kuva ja nimi voisi tulla tähän */}
-        </div>
-        <button className={styles.settingsButton}>
+
+      <button className={styles.settingsButton} onClick={handleSettingsClick}>
         <SettingsIcon />
-        </button>
+      </button>
+      
+      <div className={styles.userSettings}>
+        <div className={styles.userDetails}>
+          {profileData && !editMode && (
+            <>
+              <img src={profileData.profilePicture || logo} alt="Profile" className={styles.profileImage} />
+              <span>{profileData.userTag}</span>
+            </>
+          )}
+        </div>
       </div>
+
+      {editMode && (
+        <div className={styles.modalBackground}>
+          <div className={styles.editProfileModal} ref={modalRef}>
+            <div className={styles.editProfileForm}>
+              <input
+                type="text"
+                name="userTag"
+                value={updatedProfileData.userTag || ''}
+                onChange={handleInputChange}
+                placeholder="Username"
+              />
+              <input
+                type="text"
+                name="bio"
+                value={updatedProfileData.bio || ''}
+                onChange={handleInputChange}
+                placeholder="Bio"
+              />
+              <input
+                type="file"
+                name="profilePicture"
+                onChange={handleFileChange}
+                accept="image/*"
+              />
+              <div>
+                <button onClick={handleSaveChanges}>Save Changes</button>
+                <button onClick={handleCancel}>Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -3,6 +3,8 @@ import React from "react";
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import {NotificationCard} from "../../components/NotificationCard/NotificationCard";
 import { useState, useEffect} from 'react';
+import styles from "./Feed.module.scss";
+import TopBar from "../../components/TopBar/TopBar.jsx";
 
 
 
@@ -53,9 +55,10 @@ const NotificationFeed = () => {
   // creates NotificationCards for each of them
   return (
     <>
+    <TopBar location = {"Feed"} />
     <Calendar />
-    <div>
-      <div>
+    <div className= {styles["container"]}>
+      <div className= {styles["layout"]}>
         {list && Array.isArray(list) && list.map((event) => (
           <div>
           {event && <NotificationCard key={event._id} event={event}/>}
@@ -69,14 +72,5 @@ const NotificationFeed = () => {
     </>
   );
 };
-
-const styles = {
-  layout: {
-    position: 'left',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-  },
-}
 
 export default NotificationFeed;

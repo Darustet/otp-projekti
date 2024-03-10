@@ -6,82 +6,87 @@ import Calendar from "../../components/Calendar/Calendar.jsx";
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import logo from "../../images/logo192.png";
 import { useAuthContext } from "../../context/AuthContext.js";
-
 import NavBar from "../../components/NavBar/NavBar.jsx";
+import { NotificationCard } from "../../components/NotificationCard/NotificationCard";
 
 const Profile = () => {
-	const {loginState} = useAuthContext();
-	const [profileData, setProfileData] = useState(null);
-	const [posts, setPosts] = useState([]);
-	const navigate = useNavigate();
+    const { loginState } = useAuthContext();
+    const [profileData, setProfileData] = useState(null);
+    const [posts, setPosts] = useState([]);
+    const navigate = useNavigate();
 
-	useEffect(() => {
-		// Mock API request to get profile data
-		const fetchProfileData = async () => {
-			try {
-				// Mock profile data
-				const res = await fetch("http://localhost:4000/api/users/me", {
-					method: "GET",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `${loginState.token}`,
-					},
-				});
-				const data = await res.json()
-				setProfileData(data);
-			} catch (error) {
-				console.error("Error fetching profile data:", error);
-			}
-		};
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            try {
+                const res = await fetch("http://localhost:4000/api/users/me", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `${loginState.token}`,
+                    },
+                });
+                const data = await res.json();
+                setProfileData(data);
+            } catch (error) {
+                console.error("Error fetching profile data:", error);
+            }
+        };
 
-		// Mock API request to get posts
-		const fetchPosts = async () => {
-			try {
-				// Mock data
-				const mockPosts = [
-					{ id: 1, title: "Post 1", content: "This is the content of Post 1." },
-					{ id: 2, title: "Post 2", content: "This is the content of Post 2." },
-					{ id: 3, title: "Post 3", content: "This is the content of Post 3." },
-				];
-				setPosts(mockPosts);
-			} catch (error) {
-				console.error("Error fetching posts:", error);
-			}
-		};
+        const fetchPosts = async () => {
+            try {
+                const res = await fetch("http://localhost:4000/api/posts/me", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `${loginState.token}`,
+                    },
+                });
+                const userPosts = await res.json();
+                // Converting posts to events by adding necessary fields
+                const events = userPosts.map((post) => ({
+                    _id: post.id,
+                    title: post.title,
+                    description: post.content,
+                    date: post.date, // Assuming each post has a 'date' field
+                    // You may need to adjust the date field according to your post structure
+                }));
+                setPosts(events);
+            } catch (error) {
+                console.error("Error fetching posts:", error);
+            }
+        };
 
-		fetchProfileData();
-		fetchPosts();
-	}, []);
+        fetchProfileData();
+        fetchPosts();
+    }, []);
 
-	return (
-		<div className={styles.container}>
-			{profileData && (
-				<>
-					<TopBar />
-					<NavBar />
-					<Calendar />
-
-					<div className={styles.profileInfo}>
-						<img src={profileData.avatar || logo} alt="Avatar" className={styles.avatar} />
-						<PostEventIcon />
-						<div>
-							<h1 className={styles.username}>@{profileData.username}</h1>
-							<p className={styles.bio}>{profileData.bio}</p>
-						</div>
-					</div>
-				</>
-			)}
-			<h2 className={styles.heading}>Your Posts</h2>
-			<div className={styles.postsContainer}>
-				{posts.map((post) => (
-					<div key={post.id} className={styles.post}>
-						<h3>{post.title}</h3>
-						<p>{post.content}</p>
-					</div>
-				))}
-			</div>
-		</div>
-	);
+    return (
+        <>
+            <TopBar />
+            <div className={styles.container}>
+                {profileData && (
+                    <>
+                        <NavBar />
+                        <Calendar />
+                        <div className={styles.profileInfo}>
+                            <img src={profileData.avatar || logo} alt="Avatar" className={styles.avatar} />
+                            <PostEventIcon />
+                            <div>
+                                <h1 className={styles.username}>@{profileData.userTag}</h1>
+                                <p className={styles.bio}>{profileData.bio}</p>
+                            </div>
+                        </div>
+                    </>
+                )}
+                <h2 className={styles.heading}>Your Posts</h2>
+                <div className={styles.eventsContainer}>
+                    {posts.map((event) => (
+                        (<NotificationCard key={event._id} event={event} />)
+                    ))}
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default Profile;

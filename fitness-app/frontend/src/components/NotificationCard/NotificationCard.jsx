@@ -24,7 +24,7 @@ export const NotificationCard = ({event}) => {
           <span className={style.headerText}>{event.start}, {event.location}</span>
         </div>
         <div className={style.content}>
-          <DescriptionText> {isShowMore ? event.description.slice(0, 50) : event.description} </DescriptionText>
+          <DescriptionText> {isShowMore ? (event?.description || "").slice(0, 50) : event.description} </DescriptionText>
           {event.description && event.description.length > 50 && (
             <ShowMoreText onClick={toggleReadMore}>
               {isShowMore ? "Show more..." : "Show less"}

@@ -66,6 +66,22 @@ const PostController = {
       res.status(404).json({ message: error.message });
     }
   },
+
+  // get posts by host
+  getPostsByHost: async (req, res) => {
+
+    const  hostId  = req.account;
+    try {
+      const posts = await Post.find({ host: hostId }).populate({
+        path: 'host',
+        select: 'userTag profilePicture username -_id' // This line selects which fields to include (excluding the _id field)
+      });
+
+      res.status(200).json(posts);
+    } catch (error) {
+      res.status(404).json({ message: error.message });
+    }
+  },
   
 
   getPostById: async (req, res) => {

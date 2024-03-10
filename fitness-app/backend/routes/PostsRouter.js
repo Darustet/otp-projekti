@@ -6,6 +6,9 @@ const authenticateToken = require("../middleware/auth");
 //Get all posts
 router.get("/", PostController.getAllPosts);
 
+//Get posts by host
+router.get("/me",authenticateToken,  PostController.getPostsByHost);
+
 
 //Get posts for the homepage feed - assuming it's similar to getting all posts
 

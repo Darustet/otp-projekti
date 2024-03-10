@@ -11,19 +11,22 @@
 		padding: 20px;
 		width: 47vw;
 		max-width: 50%;
-		max-height: 250px;
-		min-height: 250px;
+		max-height: 270px;
+		min-height: 270px;
 		overflow: hidden;
 		position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
         
 
 		color: white;
 		font-family: "Arial", sans-serif;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 		align-items: auto;
-		margin-left: 20%;
+		
 		border: 10px;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
         .timeAndLocation {
 			color: rgba(255, 255, 255, 0.81);
 			display: flex;
@@ -76,7 +79,7 @@
 			display: flex;
 			justify-content: center;
 			text-align: center;
-			z-index: 999;
+		
 			position: absolute;
 			bottom: 0;
 			left: 20px;
@@ -110,18 +113,20 @@
 		padding: 20px;
 		width: 47vw;
 		max-width: 50%;
-		max-height: 200px;
-		min-height: 200px;
+		max-height: 230px;
+		min-height: 230px;
 		overflow: hidden;
 		position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
 
 		color: white;
 		font-family: "Arial", sans-serif;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 		align-items: auto;
-		margin-left: 20%;
 		border: 10px;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 
 		.timeAndLocation {
 			color: rgba(255, 255, 255, 0.81);
@@ -175,7 +180,7 @@
 			display: flex;
 			justify-content: center;
 			text-align: center;
-			z-index: 999;
+		
 			position: absolute;
 			bottom: 0;
 			left: 20px;

@@ -25,7 +25,13 @@ const userSchema = new mongoose.Schema(
 			min: 3,
 			max: 20,
 		},
-	
+
+		bio: {	
+			type: String,
+			max: 100,
+		},
+
+
 	},
 	{ timestamps: true }
 );

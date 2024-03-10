@@ -12,6 +12,7 @@ router.get("/me", authenticateToken, profileController.getAuthUserInfo)
 
 router.get("/:id", usersController.getUserById);
 router.get("/userTag/:userTag", usersController.getUserByUserTag);
+router.put("/", authenticateToken, usersController.updateUserByAuth);
 
 
 module.exports = router;
