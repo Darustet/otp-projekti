@@ -1,13 +1,15 @@
+// TopBar.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './TopBar.module.scss'; // Assume this SCSS file exists
+import styles from './TopBar.module.scss';
 import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
 import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
+import Settings from '../Settings/Settings.jsx'; // Assuming the correct path to the Settings component
 
 const TopBar = ({ location }) => {
   const [profileData, setProfileData] = useState(null);
-  const [editMode, setEditMode] = useState(false); // State to control edit mode
-  const [updatedProfileData, setUpdatedProfileData] = useState({}); // State to hold updated profile data
+  const [editMode, setEditMode] = useState(false);
+  const [updatedProfileData, setUpdatedProfileData] = useState({});
   const { loginState } = useAuthContext();
   const modalRef = useRef();
 
@@ -32,19 +34,18 @@ const TopBar = ({ location }) => {
   }, [loginState.token]);
 
   const handleSettingsClick = () => {
-    setEditMode(true); // Activate edit mode when settings button is clicked
-    setUpdatedProfileData({ ...profileData }); // Populate updated profile data with current profile data
+    setEditMode(true);
+    setUpdatedProfileData({ ...profileData });
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    
+
     setUpdatedProfileData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
   };
-  
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -53,7 +54,6 @@ const TopBar = ({ location }) => {
       profilePicture: file,
     }));
   };
-  
 
   const handleSaveChanges = async () => {
     try {
@@ -61,8 +61,6 @@ const TopBar = ({ location }) => {
       Object.entries(updatedProfileData).forEach(([key, value]) => {
         formData.append(key, value);
       });
-      console.log(formData);
-
 
       const res = await fetch("http://localhost:4000/api/users/", {
         method: "PUT",
@@ -70,19 +68,18 @@ const TopBar = ({ location }) => {
           "Content-Type": "application/json",
           Authorization: `${loginState.token}`,
         },
-        body:JSON.stringify(updatedProfileData) 
+        body: JSON.stringify(updatedProfileData),
       });
       const data = await res.json();
-      console.log(data)
-      setProfileData(data); // Update profile data in state
-      setEditMode(false); // Deactivate edit mode after saving changes
+      setProfileData(data);
+      setEditMode(false);
     } catch (error) {
       console.error("Error updating profile data:", error);
     }
   };
 
   const handleCancel = () => {
-    setEditMode(false); // Deactivate edit mode when cancel button is clicked
+    setEditMode(false);
   };
 
   const handleClickOutside = (e) => {
@@ -99,60 +96,61 @@ const TopBar = ({ location }) => {
   }, []);
 
   return (
-    <div className={styles.topBar}>
-      <p className={styles.header}>{location}</p>
-      <div className={styles.searchContainer}>
-        <input type="text" placeholder="Search" className={styles.searchInput} />
-      </div>
-
-      <button className={styles.settingsButton} onClick={handleSettingsClick}>
-        <SettingsIcon />
-      </button>
-      
-      <div className={styles.userSettings}>
-        <div className={styles.userDetails}>
-          {profileData && !editMode && (
-            <>
-              <img src={profileData.profilePicture || logo} alt="Profile" className={styles.profileImage} />
-              <span>{profileData.userTag}</span>
-            </>
-          )}
+      <div className={styles.topBar}>
+        <p className={styles.header}>{location}</p>
+        <div className={styles.searchContainer}>
+          <input type="text" placeholder="Search" className={styles.searchInput} />
         </div>
-      </div>
 
-      {editMode && (
-        <div className={styles.modalBackground}>
-          <div className={styles.editProfileModal} ref={modalRef}>
-            <div className={styles.editProfileForm}>
-              <input
-                type="text"
-                name="userTag"
-                value={updatedProfileData.userTag || ''}
-                onChange={handleInputChange}
-                placeholder="Username"
-              />
-              <input
-                type="text"
-                name="bio"
-                value={updatedProfileData.bio || ''}
-                onChange={handleInputChange}
-                placeholder="Bio"
-              />
-              <input
-                type="file"
-                name="profilePicture"
-                onChange={handleFileChange}
-                accept="image/*"
-              />
-              <div>
-                <button onClick={handleSaveChanges}>Save Changes</button>
-                <button onClick={handleCancel}>Cancel</button>
-              </div>
-            </div>
+        <button className={styles.settingsButton} onClick={handleSettingsClick}>
+          <SettingsIcon />
+        </button>
+
+        <div className={styles.userSettings}>
+          <div className={styles.userDetails}>
+            {profileData && !editMode && (
+                <>
+                  <img src={profileData.profilePicture || logo} alt="Profile" className={styles.profileImage} />
+                  <span>{profileData.userTag}</span>
+                </>
+            )}
           </div>
         </div>
-      )}
-    </div>
+
+        {editMode && (
+            <div className={styles.modalBackground}>
+              <div className={styles.editProfileModal} ref={modalRef}>
+                <Settings />
+                <div className={styles.editProfileForm}>
+                  <input
+                      type="text"
+                      name="userTag"
+                      value={updatedProfileData.userTag || ''}
+                      onChange={handleInputChange}
+                      placeholder="Username"
+                  />
+                  <input
+                      type="text"
+                      name="bio"
+                      value={updatedProfileData.bio || ''}
+                      onChange={handleInputChange}
+                      placeholder="Bio"
+                  />
+                  <input
+                      type="file"
+                      name="profilePicture"
+                      onChange={handleFileChange}
+                      accept="image/*"
+                  />
+                  <div>
+                    <button onClick={handleSaveChanges}>Save Changes</button>
+                    <button onClick={handleCancel}>Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        )}
+      </div>
   );
 };
 
