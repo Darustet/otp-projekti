@@ -25,6 +25,7 @@ const Profile = () => {
                         Authorization: `${loginState.token}`,
                     },
                 });
+                // const res = await fetch("http://localhost:4000/api/users/me");
                 const data = await res.json();
                 setProfileData(data);
             } catch (error) {
@@ -42,15 +43,17 @@ const Profile = () => {
                     },
                 });
                 const userPosts = await res.json();
+                setPosts(userPosts);
                 // Converting posts to events by adding necessary fields
-                const events = userPosts.map((post) => ({
-                    _id: post.id,
-                    title: post.title,
-                    description: post.content,
-                    date: post.date, // Assuming each post has a 'date' field
-                    // You may need to adjust the date field according to your post structure
-                }));
-                setPosts(events);
+                // const events = userPosts.map((post) => ({
+                //     _id: post._id,
+                //     title: post.title,
+                //     description: post.description,
+                //     location: post.location,
+                //     start: post.start, // Assuming each post has a 'date' field
+                //     // You may need to adjust the date field according to your post structure
+                // }));
+                // setPosts(events);
             } catch (error) {
                 console.error("Error fetching posts:", error);
             }
@@ -81,7 +84,7 @@ const Profile = () => {
                 <h2 className={styles.heading}>Your Posts</h2>
                 <div className={styles.eventsContainer}>
                     {posts.map((event) => (
-                        (<NotificationCard key={event._id} event={event} />)
+                        (<NotificationCard event={event} source={"profile"} />)
                     ))}
                 </div>
             </div>

@@ -3,24 +3,27 @@ import '../../components/InputTag/InputTag.module.scss';
 import InputTag from "../../components/InputTag/InputTag";
 import FormTextElement from '../../components/FormTextElement';
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import NavBar from '../../components/NavBar/NavBar';
 
-const UpdateEvent = (post) => {
+const UpdateEvent = (state) => {
 
     const navigate = useNavigate();
     const [tags, setTags] = useState([]);
     const { loginState } = useAuthContext();
     const [eventName, setEventName] = useState('');
-    const [location, setLocation] = useState('');
+    const [eventLocation, setEventLocation] = useState('');
+    const location = useLocation();
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
     const [category, setCategory] = useState(''); // Assuming single category selection for simplicity
     const [description, setDescription] = useState('');
-    console.log("Post: " + JSON.stringify(post));
 
+    const event = state;
+    console.log(event);
+    console.log("event: " + JSON.stringify(event));
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,7 +50,7 @@ const UpdateEvent = (post) => {
             });
 
             if (response.ok) {
-                console.log('Event updatedd successfully');
+                console.log('Event updated successfully');
                 navigate('/');
             } else {
                 console.error('Failed to update event');
@@ -58,13 +61,13 @@ const UpdateEvent = (post) => {
     };
 
     const formGroupStyle = "input-group";
-    return (
-        <div className="update-event-page" key={post.id}>
+    return ( event &&
+        <div className="update-event-page" key={event._id}>
             <div className="update-event-container">
                 <div className="update-event-content">
                     <header className="update-event-header">
                         <img src={logo} alt="Logo" className="update-event-logo"/>
-                        <h1>Update Event {post.title}</h1>
+                        <h1>Update Event {event.title}</h1>
                     </header>
                     <form className="update-event-form" onSubmit={handleSubmit}>
                         <FormTextElement className={formGroupStyle}
@@ -79,7 +82,7 @@ const UpdateEvent = (post) => {
                                       name="description"
                                       placeholder="Enter event description"
                                       onChange={e=>setDescription(e.target.value)}
-                            />
+                            >{event.description}</textarea>
                         </div>
 
                         <FormTextElement className={formGroupStyle}
@@ -109,7 +112,7 @@ const UpdateEvent = (post) => {
                                          innerText="Location" id="event-location"
                                          name="location"
                                          placeholder="Enter event location"
-                                         stateValue={location} handlerFunction={setLocation}
+                                         stateValue={eventLocation} handlerFunction={setEventLocation}
                         />
 
                         <button type="submit" className="update-event-button">
