@@ -108,7 +108,7 @@
 
 	.card {
 
-		background: rgb(152, 74, 254);
+		background: rgb(36, 34, 35);
 		border-radius: 20px;
 		padding: 20px;
 		width: 47vw;
@@ -185,17 +185,17 @@
 			bottom: 0;
 			left: 20px;
 			right: 20px;
-            background-color: #000;
-            border: 1px solid #ff00ff;
+            background-color: #73C7E3FF;
+            border: 1px solid#00f5f0;
             color: var(--white);
 
             &:hover {
-                background-color: #e600e6; /* Darken for hover state */
+                background-color: #000000; /* Darken for hover state */
                 transform: scale(1.05);
               }
 
               &:active {
-                background-color: #cc00cc; /* Even darker for active state */
+                background-color: #000000; /* Even darker for active state */
                 transform: scale(0.95);
               }
 		}
