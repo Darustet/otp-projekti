@@ -2,6 +2,7 @@ import "./App.scss";
 import NavBar from "./components/NavBar/NavBar.jsx";
 
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
+import UpdateEvent from "./pages/UpdateEvent/UpdateEvent.jsx";
 import Login from "./pages/Login/login.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Register from "./pages/Register/Register.jsx";
@@ -30,6 +31,12 @@ function App() {
 			name: "Create Event",
 			url: "/create-event",
 			idFound: <CreateEvent />,
+			idFailed: <Navigate to="/login"/>
+		},
+		{
+			name: "Update Event",
+			url: "/update-event",
+			idFound: <UpdateEvent />,
 			idFailed: <Navigate to="/login"/>
 		},
 		{
