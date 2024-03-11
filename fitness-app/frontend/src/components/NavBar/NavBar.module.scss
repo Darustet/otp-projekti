@@ -2,22 +2,22 @@
 $brdr-radius: 16px;
 
 .Nav-bar {
-  background-color: var(--clr-primary-500);
-  position: fixed; // Fixed positioning to keep the navbar at the top of the page
-  height: 98vh; // Full height of the viewport
-  width: 75px; // Set the width of the navbar
-  left: 0; // Align the navbar to the right side of the viewport
-  top: 16px;
-  flex-shrink: 0;
-  padding: 16px;
+	background-color: var(--clr-primary-500);
+	position: fixed; // Fixed positioning to keep the navbar at the top of the page
+	height: 98vh; // Full height of the viewport
+	width: 75px; // Set the width of the navbar
+	left: 0; // Align the navbar to the right side of the viewport
+	top: 16px;
+	flex-shrink: 0;
+	padding: 16px;
   border-bottom-left-radius: $brdr-radius;
   border-top-left-radius: $brdr-radius;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  justify-content: center;
-  align-items: center;
-  font-size: var(--fs-400);
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	justify-content: space-between;
+	align-items: center;
+	font-size: var(--fs-400);
 
   a {
     color: black;

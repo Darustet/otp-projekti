@@ -24,6 +24,7 @@ const getUserById = async (req, res) => {
 	res.status(200).json(user);
 };
 
+
 // get user by userTag
 const getUserByUserTag = async (req, res) => {
 	const { userTag } = req.params;
@@ -60,9 +61,46 @@ const createUser = async (req, res) => {
 		res.status(409).json({ message: error.message });
 	}
 };
+const updateUserByAuth = async (req, res) => {
+    const userId = req.account;
+    const newData = req.body;
+
+    try {
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(404).send(`No user with id: ${userId}`);
+        }
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: `User with id ${userId} not found.` });
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { $set: newData },
+            { new: true }
+        );
+
+        // If profile picture is updated, update sensitive data
+        if (newData.profilePicture) {
+            await SensitiveData.findByIdAndUpdate(
+                user.sensitiveData,
+                { $set: { profilePicture: newData.profilePicture } }
+            );
+        }
+
+        res.status(200).json(updatedUser);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+
+
 // delete user by id
 const deleteUserByAuth = async (req, res) => {
-	const { userId } = req.user;
+	const  userId  = req.account;
 	try {
 		if (!mongoose.Types.ObjectId.isValid(userId)) {
 			return res.status(404).send(`No user with id: ${userId}`);
@@ -71,7 +109,7 @@ const deleteUserByAuth = async (req, res) => {
 
 		if (!user) return res.status(404).json({ message: `User with id ${userId} not found.` });
 		
-		await Post.deleteMany({ user: user._id });
+		//await Post.deleteMany({ user: user._id });
 		await User.findByIdAndDelete(userId);
 		await SensitiveData.findByIdAndDelete(user.sensitiveData);
 
@@ -87,4 +125,5 @@ module.exports = {
 	createUser,
 	getUserByUserTag,
 	deleteUserByAuth,
+	updateUserByAuth
 };

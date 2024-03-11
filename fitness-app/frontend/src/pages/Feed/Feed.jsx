@@ -3,6 +3,8 @@ import React from "react";
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import {NotificationCard} from "../../components/NotificationCard/NotificationCard";
 import { useState, useEffect} from 'react';
+import styles from "./Feed.module.scss";
+import TopBar from "../../components/TopBar/TopBar.jsx";
 import NavBar from '../../components/NavBar/NavBar';
 
 
@@ -35,30 +37,26 @@ const NotificationFeed = () => {
   // First goes through the JSON list of events and
   // creates NotificationCards for each of them
   return (
-      <div>
-		  <header className="shifted-header">
-			  <h1>Feed</h1>
-		  </header>
+    <>
+        <TopBar location={"Feed"} />
+        <Calendar />
+        <header className="shifted-header">
+            <h1>Feed</h1>
+        </header>
+      <div className={styles["container"]}>
+        <div className={styles["layout"]}>
           {list && Array.isArray(list) && list.map((event) => (
-              <div>
-                  {event && <NotificationCard key={event._id} event={event}/>}
-              </div>
-          ))}
-		  <NavBar />
-          {/* For fetch by id testing:
+          <div>
+          {event && <NotificationCard key={event._id} event={event}/>}
+          </div>
+        ))}
+            <NavBar />
+        {/* For fetch by id testing:
         {event && <NotificationCard key={event._id} event={event}/>}*/}
-          <Calendar/>
+        </div>
       </div>
+    </>
   );
 };
-
-const styles = {
-  layout: {
-    position: 'left',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-  },
-}
 
 export default NotificationFeed;

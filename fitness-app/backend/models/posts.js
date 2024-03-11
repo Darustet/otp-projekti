@@ -15,16 +15,7 @@ const postSchema = new mongoose.Schema(
 			type: Date,
 			required: true,
 		},
-		start_time:{
-			type: String,
-			required: true,
-		},
-		
-		 end_time:{
-			type: String,
-			required: true,
-		 },
-		
+
 		location: {
 			type: String,
 			required: true,
@@ -65,4 +56,4 @@ const postSchema = new mongoose.Schema(
 );
 const Post = mongoose.model("Post", postSchema);
 
-module.exports =  Post;
+module.exports = Post;

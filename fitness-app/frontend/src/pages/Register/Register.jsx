@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Register.module.scss";
 import X_icon from '../../components/Icons/XIcon/X_icon';
 
+
 const Register = () => {
 	const [userTag, setUserTag] = useState("");
 	const [email, setUserEmail] = useState("");
@@ -39,6 +40,12 @@ const Register = () => {
   };
 
   return (
+    <>
+    <div className="buttons-container">
+      <button className="custom-button">Log In</button>
+      <button className="custom-button">Sign Up</button>
+    </div>
+
       <div className={styles["register-page"]}>
         <div className={styles["register-container"]}>
           <div className={styles["register-content"]}>
@@ -101,6 +108,8 @@ const Register = () => {
           </div>
         </div>
       </div>
+      </>
+    
   );
 };
 

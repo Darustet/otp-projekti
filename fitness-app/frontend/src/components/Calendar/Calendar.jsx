@@ -62,11 +62,8 @@ const Calendar = () => {
 
 	return (
 		<aside className="main-aside">
-			{/*<label>
-				<input type="checkbox" checked={themeChecked}
-					   onChange={handleThemeChange}/>
-				{themeChecked ? 'Light' : 'Dark'}
-			</label>*/}
+			{/*<button onClick={handleThemeChange}>
+				{themeChecked ? "Light" : "Dark"}</button>*/}
 			<Eventcalendar className="eventcalendar"
 						   clickToCreate={false}
 						   dragToCreate={false}
