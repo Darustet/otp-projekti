@@ -55,12 +55,34 @@ const PostController = {
   // Muut metodit pysyvät ennallaan
   getAllPosts: async (req, res) => {
     try {
-      const posts = await Post.find();
+      // Using .populate('host') to include the user information referenced by the 'host' field in each post
+      // You might want to limit the fields of the user that you want to include in the response
+      const posts = await Post.find().populate({
+        path: 'host',
+        select: 'userTag profilePicture username -_id' // This line selects which fields to include (excluding the _id field)
+      });
       res.status(200).json(posts);
     } catch (error) {
       res.status(404).json({ message: error.message });
     }
   },
+
+  // get posts by host
+  getPostsByHost: async (req, res) => {
+
+    const  hostId  = req.account;
+    try {
+      const posts = await Post.find({ host: hostId }).populate({
+        path: 'host',
+        select: 'userTag profilePicture username -_id' // This line selects which fields to include (excluding the _id field)
+      });
+
+      res.status(200).json(posts);
+    } catch (error) {
+      res.status(404).json({ message: error.message });
+    }
+  },
+  
 
   getPostById: async (req, res) => {
     const { id } = req.params;
