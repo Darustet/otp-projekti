@@ -10,7 +10,15 @@ export const NotificationCard = ({event, source}) => {
   const [isShowMore, setIsShowMore] = useState(true);
   const toggleReadMore = () => setIsShowMore(show => !show);
   const { loginState } = useAuthContext();
+  const [buttonText, setButtonText] = useState('Osallistu');
 
+  const handleClick = () => {
+    if (buttonText === 'Osallistu') {
+      setButtonText('Peru osallistuminen');
+    } else {
+      setButtonText('Osallistu');
+    }
+  };
 
   function checkButton() {
     {if (source==="profile") {
@@ -21,7 +29,7 @@ export const NotificationCard = ({event, source}) => {
       );
     } else {
       return (
-      <button className={style.button}>Osallistu</button>
+      <button onClick={handleClick} className={style.button}>{buttonText}</button>
       );
     }}
   };

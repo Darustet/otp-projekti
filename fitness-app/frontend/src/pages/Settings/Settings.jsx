@@ -23,6 +23,7 @@ const Settings = () => {
             <h1>Settings</h1>
 
 
+
             <div className={styles.settingsSection}>
                 <h2>Change Email</h2>
                 <form className={styles.changeEmailForm} onSubmit={handleSaveEmail}>
