@@ -4,7 +4,7 @@ import styles from './TopBar.module.scss';
 import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
 import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
-import Settings from '../Settings/Settings.jsx'; // Assuming the correct path to the Settings component
+
 
 const TopBar = ({ location }) => {
   const [profileData, setProfileData] = useState(null);
@@ -120,7 +120,6 @@ const TopBar = ({ location }) => {
         {editMode && (
             <div className={styles.modalBackground}>
               <div className={styles.editProfileModal} ref={modalRef}>
-                <Settings />
                 <div className={styles.editProfileForm}>
                   <input
                       type="text"

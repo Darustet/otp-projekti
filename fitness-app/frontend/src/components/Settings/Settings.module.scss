@@ -1,50 +1,50 @@
-$color_1: #fff;
-$background-color_1: #923cbe;
-$background-color_2: #923cbe;
+// $color_1: #fff;
+// $background-color_1: #923cbe;
+// $background-color_2: #923cbe;
 
-.settingsPage {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
+// .settingsPage {
+//   max-width: 600px;
+//   margin: 0 auto;
+//   padding: 20px;
+// }
 
-.settingsSection {
-  margin-bottom: 20px;
+// .settingsSection {
+//   margin-bottom: 20px;
 
-  h2 {
-    color: $background-color_1;
-  }
-}
+//   h2 {
+//     color: $background-color_1;
+//   }
+// }
 
-.changeForm {
-  display: flex;
-  flex-direction: column;
+// .changeForm {
+//   display: flex;
+//   flex-direction: column;
 
-  label {
-    margin-bottom: 8px;
-    color: $background-color_1;
-  }
+//   label {
+//     margin-bottom: 8px;
+//     color: $background-color_1;
+//   }
 
-  input {
-    padding: 8px;
-    margin-bottom: 16px;
-  }
+//   input {
+//     padding: 8px;
+//     margin-bottom: 16px;
+//   }
 
-  button {
-    padding: 10px;
-    background-color: $background-color_1;
-    color: $color_1;
-    border: none;
-    cursor: pointer;
+//   button {
+//     padding: 10px;
+//     background-color: $background-color_1;
+//     color: $color_1;
+//     border: none;
+//     cursor: pointer;
 
-    &:hover {
-      background-color: $background-color_2;
-    }
-  }
-}
+//     &:hover {
+//       background-color: $background-color_2;
+//     }
+//   }
+// }
 
-.changeUsernameForm,
-.changeEmailForm,
-.changePasswordForm {
-  @extend .changeForm;
-}
+// .changeUsernameForm,
+// .changeEmailForm,
+// .changePasswordForm {
+//   @extend .changeForm;
+// }
