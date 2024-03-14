@@ -3,12 +3,56 @@ $bg-color-e1: #ea7cd4;
 $input-border-radius: 8px;
 
 
+.layout {
+	width: 60vw;
+    left: 13vw;
+	background-color: rgb(240, 242, 242);
+    align-items: center;
+    justify-content: center;
+	display: "flex";
+	flex-direction: "column";
+    position: absolute;
+    top: 60px;
+    border-radius: 30px;
+
+	
+}
+
+
+
+
+// .layout {
+// 	width: 60vw;
+// 	background-color: rgb(240, 242, 242);
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: center;
+// 	justify-content: center;
+// 	position: absolute;
+// 	top: 60px;
+// 	border-radius: 30px;
+// }
+
+
+.container {
+	display: "flex";
+	flex-direction: "column";
+	justify-content: "centar";
+	align-content: flex-start;
+	background-color: rgb(255, 255, 255);
+    position: relative;
+    
+ 
+}
+
+
 
 .container {
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 20px;
 	font-family: "Arial", sans-serif;
+	
 }
 
 .profileInfo {

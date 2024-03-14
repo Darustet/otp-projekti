@@ -66,7 +66,9 @@ const Profile = () => {
     return (
         <>
             <TopBar />
+           
             <div className={styles.container}>
+            <div className={styles.layout}>
                 {profileData && (
                     <>
                         <NavBar />
@@ -87,6 +89,7 @@ const Profile = () => {
                         (<NotificationCard event={event} source={"profile"} />)
                     ))}
                 </div>
+            </div>
             </div>
         </>
     );
