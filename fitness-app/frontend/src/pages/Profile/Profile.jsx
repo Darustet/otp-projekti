@@ -68,6 +68,7 @@ const Profile = () => {
             <TopBar />
            
             <div className={styles.container}>
+            
             <div className={styles.layout}>
                 {profileData && (
                     <>

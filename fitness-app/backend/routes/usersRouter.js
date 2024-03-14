@@ -14,5 +14,9 @@ router.get("/:id", usersController.getUserById);
 router.get("/userTag/:userTag", usersController.getUserByUserTag);
 router.put("/", authenticateToken, usersController.updateUserByAuth);
 
+// moukkka tapahtuman luonti
+//router.put("/events", authenticateToken, postController.createEvent);
+
+
 
 module.exports = router;

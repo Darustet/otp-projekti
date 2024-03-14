@@ -14,9 +14,13 @@ $input-border-radius: 8px;
     position: absolute;
     top: 60px;
     border-radius: 30px;
+	width: 58vw;
+    left: -17%;
 
-	
 }
+
+
+
 
 
 
@@ -35,25 +39,21 @@ $input-border-radius: 8px;
 
 
 .container {
-	display: "flex";
-	flex-direction: "column";
-	justify-content: "centar";
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	align-content: flex-start;
 	background-color: rgb(255, 255, 255);
     position: relative;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	font-family: "Arial", sans-serif;
     
  
 }
 
 
-
-.container {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 20px;
-	font-family: "Arial", sans-serif;
-	
-}
 
 .profileInfo {
 	display: flex;

@@ -30,7 +30,7 @@ const PostController = {
   // Sisällytä start_time ja end_time myös updatePost-metodiin
   updatePost: async (req, res) => {
     const { id } = req.params;
-    const { title, description, start, end, start_time, end_time, location, categories, host, participants, images, tags } = req.body;
+    const { title, description, start, end,location, categories, host, participants, images, tags } = req.body;
 
     try {
       const updatedPost = await Post.findByIdAndUpdate(id, {
@@ -82,6 +82,10 @@ const PostController = {
       res.status(404).json({ message: error.message });
     }
   },
+
+  // update post by host
+
+  
   
 
   getPostById: async (req, res) => {
