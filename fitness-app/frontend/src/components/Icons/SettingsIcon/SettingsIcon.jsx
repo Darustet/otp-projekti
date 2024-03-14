@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './SettingsIcon.module.scss';
 
-const SettingsIcon = () => {
+export default function SettingsIcon() {
     const navigate = useNavigate();
     return (
         <svg className={styles["settingsIcon"]} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -10,5 +10,3 @@ const SettingsIcon = () => {
         </svg>
     );
 };
-
-export default SettingsIcon;

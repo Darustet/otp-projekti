@@ -64,20 +64,17 @@ const Profile = () => {
 	return (
 		<>
         <div className={styles.container}>
+            <NavBar />
 			{profileData && <>
-				<TopBar />
-				<NavBar />
+                <TopBar />
                 <Calendar />
-				
-				
-
-					<div className={styles.profileInfo}>
-						<img src={profileData.avatar || logo} alt="Avatar" className={styles.avatar} />
-						<div>
-							<h1 className={styles.username}>@{profileData.userTag}</h1>
-							<p className={styles.bio}>{profileData.bio}</p>
-						</div>
-					</div>
+                <div className={styles.profileInfo}>
+                    <img src={profileData.avatar || logo} alt="Avatar" className={styles.avatar} />
+                    <div>
+                        <h1 className={styles.username}>@{profileData.userTag}</h1>
+                        <p className={styles.bio}>{profileData.bio}</p>
+                    </div>
+                </div>
 				</>
 			}
 			<h2 className={styles.heading}>Your Posts</h2>

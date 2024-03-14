@@ -15,22 +15,17 @@
 		min-height: 270px;
 		overflow: hidden;
 		position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 25px;
-
-
 		color: white;
 		font-family: "Arial", sans-serif;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 		align-items: auto;
-
 		border: 10px;
-		margin-bottom: 10px;
-        .timeAndLocation {
+		margin: 25px auto 10px;
+
+		.timeAndLocation {
 			color: rgba(255, 255, 255, 0.81);
 			display: flex;
-			align-items: right;
+			align-items: end;
 			width: 100%;
 			margin-bottom: 15px;
 		}
@@ -98,16 +93,9 @@
                 transform: scale(0.95);
               }
 		}
-
-
-
-
     }
 
-
-
 	.card {
-
 		background: rgb(36, 34, 35);
 		border-radius: 20px;
 		padding: 20px;

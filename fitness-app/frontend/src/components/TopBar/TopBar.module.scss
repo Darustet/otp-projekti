@@ -1,17 +1,17 @@
 .topBar {
-  width: 100vw;
+  position: fixed;
+  width: 59vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-top: 16px;
   margin-left: 75px;
   padding: 10px;
   background-color: #ffecec; // Customize background color
+  z-index: 1;
 
   .header {
-    position: absolute;
-    top: 20px;
-    left: 100px;
+    margin: 0 0 0 20px;
     font-size: 25px;
   }
 
@@ -51,8 +51,6 @@
     cursor: pointer;
     background: none;
     border: none;
-    position: relative;
-    margin-left: 250px; // Adjust margin-left if needed
     // Additional styles for the settings button or its icon could be added here
   }
 }
@@ -60,7 +58,7 @@
 .editProfileModal {
   position: fixed;
   top: 50%;
-  left: 50%;
+  //left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;

@@ -12,7 +12,7 @@ export const NotificationCard = ({event}) => {
   const displayDate = event.start.substring(0, 10);
 
   const date = event.date;
-  console.log(date);
+  //console.log(date);
 
   return (
     <div key={event.id} className={style.wrapper}>
@@ -46,7 +46,7 @@ const DescriptionText = styled.div`
   font-size: 14px;
   margin-top: 20px;
   max-height: 75px;
-  overflow: scroll;
+  //overflow: scroll;
   ${({ showMore }) => showMore && ellipsis(undefined, 3)}
 `;
 

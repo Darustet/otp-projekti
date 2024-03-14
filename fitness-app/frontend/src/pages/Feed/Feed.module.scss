@@ -1,35 +1,29 @@
 // Feed.module.scss
 .layout {
-	width: 60vw;
-    left: 13vw;
-	background-color: rgb(240, 242, 242);
-    align-items: center;
-    justify-content: center;
-	display: "flex";
-	flex-direction: "column";
-    position: absolute;
-    top: 60px;
-    border-radius: 30px;
-
-	
+  width: auto;
+  background-color: rgb(240, 242, 242);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
 }
 
 .container {
-	display: "flex";
-	flex-direction: "column";
-	justify-content: "centar";
-	align-content: flex-start;
-	background-color: rgb(255, 255, 255);
-    position: relative;
-    
- 
+  position: absolute;
+  top: 90px;
+  left: 13vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
 }
 
-.header{
-    position: absolute;
-    top: 20px;
-    left: 100px;
-    font-size: 25px;
-
+.header {
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  font-size: 25px;
 }
-
