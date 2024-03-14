@@ -66,7 +66,6 @@ const Profile = () => {
     return (
         <>
             <TopBar />
-           
             <div className={styles.container}>
             
             <div className={styles.layout}>

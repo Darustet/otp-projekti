@@ -12,10 +12,53 @@ export const NotificationCard = ({event, source}) => {
   const { loginState } = useAuthContext();
   const [buttonText, setButtonText] = useState('Osallistu');
 
+const joinEvent = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/api/posts/join/${event._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: loginState.token,
+        },
+      });
+      if (response.ok) {
+        console.log('Joined event successfully');
+      } else {
+        console.error('Failed to join event');
+      }
+    }
+    catch (error) {
+      console.error('Error joining event:', error);
+    }
+  };
+
+   const leaveEvent = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/api/posts/leave/${event._id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: loginState.token,
+        },
+      });
+      if (response.ok) {
+        console.log('Left event successfully');
+      } else {
+        console.error('Failed to leave event');
+      }
+    }
+    catch (error) {
+      console.error('Error leaving event:', error);
+    }
+  };
+
+
   const handleClick = () => {
     if (buttonText === 'Osallistu') {
+      joinEvent();
       setButtonText('Peru osallistuminen');
     } else {
+      leaveEvent();
       setButtonText('Osallistu');
     }
   };
@@ -23,7 +66,7 @@ export const NotificationCard = ({event, source}) => {
   function checkButton() {
     {if (source==="profile") {
       return (event && 
-        <Link to={{ pathname: '/update-event', state: { event } }} >
+        <Link to={{ pathname: '/update-event' }} state=  {{ event }}>
           <button className={style.button}>Muokkaa</button>
         </Link>
       );

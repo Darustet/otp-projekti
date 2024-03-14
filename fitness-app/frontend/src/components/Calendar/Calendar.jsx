@@ -2,6 +2,7 @@ import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import style from "./Calendar.module.scss";
+import { useAuthContext } from "../../context/AuthContext.js";
 
 const calenderSettings = {
 	locale: localeFi,
@@ -11,9 +12,11 @@ const calenderSettings = {
 
 const Calendar = () => {
 	const [myEvents, setEvents] = useState([]),
+	
 		[isToastOpen, setToastOpen] = useState(false),
 		[toastMessage, setToastMessage] = useState(),
 		[themeChecked, setThemeChecked] = useState(false);
+		const { loginState } = useAuthContext();
 
 	const myView = useMemo(
 		() => ({
@@ -32,6 +35,25 @@ const Calendar = () => {
 		setToastOpen(true);
 	}, []);
 
+	const handleLeaveEvent = useCallback((eventId) => {
+		// Perform the necessary logic to leave the event
+		// This could involve sending a request to your server to update the database
+		
+		// For demonstration purposes, let's assume myEvents is an array of events
+		// You need to update this array to remove the event with the specified eventId
+		const updatedEvents = myEvents.filter(event => event.id !== eventId);
+		
+		// Update the state with the updated events
+		setEvents(updatedEvents);
+	}, [myEvents]);
+	
+	// Add an event handler to handle leaving events
+	const handleEventLeave = useCallback((args) => {
+		const eventId = args.event.id;
+		handleLeaveEvent(eventId);
+	}, [handleLeaveEvent]);
+	
+
 	function handleThemeChange() {
 		setThemeChecked(!themeChecked);
 		const newThemeVariant = (themeChecked ? "dark" : "light");
@@ -42,7 +64,18 @@ const Calendar = () => {
 	}
 
 	useEffect(() => {
-		fetch("http://localhost:4000/api/posts")
+		console.log(loginState.token)
+		fetch("http://localhost:4000/api/posts/participant",
+			{
+				method: "GET",
+				headers: {
+					"Authorization": loginState.token,
+					"Content-Type": "application/json",
+				},
+			})	
+
+
+
 			.then(response => {
 				if (response.ok) {
 					return response.json(); // Parse the JSON data from the response
@@ -72,6 +105,7 @@ const Calendar = () => {
 						   data={myEvents}
 						   view={myView}
 						   onEventClick={handleEventClick}
+						   onEventDelete={handleEventLeave} 
 			/>
 			<Toast message={toastMessage} isOpen={isToastOpen}
 				   onClose={handleToastClose}/>

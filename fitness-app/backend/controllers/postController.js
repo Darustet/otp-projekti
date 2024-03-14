@@ -3,15 +3,13 @@ const Post = require("../models/posts");
 
 const PostController = {
   createPost: async (req, res) => {
-    const { title, description, start, end, start_time, end_time, location, categories, host, images, tags } = req.body;
-    
+    const { title, description, start, end, start_time, end_time, location, categories, images, tags } = req.body;
+    const host = req.account; 
     const newPost = new Post({
       title,
       description,
       start,
       end,
-      start_time,
-      end_time,
       location,
       categories,
       tags,
@@ -27,11 +25,11 @@ const PostController = {
     }
   },
 
-  // Sisällytä start_time ja end_time myös updatePost-metodiin
+  
   updatePost: async (req, res) => {
     const { id } = req.params;
-    const { title, description, start, end,location, categories, host, participants, images, tags } = req.body;
-
+    const { title, description, start, end,location, categories, participants, images, tags } = req.body;
+const host = req.account;
     try {
       const updatedPost = await Post.findByIdAndUpdate(id, {
         title,
@@ -44,10 +42,11 @@ const PostController = {
         participants,
         images,
         tags
-      }, { new: true });
+      },);
 
       res.status(200).json(updatedPost);
     } catch (error) {
+      console.log(error);
       res.status(400).json({ message: error.message });
     }
   },
@@ -83,7 +82,66 @@ const PostController = {
     }
   },
 
-  // update post by host
+ // remove req.account from participants
+  leavePost: async (req, res) => {
+    const { id } = req.params;
+    const { userId } = req.account;
+    try {
+      const post = await Post.findById(id);
+      if (post) {
+        if (post.participants.includes(userId)) {
+          post.participants = post.participants.filter((participant) => participant  !== userId);
+          await post.save();
+          res.status(200).json(post);
+        } else {
+          res.status(400).json({ message: 'User not joined the post' });
+        }
+      } else {
+        res.status(404).json({ message: 'Post not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
+  //getall post where req.account is in participants
+
+  getPostsByParticipant: async (req, res) => {
+    const { userId } = req.account;
+    try {
+      const posts = await Post.find({ participants: userId }).populate({
+        path: 'host',
+        select: 'userTag profilePicture username -_id' // This line selects which fields to include (excluding the _id field)
+      });
+      res.status(200).json(posts);
+    } catch (error) {
+      console.log(error);
+      res.status(404).json({ message: error.message });
+    }
+  },
+
+
+  //liity postaukseen 
+  joinPost: async (req, res) => {
+    const { id } = req.params;
+    const { userId } = req.account;
+    try {
+      const post = await Post.findById(id);
+      if (post) {
+        if (!post.participants.includes(userId)) {
+          post.participants.push(userId);
+          await post.save();
+          res.status(200).json(post);
+        } else {
+          res.status(400).json({ message: 'User already joined the post' });
+        }
+      } else {
+        res.status(404).json({ message: 'Post not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
 
   
   
