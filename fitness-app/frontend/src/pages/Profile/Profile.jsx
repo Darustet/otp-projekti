@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Profile.module.scss";
-import { useNavigate } from "react-router-dom";
 import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import TopBar from "../../components/TopBar/TopBar.jsx";
@@ -11,10 +10,8 @@ import { NotificationCard } from "../../components/NotificationCard/Notification
 
 const Profile = () => {
     const { loginState } = useAuthContext();
-    // const [profileData, setProfileData] = useState(null);
     const [profileData, setProfileData] = useState([]);
     const [posts, setPosts] = useState([]);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProfileData = async () => {
@@ -26,7 +23,6 @@ const Profile = () => {
                         Authorization: `${loginState.token}`,
                     },
                 });
-                // const res = await fetch("http://localhost:4000/api/users/me");
                 const data = await res.json();
                 setProfileData(data);
             } catch (error) {
@@ -45,16 +41,6 @@ const Profile = () => {
                 });
                 const userPosts = await res.json();
                 setPosts(userPosts);
-                // Converting posts to events by adding necessary fields
-                // const events = userPosts.map((post) => ({
-                //     _id: post._id,
-                //     title: post.title,
-                //     description: post.description,
-                //     location: post.location,
-                //     start: post.start, // Assuming each post has a 'date' field
-                //     // You may need to adjust the date field according to your post structure
-                // }));
-                // setPosts(events);
             } catch (error) {
                 console.error("Error fetching posts:", error);
             }

@@ -70,7 +70,6 @@ const joinEvent = async () => {
   function checkButton() {
     {if (source==="profile") {
       return (event && 
-        // <Link to={{ pathname: '/update-event' }} state=  {{ event }} style={{ textDecoration: 'none', textDecorationColor: 'white' }}>
         <Link to={{ pathname: '/update-event' }} state=  {{ event }} style={{ color: 'inherit', textDecoration: 'inherit'}}>
           <button className={style.button}>Muokkaa</button>
         </Link>

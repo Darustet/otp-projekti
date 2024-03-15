@@ -1,4 +1,3 @@
-// HomeIcon.js
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import styles from "./HomeIcon.module.scss";

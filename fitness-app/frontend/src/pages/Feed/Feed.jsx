@@ -9,11 +9,7 @@ import TopBar from "../../components/TopBar/TopBar.jsx";
 
 
 const NotificationFeed = () => {
-
-  // const [list, setList] = useState(null);
   const [list, setList] = useState([]);
-  //const [event, setEvent] = useState(null);
-
 
 	// Fetches all events and puts them in a list
 	useEffect(() => {
@@ -31,27 +27,6 @@ const NotificationFeed = () => {
 		fetchData();
 	}, []);
 
-  // Fetches a single event by id and puts in a const
-  // For testing so currently no functionality to choose id
-  // If used, also uncomment const [event, setEvent]
-  /*
-  useEffect(()=> {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:4000/api/posts/65e366fa566a227827773db8');
-        const eventData = await response.json();
-        setEvent(eventData);
-        {console.log(eventData)}
-      } catch(error) {
-        console.error('Error fetching data: ', error);
-      }
-    };
-
-    fetchData();
-    
-  }, []);
-  */
-
   // First goes through the JSON list of events and
   // creates NotificationCards for each of them
   return (
@@ -64,10 +39,7 @@ const NotificationFeed = () => {
           <div>
           {event && <NotificationCard key={event._id} event={event}/>}
           </div>
-        ))}
-        {/* For fetch by id testing:
-        {event && <NotificationCard key={event._id} event={event}/>}*/}
-        
+        ))}        
       </div>
     </div>
     </>

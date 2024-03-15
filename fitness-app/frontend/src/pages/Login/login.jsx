@@ -4,7 +4,6 @@ import { useNotifications } from "../../NotificationsData/Notification"; // Adju
 import styles from "./Login.module.scss";
 import picture from "../../images/picture.png"; // Import the background image
 import { useAuthContextDispatch } from "../../context/AuthContext.js";
-// Logo lisätty tähän
 import logo from "../../images/logo192.png";
 
 
