@@ -91,12 +91,14 @@
             color: var(--white);
 
             &:hover {
-                background-color: #e600e6; /* Darken for hover state */
+                // background-color: #e600e6; /* Darken for hover state */
+				background-color: var(--clr-accent-500);
                 transform: scale(1.05);
               }
 
               &:active {
-                background-color: #cc00cc; /* Even darker for active state */
+                // background-color: #cc00cc; /* Even darker for active state */
+				background-color: var(--clr-accent-500);
                 transform: scale(0.95);
               }
 		}

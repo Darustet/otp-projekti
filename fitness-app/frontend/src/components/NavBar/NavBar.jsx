@@ -24,10 +24,8 @@ export default function NavBar() {
 			) : (
 				<>
 					<Link to="/login" className={style["link"]}>
-						Login
 					</Link>
 					<Link to="/register" className={style["link"]}>
-						Register
 					</Link>
 				</>
 			)}
