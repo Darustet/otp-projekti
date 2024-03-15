@@ -10,7 +10,8 @@ import TopBar from "../../components/TopBar/TopBar.jsx";
 
 const NotificationFeed = () => {
 
-  const [list, setList] = useState(null);
+  // const [list, setList] = useState(null);
+  const [list, setList] = useState([]);
   //const [event, setEvent] = useState(null);
 
 

@@ -11,7 +11,8 @@ import { NotificationCard } from "../../components/NotificationCard/Notification
 
 const Profile = () => {
     const { loginState } = useAuthContext();
-    const [profileData, setProfileData] = useState(null);
+    // const [profileData, setProfileData] = useState(null);
+    const [profileData, setProfileData] = useState([]);
     const [posts, setPosts] = useState([]);
     const navigate = useNavigate();
 
@@ -65,7 +66,7 @@ const Profile = () => {
 
     return (
         <>
-            <TopBar />
+            <TopBar location = {"Profile"} />
             <div className={styles.container}>
             
             <div className={styles.layout}>
