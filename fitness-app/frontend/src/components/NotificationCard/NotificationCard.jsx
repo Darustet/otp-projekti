@@ -11,6 +11,10 @@ export const NotificationCard = ({event, source}) => {
   const toggleReadMore = () => setIsShowMore(show => !show);
   const { loginState } = useAuthContext();
   const [buttonText, setButtonText] = useState('Osallistu');
+  const shortDate = event.start.substring(0, 10);
+  const [year, month, day] =  shortDate.split('-');
+  const date = `${day}.${month}.${year}`;
+  
 
 const joinEvent = async () => {
     try {
@@ -66,7 +70,8 @@ const joinEvent = async () => {
   function checkButton() {
     {if (source==="profile") {
       return (event && 
-        <Link to={{ pathname: '/update-event' }} state=  {{ event }}>
+        // <Link to={{ pathname: '/update-event' }} state=  {{ event }} style={{ textDecoration: 'none', textDecorationColor: 'white' }}>
+        <Link to={{ pathname: '/update-event' }} state=  {{ event }} style={{ color: 'inherit', textDecoration: 'inherit'}}>
           <button className={style.button}>Muokkaa</button>
         </Link>
       );
@@ -86,7 +91,7 @@ const joinEvent = async () => {
           <img className={style.profileImage} src={event.host?.profilePicture || logo} alt="Profile" />
         </div>
         <div className={style.timeAndLocation}>
-          <span className={style.headerText}>{event.start}, {event.location}</span>
+          <span className={style.headerText}>{date}, {event.location}</span>
         </div>
         <div className={style.content}>
           <DescriptionText> {isShowMore ? (event?.description || "").slice(0, 50) : event.description} </DescriptionText>
@@ -109,7 +114,7 @@ const joinEvent = async () => {
 const DescriptionText = styled.div`
   font-size: 14px;
   margin-top: 20px;
-  max-height: 75px;
+  max-height: 250px;
   overflow: scroll;
   ${({ showMore }) => showMore && ellipsis(undefined, 3)}
 `;

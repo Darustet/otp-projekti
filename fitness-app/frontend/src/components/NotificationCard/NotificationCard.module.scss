@@ -11,7 +11,7 @@
 		padding: 20px;
 		width: 47vw;
 		max-width: 50%;
-		max-height: 270px;
+		// max-height: 270px;
 		min-height: 270px;
 		overflow: hidden;
 		position: relative;
@@ -80,12 +80,14 @@
 			justify-content: center;
 			text-align: center;
 
-			position: absolute;
+			// position: absolute;
 			bottom: 0;
 			left: 20px;
 			right: 20px;
-            background-color: #000;
-            border: 1px solid #ff00ff;
+            // background-color: #000;
+            // border: 1px solid #ff00ff;
+			background-color: #73C7E3FF;
+			border: 1px solid#00f5f0;
             color: var(--white);
 
             &:hover {
@@ -113,7 +115,7 @@
 		padding: 20px;
 		width: 47vw;
 		max-width: 50%;
-		max-height: 230px;
+		// max-height: 230px;
 		min-height: 230px;
 		overflow: hidden;
 		position: relative;
@@ -181,21 +183,23 @@
 			justify-content: center;
 			text-align: center;
 
-			position: absolute;
+			// position: absolute;
 			bottom: 0;
 			left: 20px;
 			right: 20px;
             background-color: #73C7E3FF;
             border: 1px solid#00f5f0;
-            color: var(--white);
+        color: var(--white);
 
             &:hover {
-                background-color: #000000; /* Darken for hover state */
-                transform: scale(1.05);
+                //background-color: #000000; /* Darken for hover state */
+                background-color: var(--clr-accent-500);
+				transform: scale(1.05);
               }
 
               &:active {
-                background-color: #000000; /* Even darker for active state */
+                //background-color: #000000; /* Even darker for active state */
+				background-color: var(--clr-accent-500);
                 transform: scale(0.95);
               }
 		}
