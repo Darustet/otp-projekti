@@ -14,7 +14,7 @@ export const NotificationCard = ({event, source}) => {
 
 
   function checkButton() {
-    {if (source==="profile") {
+    if (source==="profile") {
       return (event &&
         <Link to={{ pathname: '/update-event', state: { event } }} >
           <button className={style.button}>Muokkaa</button>
@@ -24,9 +24,8 @@ export const NotificationCard = ({event, source}) => {
       return (
       <button className={style.button}>Osallistu</button>
       );
-    }}
-  };
-
+    }
+  }
 
   return (
     <div key={event._id} className={style.wrapper}>

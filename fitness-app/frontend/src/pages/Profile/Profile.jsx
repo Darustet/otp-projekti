@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Profile.module.scss";
 import { useNavigate } from "react-router-dom";
-import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
 import Calendar from "../../components/Calendar/Calendar.jsx";
-import SettingsIcon from '../../components/Icons/SettingsIcon/SettingsIcon';
+//import SettingsIcon from '../../components/Icons/SettingsIcon/SettingsIcon';
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import logo from "../../images/logo192.png";
 import { useAuthContext } from "../../context/AuthContext.js";
 import NavBar from "../../components/NavBar/NavBar.jsx";
 import { NotificationCard } from "../../components/NotificationCard/NotificationCard";
+import SVGIcon from '../../components/Icons/SVGIcon';
 
-const Profile = () => {
-    const { loginState } = useAuthContext();
-    const [profileData, setProfileData] = useState(null);
-    const [posts, setPosts] = useState([]);
-    const navigate = useNavigate();
+export default function Profile() {
+    const { loginState } = useAuthContext(),
+        [profileData, setProfileData] = useState(null),
+        [posts, setPosts] = useState([]),
+        navigate = useNavigate();
 
     useEffect(() => {
         const fetchProfileData = async () => {
@@ -82,15 +82,15 @@ const Profile = () => {
 			}
 			<h2 className={styles.heading}>Your Posts</h2>
 			<div className={styles.eventsContainer}>
-				{posts.map((event) =>
+				{posts && posts.map((event) =>
                     <NotificationCard event={event} source={"profile"} />
 				)}
 			</div>
-            <PostEventIcon />
+            <SVGIcon type="navigate" navUrl="/create-event"
+                     styleClass="post-icon"
+                     pathD="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"
+            />
 		</div>
-            <SettingsIcon />
         </>
 	);
 };
-
-export default Profile;

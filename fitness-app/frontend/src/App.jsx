@@ -1,6 +1,6 @@
 import "./App.scss";
-import NavBar from "./components/NavBar/NavBar.jsx";
-
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./pages/Layout/Layout.jsx";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 import UpdateEvent from "./pages/UpdateEvent/UpdateEvent.jsx";
 import Login from "./pages/Login/login.jsx";
@@ -9,10 +9,8 @@ import Register from "./pages/Register/Register.jsx";
 import Feed from "./pages/Feed/Feed.jsx";
 import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
-import Layout from "./pages/Layout/Layout.jsx";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-function App() {
+export default function App() {
 	const { loginState } = useAuthContext();
 	const routeData = [
 		{
@@ -85,12 +83,9 @@ function App() {
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
-					{/*<NavBar/>*/}
 					<Routes>{routing(routeData)}</Routes>
 				</NotificationProvider>
 			</BrowserRouter>
 		</div>
 	);
 }
-
-export default App;

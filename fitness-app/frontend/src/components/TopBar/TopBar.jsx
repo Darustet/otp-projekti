@@ -1,10 +1,10 @@
 // TopBar.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './TopBar.module.scss';
-import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
+//import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
 import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
-import Settings from '../Settings/Settings.jsx'; // Assuming the correct path to the Settings component
+//import SVGIcon from '../Icons/SVGIcon';
 
 const TopBar = ({ location }) => {
   const [profileData, setProfileData] = useState(null);
@@ -100,9 +100,10 @@ const TopBar = ({ location }) => {
           <input type="text" placeholder="Search" className={styles.searchInput} />
         </div>
 
-        <button className={styles.settingsButton} onClick={handleSettingsClick}>
-          <SettingsIcon />
-        </button>
+        {/*<button className={styles.settingsButton}
+                 onClick={handleSettingsClick}>
+          <SettingsIcon/>
+        </button>*/}
 
         <div className={styles.userSettings}>
           <div className={styles.userDetails}>
@@ -118,7 +119,6 @@ const TopBar = ({ location }) => {
         {editMode && (
             <div className={styles.modalBackground}>
               <div className={styles.editProfileModal} ref={modalRef}>
-                <Settings />
                 <div className={styles.editProfileForm}>
                   <input
                       type="text"

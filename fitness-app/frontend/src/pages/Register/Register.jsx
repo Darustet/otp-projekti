@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
-import X_icon from '../../components/Icons/XIcon/X_icon';
+//import X_icon from '../../components/Icons/XIcon/XIcon';
 
 
 const Register = () => {
@@ -49,9 +49,9 @@ const Register = () => {
       <div className={styles["register-page"]}>
         <div className={styles["register-container"]}>
           <div className={styles["register-content"]}>
-            <div className={styles["xIconContainer"]}>
-              <X_icon color="black" />
-            </div>
+            {/*<div className={styles['xIconContainer']}>
+              <X_icon color="black"/>
+            </div>*/}
             <header className={styles["register-header"]}>
               <h1>Register</h1>
               <p>Get started by creating your account</p>
