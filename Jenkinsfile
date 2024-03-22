@@ -24,25 +24,26 @@ pipeline {
         }
           stage('install') {
             steps {
-                sh 'npm i '
+
+                sh 'cd fitness-app && cd backend && npm i '
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm start'
+                sh 'cd fitness-app && cd backend && npm start'
             }
         }
 
             stage('BuildDocker') {
             steps {
-                sh 'docker build -t fitnessapp.'
+                sh 'cd fitness-app && cd backend && docker build -t fitnessapp.'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test'
+                sh 'cd fitness-app && cd backend && npm test'
             }
             post {
                 success {
