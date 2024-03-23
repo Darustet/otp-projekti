@@ -31,7 +31,7 @@ pipeline {
 
             stage('BuildDocker') {
             steps {
-                sh 'cd fitness-app && cd backend && docker build -t fitnessapp.'
+                sh 'cd fitness-app && cd backend && docker build -t fitnessapp .'
             }
         }
 
