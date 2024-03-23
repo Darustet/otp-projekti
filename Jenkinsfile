@@ -29,12 +29,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sh 'cd fitness-app && cd backend && npm start'
-            }
-        }
-
             stage('BuildDocker') {
             steps {
                 sh 'cd fitness-app && cd backend && docker build -t fitnessapp.'
