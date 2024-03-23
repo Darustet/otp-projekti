@@ -9,7 +9,7 @@ import i18n from "../../i18n/i18n.js";
 
 function Login() {
 	const { t } = i18n;
-	i18n.changeLanguage("fi");
+	i18n.changeLanguage("ja");
 	const [userTag, setUserTag] = useState("");
 	const [password, setPassword] = useState("");
 	const [rememberMe, setRememberMe] = useState(false);
@@ -59,65 +59,63 @@ function Login() {
 	};
 
 	return (
-
-			<div className={styles["login-page"]}>
-				{/* Container for the image */}
-				<div className={styles["login-container"]}>
-					<div className={styles["login-content"]}>
-						<header className={styles["login-header"]}>
-							<img src={logo} alt="Cogie Logo" className={styles["login-logo"]} /> {/* Logo lisätty tähän */}
-							<h1>Welcome</h1>
-							<p>Sign in to FitnessApp</p>
-						</header>
-						<form className={styles["login-form"]} onSubmit={handleSubmit}>
-							<div className={styles["input-group"]}>
-								<label htmlFor="password">Username</label>
-								<input
-									type="text"
-									id="usertag"
-									value={userTag}
-									name="userTag"
-									placeholder=" Enter your username or email"
-									onChange={(e) => setUserTag(e.target.value)}
-								/>
-							</div>
-							<div className={styles["input-group"]}>
-								<label htmlFor="password">Password</label>
-								<input
-									type="password"
-									id="password"
-									name="password"
-									placeholder="Enter your password"
-									value={password}
-									onChange={(e) => setPassword(e.target.value)}
-								/>
-							</div>
-							<div className={styles["form-options"]}>
-								<div className={styles["checkbox-group"]}>
-									<label htmlFor="remember-me">Remember me</label>
-									<input
-										type="checkbox"
-										id="remember-me"
-										name="remember-me"
-										checked={rememberMe}
-										onChange={(e) => setRememberMe(e.target.checked)}
-									/>
-								</div>
-							</div>
-							<button type="submit" className={styles["sign-in-button"]}>
-								Sign In
-							</button>
-						</form>
-						<div className={styles["sign-up-prompt"]}>
-							<span>Don’t have an account? </span>
-							<Link to="/register" className={styles["sign-up-link"]}>
-								Sign Up
-							</Link>
+		<div className={styles["login-page"]}>
+			{/* Container for the image */}
+			<div className={styles["login-container"]}>
+				<div className={styles["login-content"]}>
+					<header className={styles["login-header"]}>
+						<img src={logo} alt="Cogie Logo" className={styles["login-logo"]} /> {/* Logo lisätty tähän */}
+						<h1>{t("welcome")}</h1>
+						<p>{t("Sign in to FitnessApp")}</p>
+					</header>
+					<form className={styles["login-form"]} onSubmit={handleSubmit}>
+						<div className={styles["input-group"]}>
+							<label htmlFor="password">{t("Username")}</label>
+							<input
+								type="text"
+								id="usertag"
+								value={userTag}
+								name="userTag"
+								placeholder={t("Enter your username or email")}
+								onChange={(e) => setUserTag(e.target.value)}
+							/>
 						</div>
+						<div className={styles["input-group"]}>
+							<label htmlFor="password">{t("Password")}</label>
+							<input
+								type="password"
+								id="password"
+								name="password"
+								placeholder={t("Enter your password")}
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+							/>
+						</div>
+						<div className={styles["form-options"]}>
+							<div className={styles["checkbox-group"]}>
+								<label htmlFor="remember-me">{t("Remember me")}</label>
+								<input
+									type="checkbox"
+									id="remember-me"
+									name="remember-me"
+									checked={rememberMe}
+									onChange={(e) => setRememberMe(e.target.checked)}
+								/>
+							</div>
+						</div>
+						<button type="submit" className={styles["sign-in-button"]}>
+							{t("Sign In")}
+						</button>
+					</form>
+					<div className={styles["sign-up-prompt"]}>
+						<span>{t("Don’t have an account?")}</span>
+						<Link to="/register" className={styles["sign-up-link"]}>
+							{t("Sign up")}
+						</Link>
 					</div>
 				</div>
 			</div>
-		
+		</div>
 	);
 }
 

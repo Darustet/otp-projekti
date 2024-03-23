@@ -6,7 +6,7 @@ import i18n from "../../i18n/i18n";
 
 const Register = () => {
   const { t } = i18n;
-  i18n.changeLanguage("fi");
+  i18n.changeLanguage("ja");
 	const [userTag, setUserTag] = useState("");
 	const [email, setUserEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -52,55 +52,56 @@ const Register = () => {
             </div>
             <header className={styles["register-header"]}>
               <h1>{t("register")}</h1>
-              <p>Get started by creating your account</p>
+              
+              <p>{t("Get started by creating your account")}</p>
             </header>
             <form className={styles["register-form"]} onSubmit={handleSubmit}>
               <div className={styles["input-group"]}>
-                <label htmlFor="userTag">Username</label>
+                <label htmlFor="userTag">{t("Username")}</label>
                 <input
                     type="text"
                     id="userTag"
                     value={userTag}
                     name="userTag"
-                    placeholder="Enter your username"
+                    placeholder= {t("Enter your username")}
                     onChange={(e) => setUserTag(e.target.value)}
                 />
               </div>
               <div className={styles["input-group"]}>
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">{t("Email")}</label>
                 <input
                     type="text"
                     id="email"
                     value={email}
                     name="email"
-                    placeholder="Enter your email"
+                    placeholder= {t("Enter your email")}
                     onChange={(e) => setUserEmail(e.target.value)}
                 />
               </div>
               <div className={styles["input-group"]}>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">{t("Password")}</label>
                 <input
                     type="password"
                     id="password"
                     value={password}
                     name="password"
-                    placeholder="Enter your password"
+                    placeholder= {t("Enter your password")}
                     onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className={styles["input-group"]}>
-                <label htmlFor="confirmPassword">Confirm password</label>
+                <label htmlFor="confirmPassword">{t("Confirm password")}</label>
                 <input
                     type="password"
                     id="confirmPassword"
                     value={confirmPassword}
                     name="confirmPassword"
-                    placeholder="Confirm your password"
+                    placeholder= {t("Confirm your password")}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
               <button type="submit" className={styles["register-button"]}>
-                Register
+                {t("register")}
               </button>
             </form>
           </div>

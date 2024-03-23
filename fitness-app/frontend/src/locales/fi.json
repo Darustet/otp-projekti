@@ -1,1 +1,19 @@
-{"register":"Registeröidy"}
+{
+	"register": "Registeröidy",
+	"welcome": "Tervetuloa",
+	"Sign in to FitnessApp": "Kirjaudu sisään FitnessAppiin",
+	"Username": "Käyttäjänimi",
+	"Enter your username or email": "Syötä käyttäjänimesi tai sähköpostisi",
+	"Password": "Salasana",
+	"Enter your password": "Syötä salasanasi",
+	"Remember me": "Muista minut",
+	"Sign In": "Kirjaudu sisään",
+	"Don’t have an account?": "Eikö sinulla ole tiliä?",
+	"Sign up": "Luo tili",
+    "Get started by creating your account": "Aloita luomalla tili",
+    "Confirm your password": "Vahvista salasanasi",
+    "Confirm password": "Vahvista salasana",
+    "Email": "Sähköposti",
+    "Enter your email": "Syötä sähköpostisi"
+
+}

@@ -1,0 +1,19 @@
+{
+    "register": "登録する",
+    "welcome": "ようこそ",
+    "Sign in to FitnessApp": "FitnessAppにサインインする",
+    "Username": "ユーザー名",
+    "Enter your username or email": "ユーザー名またはメールアドレスを入力してください",
+    "Password": "パスワード",
+    "Enter your password": "パスワードを入力してください",
+    "Remember me": "私を覚えてますか",
+    "Sign In": "サインイン",
+    "Don’t have an account?": "アカウントを持っていないのですか？",
+    "Sign up": "サインアップ",
+    "Confirm your password": "パスワードを確認してください",
+    "Confirm password": "パスワードを確認",
+    "Email": "Eメール",
+    "Enter your email": "メールアドレスを入力してください",
+    "Get started by creating your account": "アカウントを作成して開始します"
+
+}
