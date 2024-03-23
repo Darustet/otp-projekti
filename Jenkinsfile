@@ -29,9 +29,9 @@ pipeline {
             }
         }
 
-            stage('BuildDocker') {
+       stage('Build Docker Image') {
             steps {
-                sh 'cd fitness-app && cd backend && docker build -t fitnessapp .'
+                sh "cd fitness-app && cd backend && docker build -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} ."
             }
         }
 
@@ -39,13 +39,15 @@ pipeline {
             steps {
                 sh 'cd fitness-app && cd backend && npm test'
             }
-            post {
-                success {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-
-                    jacoco(execPattern: '**/target/jacoco.exec')
-                }
+          
+        }
+           stage('Push Docker Image to Docker Hub') {
+            steps {
+                
+                sh "cd fitness-app && cd backend && docker login -u ${DOCKERHUB_CREDENTIALS_ID} -p ${DOCKERHUB_PASSWORD}"
+                sh "cd fitness-app && cd backend && docker push ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}"
             }
         }
+        
     }
 }
