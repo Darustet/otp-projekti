@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
 import X_icon from '../../components/Icons/XIcon/X_icon';
+import i18n from "../../i18n/i18n";
 
 
 const Register = () => {
+  const { t } = i18n;
+  i18n.changeLanguage("fi");
 	const [userTag, setUserTag] = useState("");
 	const [email, setUserEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -48,7 +51,7 @@ const Register = () => {
               <X_icon color="black" />
             </div>
             <header className={styles["register-header"]}>
-              <h1>Register</h1>
+              <h1>{t("register")}</h1>
               <p>Get started by creating your account</p>
             </header>
             <form className={styles["register-form"]} onSubmit={handleSubmit}>

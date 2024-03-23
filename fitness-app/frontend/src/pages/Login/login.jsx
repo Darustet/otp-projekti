@@ -5,9 +5,11 @@ import styles from "./Login.module.scss";
 import picture from "../../images/picture.png"; // Import the background image
 import { useAuthContextDispatch } from "../../context/AuthContext.js";
 import logo from "../../images/logo192.png";
-
+import i18n from "../../i18n/i18n.js";
 
 function Login() {
+	const { t } = i18n;
+	i18n.changeLanguage("fi");
 	const [userTag, setUserTag] = useState("");
 	const [password, setPassword] = useState("");
 	const [rememberMe, setRememberMe] = useState(false);
