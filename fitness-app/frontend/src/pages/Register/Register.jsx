@@ -4,9 +4,9 @@ import X_icon from '../../components/Icons/XIcon/X_icon';
 import i18n from "../../i18n/i18n";
 
 
+
 const Register = () => {
   const { t } = i18n;
-  i18n.changeLanguage("ja");
 	const [userTag, setUserTag] = useState("");
 	const [email, setUserEmail] = useState("");
 	const [password, setPassword] = useState("");

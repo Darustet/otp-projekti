@@ -3,6 +3,7 @@ import styles from './TopBar.module.scss';
 import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
 import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
+import LocaleSwitcher from '../../i18n/LocaleSwitcher.jsx';
 
 
 const TopBar = ({ location }) => {
@@ -104,6 +105,7 @@ const TopBar = ({ location }) => {
         <button className={styles.settingsButton} onClick={handleSettingsClick}>
           <SettingsIcon />
         </button>
+        <LocaleSwitcher />
 
         <div className={styles.userSettings}>
           <div className={styles.userDetails}>

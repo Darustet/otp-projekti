@@ -1,6 +1,5 @@
 import "./App.scss";
 import NavBar from "./components/NavBar/NavBar.jsx";
-
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 import UpdateEvent from "./pages/UpdateEvent/UpdateEvent.jsx";
 import Login from "./pages/Login/login.jsx";
@@ -11,8 +10,19 @@ import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
 import Layout from "./pages/Layout/Layout.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useLanguage } from "./context/LanguageContext.js";
+
+import i18n from "./i18n/i18n.js";
+import { useEffect } from "react";
 
 function App() {
+	const { language } = useLanguage();
+	useEffect(() => {
+		const dir = i18n.dir(i18n.language);
+		document.documentElement.dir = dir;
+	 // eslint-disable-next-line react-hooks/exhaustive-deps
+	 }, [language]);
+
 	const { loginState } = useAuthContext();
 	const routeData = [
 		{
@@ -82,8 +92,10 @@ function App() {
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
+				
 					<NavBar />
 					<Routes>{routing(routeData)}</Routes>
+				
 				</NotificationProvider>
 			</BrowserRouter>
 		</div>

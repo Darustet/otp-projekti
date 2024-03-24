@@ -5,6 +5,7 @@ import { useAuthContext } from "../../context/AuthContext";
 import LogoutIcon from "../Icons/LogoutIcon/LogoutIcon";
 import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";
 import HomeIcon from "../Icons/HomeIcon/HomeIcon";
+import LangIcon from "../Icons/LangIcon/LangIcon";
 
 export default function NavBar() {
 	
@@ -15,6 +16,7 @@ export default function NavBar() {
 			<ProfileIcon className={style["profileIcon"]} />
 			<HomeIcon className={style["homeIcon"]} />
 			<LogoutIcon className={style["logout-icon"]} />
+			<LangIcon className={style["lang-icon"]} />
 			{loginState.id ? (
 				<>
 					<Link to="/" className={style["link"]}></Link>

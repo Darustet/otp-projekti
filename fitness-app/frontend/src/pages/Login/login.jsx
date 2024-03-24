@@ -6,10 +6,12 @@ import picture from "../../images/picture.png"; // Import the background image
 import { useAuthContextDispatch } from "../../context/AuthContext.js";
 import logo from "../../images/logo192.png";
 import i18n from "../../i18n/i18n.js";
+import { useLanguage } from "../../context/LanguageContext.js";
 
 function Login() {
+	const { language, setLanguage } = useLanguage();
+
 	const { t } = i18n;
-	i18n.changeLanguage("ja");
 	const [userTag, setUserTag] = useState("");
 	const [password, setPassword] = useState("");
 	const [rememberMe, setRememberMe] = useState(false);
@@ -67,7 +69,9 @@ function Login() {
 						<img src={logo} alt="Cogie Logo" className={styles["login-logo"]} /> {/* Logo lisätty tähän */}
 						<h1>{t("welcome")}</h1>
 						<p>{t("Sign in to FitnessApp")}</p>
+						<button onClick={() => {setLanguage("ar")}}>English</button>
 					</header>
+				
 					<form className={styles["login-form"]} onSubmit={handleSubmit}>
 						<div className={styles["input-group"]}>
 							<label htmlFor="password">{t("Username")}</label>
