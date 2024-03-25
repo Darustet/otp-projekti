@@ -25,5 +25,7 @@
 	"Enter event category": "Введите категорию события",
 	"Tags": "Теги",
 	"Location": "Местоположение",
-	"Enter event location": "Введите местоположение события"
+	"Enter event location": "Введите местоположение события",
+    "Enter your username": "Введите имя пользователя",
+	"Press Enter to add tags": "Press Enter to add tags"
 }

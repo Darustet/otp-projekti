@@ -110,7 +110,8 @@ const CreateEvent = () => {
                         />
 
                         <div className={formGroupStyle}>
-                            <label htmlFor={t("event-tags")}>{t("Tags:")}</label>
+                            <label htmlFor="event-tags">{t("Tags:")}</label>
+
                             <InputTag tags={tags} setTags={setTags} />
                         </div>
 
