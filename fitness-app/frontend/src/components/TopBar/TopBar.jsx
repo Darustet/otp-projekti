@@ -1,7 +1,7 @@
 // TopBar.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './TopBar.module.scss';
-//import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
+import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
 import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
 //import SVGIcon from '../Icons/SVGIcon';
@@ -100,10 +100,10 @@ const TopBar = ({ location }) => {
           <input type="text" placeholder="Search" className={styles.searchInput} />
         </div>
 
-        {/*<button className={styles.settingsButton}
+        <button className={styles.settingsButton}
                  onClick={handleSettingsClick}>
           <SettingsIcon/>
-        </button>*/}
+        </button>
 
         <div className={styles.userSettings}>
           <div className={styles.userDetails}>

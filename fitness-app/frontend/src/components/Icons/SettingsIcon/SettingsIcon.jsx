@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './SettingsIcon.module.scss';
+import styles from '../Icons.module.scss';
 
 export default function SettingsIcon() {
     const navigate = useNavigate();
