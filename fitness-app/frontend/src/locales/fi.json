@@ -28,5 +28,7 @@
 	"Location": "Sijainti",
 	"Enter event location": "Anna tapahtuman sijainti",
 	"Save Changes": "Tallenna muutokset",
-	"Cancel": "Peruuta"
+	"Cancel": "Peruuta",
+	"Enter your username": "Syötä käyttäjänimi",
+	"Press Enter to add tags": "Paina enter lisätäksesi avainsana"
 }

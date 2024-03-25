@@ -15,6 +15,8 @@
 	"Confirm password": "Confirm password",
 	"Email": "Email",
 	"Enter your email": "Enter your email",
+	"Enter your username": "Enter your username",
+	"Press Enter to add tags": "Press Enter to add tags",
 	"Title": "Title",
 	"Create Event": "Create Event",
 	"Enter event title": "Enter event title",
@@ -30,5 +32,5 @@
 	"Save Changes": "Save Changes",
 	"Cancel": "Cancel",
 	"Bio": "Bio"
-
+	
 }
