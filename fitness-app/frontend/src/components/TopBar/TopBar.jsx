@@ -1,12 +1,17 @@
-// TopBar.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './TopBar.module.scss';
 import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
 import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
 //import SVGIcon from '../Icons/SVGIcon';
+import LocaleSwitcher from '../../i18n/LocaleSwitcher.jsx';
+
+import i18n from '../../i18n/i18n';
+
+
 
 const TopBar = ({ location }) => {
+  const { t } = i18n;
   const [profileData, setProfileData] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const [updatedProfileData, setUpdatedProfileData] = useState({});
@@ -93,6 +98,7 @@ const TopBar = ({ location }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
       <div className={styles.topBar}>
         <p className={styles.header}>{location}</p>
@@ -104,6 +110,7 @@ const TopBar = ({ location }) => {
                  onClick={handleSettingsClick}>
           <SettingsIcon/>
         </button>
+        <LocaleSwitcher />
 
         <div className={styles.userSettings}>
           <div className={styles.userDetails}>
@@ -125,14 +132,14 @@ const TopBar = ({ location }) => {
                       name="userTag"
                       value={updatedProfileData.userTag || ''}
                       onChange={handleInputChange}
-                      placeholder="Username"
+                      placeholder= {t("Username")}
                   />
                   <input
                       type="text"
                       name="bio"
                       value={updatedProfileData.bio || ''}
                       onChange={handleInputChange}
-                      placeholder="Bio"
+                      placeholder= {t("Bio")}
                   />
                   <input
                       type="file"
@@ -141,8 +148,8 @@ const TopBar = ({ location }) => {
                       accept="image/*"
                   />
                   <div>
-                    <button onClick={handleSaveChanges}>Save Changes</button>
-                    <button onClick={handleCancel}>Cancel</button>
+                    <button onClick={handleSaveChanges}>{t("Save Changes")}</button>
+                    <button onClick={handleCancel}>{t("Cancel")}</button>
                   </div>
                 </div>
               </div>

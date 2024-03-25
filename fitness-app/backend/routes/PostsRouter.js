@@ -9,9 +9,13 @@ router.get("/", PostController.getAllPosts);
 //Get posts by host
 router.get("/me",authenticateToken,  PostController.getPostsByHost);
 
+//Leave a post
+router.delete("/leave/:id",authenticateToken, PostController.leavePost);
+
+
 
 //Get posts for the homepage feed - assuming it's similar to getting all posts
-
+router.get("/participant",authenticateToken, PostController.getPostsByParticipant);
 //Get a single post by ID
 router.get("/:id", PostController.getPostById);
 
@@ -21,6 +25,12 @@ router.get("/:id", PostController.getPostById);
 
 //Create a new post
 router.post("/",authenticateToken, PostController.createPost);
+
+//Get posts by participant
+
+
+//Join a post
+router.put("/join/:id",authenticateToken, PostController.joinPost);
 
 //Update a post
 router.patch("/:id", PostController.updatePost);

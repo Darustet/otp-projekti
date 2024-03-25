@@ -6,13 +6,13 @@ import { useState, useEffect} from 'react';
 import styles from "./Feed.module.scss";
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import NavBar from '../../components/NavBar/NavBar';
+import i18n from "../../i18n/i18n";
+
 
 
 const NotificationFeed = () => {
-
-  const [list, setList] = useState(null);
-  //const [event, setEvent] = useState(null);
-
+  const { t } = i18n;
+  const [list, setList] = useState([]);
 
 	// Fetches all events and puts them in a list
 	useEffect(() => {
@@ -30,9 +30,6 @@ const NotificationFeed = () => {
 		fetchData();
 	}, []);
 
-  // Fetches a single event by id and puts in a const
-  // For testing so currently no functionality to choose id
-  // If used, also uncomment const [event, setEvent]
   // First goes through the JSON list of events and
   // creates NotificationCards for each of them
   return (
@@ -47,10 +44,8 @@ const NotificationFeed = () => {
           {event && <NotificationCard key={event._id} event={event}/>}
           </div>
         ))}
-        {/* For fetch by id testing:
-        {event && <NotificationCard key={event._id} event={event}/>}*/}
-        </div>
       </div>
+    </div>
     </>
   );
 };

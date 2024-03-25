@@ -1,4 +1,5 @@
 import "./App.scss";
+import NavBar from "./components/NavBar/NavBar.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./pages/Layout/Layout.jsx";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
@@ -9,8 +10,18 @@ import Register from "./pages/Register/Register.jsx";
 import Feed from "./pages/Feed/Feed.jsx";
 import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
+import Layout from "./pages/Layout/Layout.jsx";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useLanguage } from "./context/LanguageContext.js";
+import i18n from "./i18n/i18n.js";
+import { useEffect } from "react";
 
 export default function App() {
+    const { language } = useLanguage();
+    useEffect(() => {
+        const dir = i18n.dir(i18n.language);
+        document.documentElement.dir = dir;
+    }, [language]);
 	const { loginState } = useAuthContext();
 	const routeData = [
 		{
@@ -83,6 +94,7 @@ export default function App() {
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
+					<NavBar />
 					<Routes>{routing(routeData)}</Routes>
 				</NotificationProvider>
 			</BrowserRouter>

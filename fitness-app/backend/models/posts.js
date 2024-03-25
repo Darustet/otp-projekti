@@ -49,8 +49,6 @@ const postSchema = new mongoose.Schema(
 			type: Array,
 			default: [],
 		},
-		// Any additional fields you need for the sports day event
-		// ...
 	},
 	{ timestamps: true }
 );

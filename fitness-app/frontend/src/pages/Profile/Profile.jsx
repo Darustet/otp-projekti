@@ -26,7 +26,6 @@ export default function Profile() {
                         Authorization: `${loginState.token}`,
                     },
                 });
-                // const res = await fetch("http://localhost:4000/api/users/me");
                 const data = await res.json();
                 setProfileData(data);
             } catch (error) {
@@ -45,16 +44,6 @@ export default function Profile() {
                 });
                 const userPosts = await res.json();
                 setPosts(userPosts);
-                // Converting posts to events by adding necessary fields
-                // const events = userPosts.map((post) => ({
-                //     _id: post._id,
-                //     title: post.title,
-                //     description: post.description,
-                //     location: post.location,
-                //     start: post.start, // Assuming each post has a 'date' field
-                //     // You may need to adjust the date field according to your post structure
-                // }));
-                // setPosts(events);
             } catch (error) {
                 console.error("Error fetching posts:", error);
             }
@@ -64,33 +53,36 @@ export default function Profile() {
         fetchPosts();
     }, []);
 
-	return (
-		<>
-        <div className={styles.container}>
-            <NavBar />
-			{profileData && <>
-                <TopBar />
-                <Calendar />
-                <div className={styles.profileInfo}>
-                    <img src={profileData.avatar || logo} alt="Avatar" className={styles.avatar} />
-                    <div>
-                        <h1 className={styles.username}>@{profileData.userTag}</h1>
-                        <p className={styles.bio}>{profileData.bio}</p>
-                    </div>
+    return (
+        <>
+            <TopBar location={"Profile"} />
+            <div className={styles.container}>
+                <NavBar />
+                <div className={styles.layout}>
+                {profileData && <>
+                        <Calendar />
+                        <div className={styles.profileInfo}>
+                            <img src={profileData.avatar || logo} alt="Avatar" className={styles.avatar} />
+                            {/*post event icon*/}
+                            <div>
+                                <h1 className={styles.username}>@{profileData.userTag}</h1>
+                                <p className={styles.bio}>{profileData.bio}</p>
+                            </div>
+                        </div>
+                    </>
+                }
+                <h2 className={styles.heading}>Your Posts</h2>
+                <div className={styles.eventsContainer}>
+                    {posts.map((event) =>
+                        <NotificationCard event={event} source={"profile"} />
+                    )}
                 </div>
-				</>
-			}
-			<h2 className={styles.heading}>Your Posts</h2>
-			<div className={styles.eventsContainer}>
-				{posts && posts.map((event) =>
-                    <NotificationCard event={event} source={"profile"} />
-				)}
-			</div>
-            <SVGIcon type="navigate" navUrl="/create-event"
-                     styleClass="post-icon"
-                     pathD="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"
-            />
-		</div>
+                <SVGIcon type="nagivate" navUrl="/create-event"
+                         styleClass="post-icon"
+                         pathD="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"
+                         />
+                </div>
+            </div>
         </>
 	);
 };

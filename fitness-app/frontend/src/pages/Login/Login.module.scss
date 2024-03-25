@@ -1,8 +1,7 @@
-// Login.module.scss
 .login-page {
 	display: flex;
 	min-height: 100vh;
-	background: var(--clr-primary-500); // Change as per your design
+	background: var(--clr-primary-500); 
 
   
 	.image-container {
@@ -16,9 +15,8 @@
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
-	  padding: 50px; // Adjust as necessary
-	  background: var(--clr-accent-300); // Change as per your design
-	  // ... rest of your styles for the login-container
+	  padding: 50px; 
+	  background: var(--clr-accent-300); 
 	}
 
 .login-container {
@@ -26,7 +24,7 @@
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	background-color: #f0f0f2; // Adjust the background color as needed
+	background-color: #f0f0f2; 
   }
   
   .login-content {
@@ -53,9 +51,8 @@
 	  }
 	}
 	.login-logo {
-		width: 50px; // Säädä tämä koko sopivaksi
+		width: 50px; 
 		height: auto; // Automaattinen korkeus säilyttää kuvan mittasuhteen
-		// Lisää tarvittaessa muita tyylejä
 	  }
 	  
   
