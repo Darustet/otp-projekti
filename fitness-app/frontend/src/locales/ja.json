@@ -26,6 +26,8 @@
     "Enter event category": "イベントのカテゴリーを入力してください",
     "Tags": "タグ",
     "Location": "場所",
-    "Enter event location": "イベントの場所を入力してください"
+    "Enter event location": "イベントの場所を入力してください",
+    "Save Changes": "変更を保存",
+	"Cancel": "キャンセル"
 
 }

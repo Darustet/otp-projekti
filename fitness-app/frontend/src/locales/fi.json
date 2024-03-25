@@ -26,5 +26,7 @@
 	"Enter event category": "Anna tapahtuman kategoria",
 	"Tags": "Tagit",
 	"Location": "Sijainti",
-	"Enter event location": "Anna tapahtuman sijainti"
+	"Enter event location": "Anna tapahtuman sijainti",
+	"Save Changes": "Tallenna muutokset",
+	"Cancel": "Peruuta"
 }

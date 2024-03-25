@@ -26,5 +26,7 @@
 	"Enter event category": "Ange händelsekategori",
 	"Tags": "Taggar",
 	"Location": "Plats",
-	"Enter event location": "Ange händelseplats"
+	"Enter event location": "Ange händelseplats",
+    "Save Changes": "Spara ändringar",
+	"Cancel": "Avbryt"
 }
