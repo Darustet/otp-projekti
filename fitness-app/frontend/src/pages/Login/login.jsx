@@ -69,9 +69,8 @@ function Login() {
 						<img src={logo} alt="Cogie Logo" className={styles["login-logo"]} /> {/* Logo lisätty tähän */}
 						<h1>{t("welcome")}</h1>
 						<p>{t("Sign in to FitnessApp")}</p>
-						<button onClick={() => {setLanguage("ru")}}>English</button>
 					</header>
-				
+
 					<form className={styles["login-form"]} onSubmit={handleSubmit}>
 						<div className={styles["input-group"]}>
 							<label htmlFor="password">{t("Username")}</label>

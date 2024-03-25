@@ -30,5 +30,11 @@
 	"Save Changes": "Tallenna muutokset",
 	"Cancel": "Peruuta",
 	"Enter your username": "Syötä käyttäjänimi",
-	"Press Enter to add tags": "Paina enter lisätäksesi avainsana"
+	"Press Enter to add tags": "Paina enter lisätäksesi avainsana",
+	"Your Posts": "Sinun julkaisut",
+	"Profile": "Profiili",
+	"Feed": "Fiidi",
+	"Participate": "Osallistu",
+	"Edit": "Muokkaa",
+	"Cancel participation": "Peru osallistuminen"
 }

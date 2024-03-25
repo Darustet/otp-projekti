@@ -3,6 +3,7 @@ import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll
 import { useCallback, useEffect, useMemo, useState } from "react";
 import style from "./Calendar.module.scss";
 import { useAuthContext } from "../../context/AuthContext.js";
+import { useLanguage } from "../../context/LanguageContext.js";
 
 const calenderSettings = {
 	locale: localeFi,
@@ -11,8 +12,10 @@ const calenderSettings = {
 };
 
 const Calendar = () => {
+	const { language } = useLanguage();
 	const [myEvents, setEvents] = useState([]),
 	
+
 		[isToastOpen, setToastOpen] = useState(false),
 		[toastMessage, setToastMessage] = useState(),
 		[themeChecked, setThemeChecked] = useState(false);
@@ -104,6 +107,7 @@ const Calendar = () => {
 						   eventDelete={false}
 						   data={myEvents}
 						   view={myView}
+						   locale={"ar"}
 						   onEventClick={handleEventClick}
 						   onEventDelete={handleEventLeave} 
 			/>

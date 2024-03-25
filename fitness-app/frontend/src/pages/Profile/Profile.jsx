@@ -7,8 +7,13 @@ import logo from "../../images/logo192.png";
 import { useAuthContext } from "../../context/AuthContext.js";
 import NavBar from "../../components/NavBar/NavBar.jsx";
 import { NotificationCard } from "../../components/NotificationCard/NotificationCard";
+import { useLanguage } from "../../context/LanguageContext.js";
+import i18n from "../../i18n/i18n.js";
 
 const Profile = () => {
+    const { language, setLanguage } = useLanguage();
+
+	const { t } = i18n;
     const { loginState } = useAuthContext();
     const [profileData, setProfileData] = useState([]);
     const [posts, setPosts] = useState([]);
@@ -52,7 +57,7 @@ const Profile = () => {
 
     return (
         <>
-            <TopBar location = {"Profile"} />
+            <TopBar location = {t("Profile")} />
             <div className={styles.container}>
             
             <div className={styles.layout}>
@@ -70,7 +75,7 @@ const Profile = () => {
                         </div>
                     </>
                 )}
-                <h2 className={styles.heading}>Your Posts</h2>
+                <h2 className={styles.heading}>{t("Your Posts")}</h2>
                 <div className={styles.eventsContainer}>
                     {posts.map((event) => (
                         (<NotificationCard event={event} source={"profile"} />)
