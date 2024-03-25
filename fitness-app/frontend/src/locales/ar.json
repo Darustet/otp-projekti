@@ -16,5 +16,17 @@
 	"Email": "البريد الإلكتروني",
 	"Enter your email": "أدخل بريدك الإلكتروني",
 	"Enter your username": "أدخل اسم المستخدم الخاص بك",
-	"Press Enter to add tags": "Press Enter to add tags"
+	"Press Enter to add tags": "Press Enter to add tags",
+    "Title": "العنوان",
+    "Create Event": "إنشاء حدث",
+    "Enter event title": "أدخل عنوان الحدث",
+    "Description": "الوصف",
+    "Enter event description": "أدخل وصف الحدث",
+    "Start Date": "تاريخ البداية",
+    "End Date": "تاريخ الانتهاء",
+    "Category": "الفئة",
+    "Enter event category": "أدخل فئة الحدث",
+    "Tags": "العلامات",
+    "Location": "الموقع",
+    "Enter event location": "أدخل موقع الحدث"
 }

@@ -5,10 +5,12 @@ import {NotificationCard} from "../../components/NotificationCard/NotificationCa
 import { useState, useEffect} from 'react';
 import styles from "./Feed.module.scss";
 import TopBar from "../../components/TopBar/TopBar.jsx";
+import i18n from "../../i18n/i18n";
 
 
 
 const NotificationFeed = () => {
+  const { t } = i18n;
   const [list, setList] = useState([]);
 
 	// Fetches all events and puts them in a list

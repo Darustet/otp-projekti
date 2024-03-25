@@ -17,7 +17,18 @@
 	"Enter your email": "Enter your email",
 	"Enter your username": "Enter your username",
 	"Press Enter to add tags": "Press Enter to add tags",
-	"Tags:":"Tags: place"
+	"Title": "Title",
+	"Create Event": "Create Event",
+	"Enter event title": "Enter event title",
+	"Description": "Description",
+	"Enter event description": "Enter event description",
+	"Start Date": "Start Date",
+	"End Date": "End Date",
+	"Category": "Category",
+	"Enter event category": "Enter event category",
+	"Tags": "Tags",
+	"Location": "Location",
+	"Enter event location": "Enter event location"
 }
 
 

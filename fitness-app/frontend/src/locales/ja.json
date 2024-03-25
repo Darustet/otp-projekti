@@ -16,6 +16,18 @@
     "Enter your email": "メールアドレスを入力してください",
     "Get started by creating your account": "アカウントを作成して開始します",
 	"Enter your username": "ユーザー名を入力して下さい",
-	"Press Enter to add tags": "Press Enter to add tags"
+	"Press Enter to add tags": "Press Enter to add tags",
+    "Title": "タイトル",
+    "Create Event": "イベントを作成する",
+    "Enter event title": "イベントのタイトルを入力してください",
+    "Description": "説明",
+    "Enter event description": "イベントの説明を入力してください",
+    "Start Date": "開始日",
+    "End Date": "終了日",
+    "Category": "カテゴリー",
+    "Enter event category": "イベントのカテゴリーを入力してください",
+    "Tags": "タグ",
+    "Location": "場所",
+    "Enter event location": "イベントの場所を入力してください"
 
 }

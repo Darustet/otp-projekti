@@ -6,6 +6,7 @@ import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import style from './NotificationCard.module.scss';
 
+
 export const NotificationCard = ({event, source}) => {
   const [isShowMore, setIsShowMore] = useState(true);
   const toggleReadMore = () => setIsShowMore(show => !show);
@@ -68,7 +69,7 @@ const joinEvent = async () => {
   };
 
   function checkButton() {
-    {if (source==="profile") {
+    if (source==="profile") {
       return (event && 
         <Link to={{ pathname: '/update-event' }} state=  {{ event }} style={{ color: 'inherit', textDecoration: 'inherit'}}>
           <button className={style.button}>Muokkaa</button>
@@ -78,7 +79,7 @@ const joinEvent = async () => {
       return (
       <button onClick={handleClick} className={style.button}>{buttonText}</button>
       );
-    }}
+  }
   };
 
 
