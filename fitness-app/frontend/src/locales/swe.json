@@ -26,5 +26,7 @@
 	"Enter event category": "Ange händelsekategori",
 	"Tags": "Taggar",
 	"Location": "Plats",
-	"Enter event location": "Ange händelseplats"
+	"Enter event location": "Ange händelseplats",
+	"Press Enter to add tags": "Tryck på enter för att lägga till taggar",
+	"Enter your username": "Skriv in ditt användarnamn"
 }
