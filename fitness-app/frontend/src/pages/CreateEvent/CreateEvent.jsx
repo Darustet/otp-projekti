@@ -2,14 +2,25 @@ import "./CreateEvent.scss";
 import '../../components/InputTag/InputTag.module.scss';
 import InputTag from "../../components/InputTag/InputTag";
 import FormTextElement from '../../components/FormTextElement';
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import NavBar from '../../components/NavBar/NavBar';
+import i18n from "../../i18n/i18n.js";
+import { useLanguage } from "../../context/LanguageContext.js";
+
 
 const CreateEvent = () => {
+  
+    const { language } = useLanguage();
+    useEffect(() => {
+		const dir = i18n.dir(i18n.language);
+		document.documentElement.dir = dir;
+	 // eslint-disable-next-line react-hooks/exhaustive-deps
+	 }, [language]);
 
+	const { t } = i18n;
     const navigate = useNavigate();
     const [tags, setTags] = useState([]);
     const { loginState } = useAuthContext();
@@ -62,56 +73,56 @@ const CreateEvent = () => {
                 <div className="create-event-content">
                     <header className="create-event-header">
                         <img src={logo} alt="Logo" className="create-event-logo"/>
-                        <h1>Create Event</h1>
+                        <h1>{t("Create Event")}</h1>
                     </header>
                     <form className="create-event-form" onSubmit={handleSubmit}>
                         <FormTextElement className={formGroupStyle}
-                                         innerText="Title" id="eventName"
-                                         name="eventName" placeholder="Enter event name"
+                                         innerText={t("Title")} id="eventName"
+                                         name="eventName" placeholder={t("Enter event title")}
                                          stateValue={eventName} handlerFunction={setEventName} />
 
                         <div className={formGroupStyle}>
-                            <label htmlFor="event-description">Description:</label>
+                            <label htmlFor="event-description">{t("Description")}:</label>
                             <textarea cols={40} rows={5} id="event-description"
                                       value={description}
-                                      name="description"
-                                      placeholder="Enter event description"
+                                      name= {t("description")}
+                                      placeholder= {t("Enter event description")}
                                       onChange={e=>setDescription(e.target.value)}
                             />
                         </div>
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText="Start Date" id="event-start"
+                                         innerText= {t("Start Date")} id="event-start"
                                          name="start" inputType="date"
                                          stateValue={start} handlerFunction={setStart}/>
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText="End Date" id="event-end"
+                                         innerText={t("End Date" )}id="event-end"
                                          name="end" inputType="date"
                                          stateValue={end} handlerFunction={setEnd}
                         />
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText="Category" id="event-category"
+                                         innerText= {t("Category" )}id="event-category"
                                          name="category"
-                                         placeholder="Enter event category"
+                                         placeholder= {t("Enter event category")}
                                          stateValue={category} handlerFunction={setCategory}
                         />
 
                         <div className={formGroupStyle}>
-                            <label htmlFor="event-tags">Tags:</label>
+                            <label htmlFor={t("event-tags")}>{t("Tags:")}</label>
                             <InputTag tags={tags} setTags={setTags} />
                         </div>
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText="Location" id="event-location"
+                                         innerText={t("Location")} id="event-location"
                                          name="location"
-                                         placeholder="Enter event location"
+                                         placeholder= {t("Enter event location")}
                                          stateValue={location} handlerFunction={setLocation}
                         />
 
                         <button type="submit" className="create-event-button">
-                            Create Event
+                            {t("Create Event")}
                         </button>
                     </form>
                 </div>

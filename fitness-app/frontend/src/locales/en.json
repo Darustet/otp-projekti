@@ -14,7 +14,21 @@
     "Get started by creating your account": "Get started by creating your account",
 	"Confirm password": "Confirm password",
 	"Email": "Email",
-	"Enter your email": "Enter your email"
+	"Enter your email": "Enter your email",
+	"Title": "Title",
+	"Create Event": "Create Event",
+	"Enter event title": "Enter event title",
+	"Description": "Description",
+	"Enter event description": "Enter event description",
+	"Start Date": "Start Date",
+	"End Date": "End Date",
+	"Category": "Category",
+	"Enter event category": "Enter event category",
+	"Tags": "Tags",
+	"Location": "Location",
+	"Enter event location": "Enter event location"
+
+	
 }
 
 

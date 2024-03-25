@@ -10,10 +10,21 @@
 	"Sign In": "Kirjaudu sisään",
 	"Don’t have an account?": "Eikö sinulla ole tiliä?",
 	"Sign up": "Luo tili",
-    "Get started by creating your account": "Aloita luomalla tili",
-    "Confirm your password": "Vahvista salasanasi",
-    "Confirm password": "Vahvista salasana",
-    "Email": "Sähköposti",
-    "Enter your email": "Syötä sähköpostisi"
-
+	"Get started by creating your account": "Aloita luomalla tili",
+	"Confirm your password": "Vahvista salasanasi",
+	"Confirm password": "Vahvista salasana",
+	"Email": "Sähköposti",
+	"Enter your email": "Syötä sähköpostisi",
+	"Title": "Otsikko",
+	"Create Event": "Luo Tapahtuma",
+	"Enter event title": "Anna tapahtuman otsikko",
+	"Description": "Kuvaus",
+	"Enter event description": "Anna tapahtuman kuvaus",
+	"Start Date": "Alkamispäivä",
+	"End Date": "Päättymispäivä",
+	"Category": "Kategoria",
+	"Enter event category": "Anna tapahtuman kategoria",
+	"Tags": "Tagit",
+	"Location": "Sijainti",
+	"Enter event location": "Anna tapahtuman sijainti"
 }

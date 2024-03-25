@@ -14,5 +14,17 @@
 	"Get started by creating your account": "ابدأ بإنشاء حسابك",
 	"Confirm password": "تأكيد كلمة المرور",
 	"Email": "البريد الإلكتروني",
-	"Enter your email": "أدخل بريدك الإلكتروني"
+	"Enter your email": "أدخل بريدك الإلكتروني",
+    "Title": "العنوان",
+    "Create Event": "إنشاء حدث",
+    "Enter event title": "أدخل عنوان الحدث",
+    "Description": "الوصف",
+    "Enter event description": "أدخل وصف الحدث",
+    "Start Date": "تاريخ البداية",
+    "End Date": "تاريخ الانتهاء",
+    "Category": "الفئة",
+    "Enter event category": "أدخل فئة الحدث",
+    "Tags": "العلامات",
+    "Location": "الموقع",
+    "Enter event location": "أدخل موقع الحدث"
 }
