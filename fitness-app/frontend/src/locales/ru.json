@@ -13,5 +13,7 @@
     "Confirm your password": "Подтвердите ваш пароль",
     "Confirm password": "Подтвердить пароль",
     "Email": "Электронная почта",
-    "Enter your email": "Введите вашу электронную почту"
+    "Enter your email": "Введите вашу электронную почту",
+	"Enter your username": "Введите имя пользователя",
+	"Press Enter to add tags": "Press Enter to add tags"
 }

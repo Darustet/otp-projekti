@@ -14,6 +14,8 @@
     "Confirm your password": "Vahvista salasanasi",
     "Confirm password": "Vahvista salasana",
     "Email": "Sähköposti",
-    "Enter your email": "Syötä sähköpostisi"
+    "Enter your email": "Syötä sähköpostisi",
+	"Enter your username": "Syötä käyttäjänimi",
+	"Press Enter to add tags": "Paina enter lisätäksesi avainsana"
 
 }

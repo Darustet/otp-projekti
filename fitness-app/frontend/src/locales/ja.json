@@ -14,6 +14,8 @@
     "Confirm password": "パスワードを確認",
     "Email": "Eメール",
     "Enter your email": "メールアドレスを入力してください",
-    "Get started by creating your account": "アカウントを作成して開始します"
+    "Get started by creating your account": "アカウントを作成して開始します",
+	"Enter your username": "ユーザー名を入力して下さい",
+	"Press Enter to add tags": "Press Enter to add tags"
 
 }

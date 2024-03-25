@@ -7,8 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import NavBar from '../../components/NavBar/NavBar';
+import i18n from "../../i18n/i18n";
+
 
 const CreateEvent = () => {
+    const { t } = i18n;
 
     const navigate = useNavigate();
     const [tags, setTags] = useState([]);
@@ -62,7 +65,7 @@ const CreateEvent = () => {
                 <div className="create-event-content">
                     <header className="create-event-header">
                         <img src={logo} alt="Logo" className="create-event-logo"/>
-                        <h1>Create Event</h1>
+                        <h1>{t("Create Event")}</h1>
                     </header>
                     <form className="create-event-form" onSubmit={handleSubmit}>
                         <FormTextElement className={formGroupStyle}
@@ -99,7 +102,7 @@ const CreateEvent = () => {
                         />
 
                         <div className={formGroupStyle}>
-                            <label htmlFor="event-tags">Tags:</label>
+                            <label htmlFor="event-tags">{t("Tags:")}</label>
                             <InputTag tags={tags} setTags={setTags} />
                         </div>
 
