@@ -7,6 +7,9 @@ import { useNavigate,useLocation } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import NavBar from '../../components/NavBar/NavBar';
+import i18n from "../../i18n/i18n.js";
+import { useLanguage } from "../../context/LanguageContext.js";
+
 
 function formatDate(dateString) {
     const date = new Date(dateString);
@@ -25,6 +28,15 @@ function formatDate(dateString) {
 
 const UpdateEvent = ({state}) => {
 
+    const { language } = useLanguage();
+    useEffect(() => {
+		const dir = i18n.dir(i18n.language);
+		document.documentElement.dir = dir;
+	 // eslint-disable-next-line react-hooks/exhaustive-deps
+	 }, [language]);
+
+	const { t } = i18n;
+
     const navigate = useNavigate();
     const [tags, setTags] = useState([]);
     const { loginState } = useAuthContext();
@@ -37,19 +49,19 @@ const UpdateEvent = ({state}) => {
     const [description, setDescription] = useState('');
 
     const location = useLocation()
-  const { event } = location.state
+    const { event } = location.state
     console.log(event);
     console.log("event: " + JSON.stringify(event));
 
-useEffect(() => {
-    setEnd(formatDate(event.end));
-setStart(formatDate(event.start));
-setEventName(event.title);
-setEventLocation(event.location);
-setCategory(event.categories[0]);
-setTags(event.tags);
-setDescription(event.description);
-}, [event]);
+    useEffect(() => {
+        setEnd(formatDate(event.end));
+        setStart(formatDate(event.start));
+        setEventName(event.title);
+        setEventLocation(event.location);
+        setCategory(event.categories[0]);
+        setTags(event.tags);
+        setDescription(event.description);
+    }, [event]);
 
 
 
@@ -76,7 +88,7 @@ setDescription(event.description);
                 },
                 body: JSON.stringify(eventData),
             });
-console.log(eventData);
+            console.log(eventData);
             if (response.ok) {
                 console.log('Event updated successfully');
                 navigate('/');
@@ -95,56 +107,56 @@ console.log(eventData);
                 <div className="update-event-content">
                     <header className="update-event-header">
                         <img src={logo} alt="Logo" className="update-event-logo"/>
-                        <h1>Update Event {event.title}</h1>
+                        <h1>{t("Create Event")} {event.title}</h1>
                     </header>
                     <form className="update-event-form" onSubmit={handleSubmit}>
                         <FormTextElement className={formGroupStyle}
-                                         innerText="Title" id="eventName"
-                                         name="eventName" placeholder="Enter event name"
+                                         innerText= {t("Title")} id="eventName"
+                                         name="eventName" placeholder={t("Enter event title")}
                                          stateValue={eventName} handlerFunction={setEventName} />
 
                         <div className={formGroupStyle}>
-                            <label htmlFor="event-description">Description:</label>
+                            <label htmlFor="event-description">{t("Description")}</label>
                             <textarea cols={40} rows={5} id="event-description"
                                       value={description}
-                                      name="description"
-                                      placeholder="Enter event description"
+                                      name= {t("description")}
+                                      placeholder={t("Enter event description")}
                                       onChange={e=>setDescription(e.target.value)}
                             >{event.description}</textarea>
                         </div>
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText="Start Date" id="event-start"
+                                         innerText= {t("Start Date")} id="event-start"
                                          name="start" inputType="date"
                                          stateValue={start} handlerFunction={setStart}/>
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText="End Date" id="event-end"
+                                         innerText= {t("End Date" )} id="event-end"
                                          name="end" inputType="date"
                                          stateValue={end} handlerFunction={setEnd}
                         />
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText="Category" id="event-category"
+                                         innerText={t("Category" )} id="event-category"
                                          name="category"
-                                         placeholder="Enter event category"
+                                         placeholder={t("Enter event category")}
                                          stateValue={category} handlerFunction={setCategory}
                         />
 
                         <div className={formGroupStyle}>
-                            <label htmlFor="event-tags">Tags:</label>
+                            <label htmlFor="event-tags">{t("Tags:")}</label>
                             <InputTag tags={tags} setTags={setTags} />
                         </div>
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText="Location" id="event-location"
+                                         innerText={t("Location")} id="event-location"
                                          name="location"
-                                         placeholder="Enter event location"
+                                         placeholder={t("Enter event location")}
                                          stateValue={eventLocation} handlerFunction={setEventLocation}
                         />
 
                         <button type="submit" className="update-event-button">
-                            Update Event
+                        {t("Create Event")}
                         </button>
                     </form>
                 </div>
