@@ -9,21 +9,13 @@ $input-border-radius: 8px;
 	background-color: rgb(240, 242, 242);
     align-items: center;
     justify-content: center;
-	display: "flex";
-	flex-direction: "column";
+	display: flex;
+	flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 90px;
     border-radius: 30px;
-	width: 58vw;
-    left: -17%;
 
 }
-
-
-
-
-
-
 
 // .layout {
 // 	width: 60vw;

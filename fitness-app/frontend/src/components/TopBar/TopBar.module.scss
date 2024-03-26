@@ -15,11 +15,14 @@
     font-size: 25px;
   }
 
+	.searchContainer {
+		width: fit-content;
+	}
 	.searchContainer .searchInput {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 20px;
-    width: 200%; /* Responsive width */
+    width: 100%; /* Responsive width */
     max-width: 600px; /* Optional: to prevent it from getting too long */
     box-sizing: border-box;
 }

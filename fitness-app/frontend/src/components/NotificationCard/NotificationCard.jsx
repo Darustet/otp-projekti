@@ -2,10 +2,9 @@ import React, { useState, useEffect} from 'react';
 import { ellipsis } from 'polished';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
-import { useAuthContext } from "../../context/AuthContext"; 
+import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import style from './NotificationCard.module.scss';
-
 
 export const NotificationCard = ({event, source}) => {
   const [isShowMore, setIsShowMore] = useState(true);
@@ -109,8 +108,6 @@ const joinEvent = async () => {
   );
 };
 
-
-
 const DescriptionText = styled.div`
   font-size: 14px;
   margin-top: 20px;
@@ -125,4 +122,3 @@ const ShowMoreText = styled.div`
   margin-bottom: 5px;
   text-decoration: underline;
 `;
-

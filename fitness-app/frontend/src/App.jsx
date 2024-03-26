@@ -10,8 +10,6 @@ import Register from "./pages/Register/Register.jsx";
 import Feed from "./pages/Feed/Feed.jsx";
 import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
-import Layout from "./pages/Layout/Layout.jsx";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useLanguage } from "./context/LanguageContext.js";
 import i18n from "./i18n/i18n.js";
 import { useEffect } from "react";

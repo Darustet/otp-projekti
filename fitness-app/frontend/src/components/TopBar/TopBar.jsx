@@ -5,10 +5,7 @@ import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
 //import SVGIcon from '../Icons/SVGIcon';
 import LocaleSwitcher from '../../i18n/LocaleSwitcher.jsx';
-
 import i18n from '../../i18n/i18n';
-
-
 
 const TopBar = ({ location }) => {
   const { t } = i18n;
