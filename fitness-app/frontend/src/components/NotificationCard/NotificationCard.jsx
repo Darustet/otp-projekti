@@ -95,10 +95,10 @@ const joinEvent = async () => {
           <span className={style.headerText}>{date}, {event.location}</span>
         </div>
         <div className={style.content}>
-          <DescriptionText> {isShowMore ? (event?.description || "").slice(0, 50) : event.description} </DescriptionText>
+          <DescriptionText>  {isShowMore ? (event?.description || "").slice(0, 50) : event.description} </DescriptionText>
           {event.description && event.description.length > 50 && (
             <ShowMoreText onClick={toggleReadMore}>
-              {isShowMore ? "Show more..." : "Show less"}
+              {isShowMore ? t("Show more...") : t("Show less...")}
             </ShowMoreText>
           )}
         </div>

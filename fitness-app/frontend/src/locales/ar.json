@@ -36,6 +36,9 @@
 	"Feed": "التغذية",
 	"Participate": "المشاركة",
 	"Edit": "تعديل",
-	"Cancel participation":"إلغاء المشاركة"
+	"Cancel participation":"إلغاء المشاركة",
+	"Show more...": "عرض المزيد...",
+	"Show less...": "عرض أقل...",
+	"Search" : "بحث"
 
 }

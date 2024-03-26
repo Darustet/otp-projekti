@@ -36,7 +36,10 @@
     "Feed" : "フィード",
     "Participate": "参加する",
     "Edit": "編集",
-    "Cancel participation": "参加をキャンセル"
+    "Cancel participation": "参加をキャンセル",
+    "Show more...": "もっと見る...",
+    "Show less...": "もっと少なく表示...",
+    "Search" : "検索"
 
 
 }
