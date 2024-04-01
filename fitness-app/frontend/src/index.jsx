@@ -9,11 +9,9 @@ root.render(
 	<React.StrictMode>
 		<AuthContextProvider>
 			<LanguageProvider>
-			
-			<React.Suspense fallback={<div>Loading...</div>}>
-				<App />
-
-			</React.Suspense>
+				<React.Suspense fallback={<div>Loading...</div>}>
+					<App />
+				</React.Suspense>
 			</LanguageProvider>
 		</AuthContextProvider>
 	</React.StrictMode>
