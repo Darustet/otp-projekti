@@ -26,66 +26,61 @@ export default function App() {
 			name: "Feed",
 			url: "/",
 			idFound: <Feed />,
-			idFailed: <Navigate to="/login"/>
+			idFailed: <Navigate to="/login" />,
 		},
 		{
 			name: "Login",
 			url: "/login",
-			idFound: <Navigate to="/"/>,
-			idFailed: <Login />
+			idFound: <Navigate to="/" />,
+			idFailed: <Login />,
 		},
 		{
 			name: "Create Event",
 			url: "/create-event",
 			idFound: <CreateEvent />,
-			idFailed: <Navigate to="/login"/>
+			idFailed: <Navigate to="/login" />,
 		},
 		{
 			name: "Update Event",
 			url: "/update-event",
 			idFound: <UpdateEvent />,
-			idFailed: <Navigate to="/login"/>
+			idFailed: <Navigate to="/login" />,
 		},
 		{
 			name: "Profile",
 			url: "/profile",
 			idFound: <Profile />,
-			idFailed: <Navigate to="/login"/>
+			idFailed: <Navigate to="/login" />,
 		},
 		{
 			name: "Register",
 			url: "/register",
-			idFound: <Navigate to="/"/>,
-			idFailed: <Register />
+			idFound: <Navigate to="/" />,
+			idFailed: <Register />,
 		},
 		{
 			url: "/layout",
 			isSimple: true,
-			component: <Layout />
+			component: <Layout />,
 		},
 		{
 			url: "*",
 			isSimple: true,
 			component: <div style={{width: "100%", margin: "32px 33%"}}>
-				<h1>€404 Page not found</h1>
+				<h1>€404 Page not found</h1>,
 				<a href="/">Return to home</a>
 			</div>
-		}
+		},
 	];
 
 	function routing(data) {
 		return data.map((item, index) => {
-				if(item.isSimple) {
-					return <Route key={index}
-								  exact path={item.url}
-								  element={item.component}/>
-				} else {
-					return <Route key={index}
-								  exact path={item.url}
-								  element={loginState.id ? item.idFound : item.idFailed}/>
-				}
+			if (item.isSimple) {
+				return <Route key={index} exact path={item.url} element={item.component} />
+			} else {
+				return <Route key={index} exact path={item.url} element={loginState.id ? item.idFound : item.idFailed} />
 			}
-		)
+        })
 	}
 
 	return (

@@ -1,18 +1,24 @@
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
-import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
+import { Eventcalendar, setOptions, Toast, locale, getJson } from "@mobiscroll/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import style from "./Calendar.module.scss";
 import { useAuthContext } from "../../context/AuthContext.js";
+import { useLanguage } from "../../context/LanguageContext.js";
 
 const calenderSettings = {
-	locale: localeFi,
+	locale: locale,
 	theme: "ios",
 	themeVariant: "light",
 };
 setOptions(calenderSettings)
 
 const Calendar = () => {
+
+	const { language } = useLanguage();
+	console.log(language);
 	const [myEvents, setEvents] = useState([]),
+
+
 		[isToastOpen, setToastOpen] = useState(false),
 		[toastMessage, setToastMessage] = useState(),
 		[themeChecked, setThemeChecked] = useState(false);
@@ -38,21 +44,21 @@ const Calendar = () => {
 	const handleLeaveEvent = useCallback((eventId) => {
 		// Perform the necessary logic to leave the event
 		// This could involve sending a request to your server to update the database
-
+		
 		// For demonstration purposes, let's assume myEvents is an array of events
 		// You need to update this array to remove the event with the specified eventId
 		const updatedEvents = myEvents.filter(event => event.id !== eventId);
-
+		
 		// Update the state with the updated events
 		setEvents(updatedEvents);
 	}, [myEvents]);
-
+	
 	// Add an event handler to handle leaving events
 	const handleEventLeave = useCallback((args) => {
 		const eventId = args.event.id;
 		handleLeaveEvent(eventId);
 	}, [handleLeaveEvent]);
-
+	
 
 	function handleThemeChange() {
 		setThemeChecked(!themeChecked);
@@ -72,7 +78,7 @@ const Calendar = () => {
 					"Authorization": loginState.token,
 					"Content-Type": "application/json",
 				},
-			})
+			})	
 
 
 
@@ -104,8 +110,9 @@ const Calendar = () => {
 						   eventDelete={false}
 						   data={myEvents}
 						   view={myView}
+						   locale={locale[language]}
 						   onEventClick={handleEventClick}
-						   onEventDelete={handleEventLeave}
+						   onEventDelete={handleEventLeave} 
 			/>
 			<Toast message={toastMessage} isOpen={isToastOpen}
 				   onClose={handleToastClose}/>

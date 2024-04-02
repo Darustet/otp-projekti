@@ -5,16 +5,18 @@ import styled from 'styled-components';
 import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import style from './NotificationCard.module.scss';
+import i18n from '../../i18n/i18n';
 
 export const NotificationCard = ({event, source}) => {
   const [isShowMore, setIsShowMore] = useState(true);
   const toggleReadMore = () => setIsShowMore(show => !show);
   const { loginState } = useAuthContext();
-  const [buttonText, setButtonText] = useState('Osallistu');
+  const [buttonText, setButtonText] = useState(i18n.t('Participate'));
+  const { t } = i18n;
   const shortDate = event.start.substring(0, 10);
   const [year, month, day] =  shortDate.split('-');
   const date = `${day}.${month}.${year}`;
-
+  
 
 const joinEvent = async () => {
     try {
@@ -58,12 +60,12 @@ const joinEvent = async () => {
 
 
   const handleClick = () => {
-    if (buttonText === 'Osallistu') {
+    if (buttonText === 'Participate') {
       joinEvent();
-      setButtonText('Peru osallistuminen');
+      setButtonText('Cancel participation');
     } else {
       leaveEvent();
-      setButtonText('Osallistu');
+      setButtonText('Participate');
     }
   };
 
@@ -71,16 +73,15 @@ const joinEvent = async () => {
     if (source==="profile") {
       return (event &&
         <Link to={{ pathname: '/update-event' }} state={{ event }} style={{color: 'inherit', textDecoration: 'inherit'}}>
-          <button className={style.button}>Muokkaa</button>
+          <button className={style.button}>{t("Edit")}</button>
         </Link>
       );
     } else {
       return (
-      <button onClick={handleClick} className={style.button}>{buttonText}</button>
+      <button onClick={handleClick} className={style.button}>{t(buttonText)}</button>
       );
     }
-  }
-
+    }
 
   return (
     <div key={event._id} className={style.wrapper}>
@@ -93,10 +94,10 @@ const joinEvent = async () => {
           <span className={style.headerText}>{date}, {event.location}</span>
         </div>
         <div className={style.content}>
-          <DescriptionText> {isShowMore ? (event?.description || "").slice(0, 50) : event.description} </DescriptionText>
+          <DescriptionText>  {isShowMore ? (event?.description || "").slice(0, 50) : event.description} </DescriptionText>
           {event.description && event.description.length > 50 && (
             <ShowMoreText onClick={toggleReadMore}>
-              {isShowMore ? "Show more..." : "Show less"}
+              {isShowMore ? t("Show more...") : t("Show less...")}
             </ShowMoreText>
           )}
         </div>

@@ -5,7 +5,7 @@ import styles from "./LocaleSwitcher.module.scss";
 import { useState } from "react";
 import SVGIcon from '../components/Icons/SVGIcon';
 
-export default function LocaleSwitcher() {
+export default function LocaleSwitcher({ size= 24 , location = { top: 60}}) {
 	const { setLanguage } = useLanguage();
 	const { i18n } = useTranslation();
     const [open, setOpen] = useState(false);

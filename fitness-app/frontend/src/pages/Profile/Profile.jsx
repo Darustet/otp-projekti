@@ -8,13 +8,17 @@ import logo from "../../images/logo192.png";
 import { useAuthContext } from "../../context/AuthContext.js";
 import NavBar from "../../components/NavBar/NavBar.jsx";
 import { NotificationCard } from "../../components/NotificationCard/NotificationCard";
+import { useLanguage } from "../../context/LanguageContext.js";
+import i18n from "../../i18n/i18n.js";
 import SVGIcon from '../../components/Icons/SVGIcon';
 
 export default function Profile() {
-    const { loginState } = useAuthContext(),
-        [profileData, setProfileData] = useState(null),
+    const {language, setLanguage} = useLanguage(),
+        {t} = i18n,
+        { loginState } = useAuthContext(),
+        [profileData, setProfileData] = useState([]),
         [posts, setPosts] = useState([]),
-        navigate = useNavigate();
+        navigate = useNavigate()
 
     useEffect(() => {
         const fetchProfileData = async () => {
@@ -55,7 +59,7 @@ export default function Profile() {
 
     return (
         <>
-            <TopBar location={"Profile"} />
+            <TopBar location={t("Profile")} />
             <div className={styles.container}>
                 <NavBar />
                 <div className={styles.layout}>
@@ -71,7 +75,7 @@ export default function Profile() {
                         </div>
                     </>
                 }
-                <h2 className={styles.heading}>Your Posts</h2>
+                <h2 className={styles.heading}>{t("Your Posts")}</h2>
                 <div className={styles.eventsContainer}>
                     {posts.map((event) =>
                         <NotificationCard event={event} source={"profile"} />
@@ -84,5 +88,5 @@ export default function Profile() {
                 </div>
             </div>
         </>
-	);
+    );
 };

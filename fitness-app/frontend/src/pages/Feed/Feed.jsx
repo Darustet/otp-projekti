@@ -7,6 +7,7 @@ import styles from "./Feed.module.scss";
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import NavBar from '../../components/NavBar/NavBar';
 import i18n from "../../i18n/i18n";
+import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
 
 
 
@@ -34,8 +35,9 @@ const NotificationFeed = () => {
   // creates NotificationCards for each of them
   return (
     <>
-        <TopBar location={"Feed"} />
+        <TopBar location={t("Feed")} />
         <Calendar />
+    <PostEventIcon />
         <NavBar />
         <div className={styles["container"]}>
           <div className={styles["layout"]}>
@@ -43,7 +45,7 @@ const NotificationFeed = () => {
           <div>
           {event && <NotificationCard key={event._id} event={event}/>}
           </div>
-        ))}
+        ))}        
       </div>
     </div>
     </>

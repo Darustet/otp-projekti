@@ -30,5 +30,15 @@
     "Location": "الموقع",
     "Enter event location": "أدخل موقع الحدث",
     "Save Changes": "حفظ التغييرات",
-	"Cancel": "إلغاء"
+	"Cancel": "إلغاء",
+	"Your Posts": "مشاركاتك",
+	"Profile": "الملف الشخصي",
+	"Feed": "التغذية",
+	"Participate": "المشاركة",
+	"Edit": "تعديل",
+	"Cancel participation":"إلغاء المشاركة",
+	"Show more...": "عرض المزيد...",
+	"Show less...": "عرض أقل...",
+	"Search" : "بحث"
+
 }
