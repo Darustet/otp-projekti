@@ -33,7 +33,7 @@ const NotificationFeed = () => {
   // creates NotificationCards for each of them
   return (
     <>
-    <TopBar location = {"Feed"} />
+    <TopBar location = {t("Feed")} />
     <Calendar />
     <div className= {styles["container"]}>
       <div className= {styles["layout"]}>
