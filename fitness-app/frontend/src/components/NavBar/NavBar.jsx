@@ -6,6 +6,7 @@ import LogoutIcon from "../Icons/LogoutIcon/LogoutIcon";
 import ProfileIcon from "../Icons/ProfileIcon/ProfileIcon";
 import HomeIcon from "../Icons/HomeIcon/HomeIcon";
 import LangIcon from "../Icons/LangIcon/LangIcon";
+import LocaleSwitcher from "../../i18n/LocaleSwitcher";
 
 export default function NavBar() {
 	
@@ -16,7 +17,7 @@ export default function NavBar() {
 			<ProfileIcon className={style["profileIcon"]} />
 			<HomeIcon className={style["homeIcon"]} />
 			<LogoutIcon className={style["logout-icon"]} />
-			<LangIcon className={style["lang-icon"]} />
+			<LocaleSwitcher size={40} location={{top:700}}/>
 			{loginState.id ? (
 				<>
 					<Link to="/" className={style["link"]}></Link>

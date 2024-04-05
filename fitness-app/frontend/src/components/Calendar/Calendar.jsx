@@ -1,18 +1,23 @@
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
-import { Eventcalendar, setOptions, Toast, localeFi, getJson } from "@mobiscroll/react";
+import { Eventcalendar, setOptions, Toast, locale, getJson } from "@mobiscroll/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import style from "./Calendar.module.scss";
 import { useAuthContext } from "../../context/AuthContext.js";
+import { useLanguage } from "../../context/LanguageContext.js";
 
 const calenderSettings = {
-	locale: localeFi,
+	locale: locale,
 	theme: "ios",
 	themeVariant: "light",
 };
 
 const Calendar = () => {
+
+	const { language } = useLanguage();
+	console.log(language);
 	const [myEvents, setEvents] = useState([]),
 	
+
 		[isToastOpen, setToastOpen] = useState(false),
 		[toastMessage, setToastMessage] = useState(),
 		[themeChecked, setThemeChecked] = useState(false);
@@ -94,8 +99,6 @@ const Calendar = () => {
 
 	return (
 		<aside className= {style["main-aside"]}>
-				{/*<button onClick={handleThemeChange}>
-				{themeChecked ? "Light" : "Dark"}</button>*/}
 			<Eventcalendar className="eventcalendar"
 						   clickToCreate={false}
 						   dragToCreate={false}
@@ -104,6 +107,7 @@ const Calendar = () => {
 						   eventDelete={false}
 						   data={myEvents}
 						   view={myView}
+						   locale={locale[language]}
 						   onEventClick={handleEventClick}
 						   onEventDelete={handleEventLeave} 
 			/>

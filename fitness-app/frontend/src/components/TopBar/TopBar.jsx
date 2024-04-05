@@ -5,8 +5,12 @@ import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
 import LocaleSwitcher from '../../i18n/LocaleSwitcher.jsx';
 
+import i18n from '../../i18n/i18n';
+
+
 
 const TopBar = ({ location }) => {
+  const { t } = i18n;
   const [profileData, setProfileData] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const [updatedProfileData, setUpdatedProfileData] = useState({});
@@ -99,7 +103,7 @@ const TopBar = ({ location }) => {
       <div className={styles.topBar}>
         <p className={styles.header}>{location}</p>
         <div className={styles.searchContainer}>
-          <input type="text" placeholder="Search" className={styles.searchInput} />
+          <input type="text" placeholder= {t("Search" )} className={styles.searchInput} />
         </div>
 
         <button className={styles.settingsButton} onClick={handleSettingsClick}>
@@ -127,14 +131,14 @@ const TopBar = ({ location }) => {
                       name="userTag"
                       value={updatedProfileData.userTag || ''}
                       onChange={handleInputChange}
-                      placeholder="Username"
+                      placeholder= {t("Username")}
                   />
                   <input
                       type="text"
                       name="bio"
                       value={updatedProfileData.bio || ''}
                       onChange={handleInputChange}
-                      placeholder="Bio"
+                      placeholder= {t("Bio")}
                   />
                   <input
                       type="file"
@@ -143,8 +147,8 @@ const TopBar = ({ location }) => {
                       accept="image/*"
                   />
                   <div>
-                    <button onClick={handleSaveChanges}>Save Changes</button>
-                    <button onClick={handleCancel}>Cancel</button>
+                    <button onClick={handleSaveChanges}>{t("Save Changes")}</button>
+                    <button onClick={handleCancel}>{t("Cancel")}</button>
                   </div>
                 </div>
               </div>

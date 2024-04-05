@@ -28,6 +28,18 @@
     "Enter event category": "イベントのカテゴリーを入力してください",
     "Tags": "タグ",
     "Location": "場所",
-    "Enter event location": "イベントの場所を入力してください"
+    "Enter event location": "イベントの場所を入力してください",
+    "Save Changes": "変更を保存",
+	"Cancel": "キャンセル",
+    "Your Posts": "あなたの投稿",
+    "Profile": "プロフィール",
+    "Feed" : "フィード",
+    "Participate": "参加する",
+    "Edit": "編集",
+    "Cancel participation": "参加をキャンセル",
+    "Show more...": "もっと見る...",
+    "Show less...": "もっと少なく表示...",
+    "Search" : "検索"
+
 
 }

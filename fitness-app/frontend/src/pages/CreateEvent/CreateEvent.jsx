@@ -8,18 +8,10 @@ import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import NavBar from '../../components/NavBar/NavBar';
 import i18n from "../../i18n/i18n.js";
-import { useLanguage } from "../../context/LanguageContext.js";
+
 
 
 const CreateEvent = () => {
-  
-    const { language } = useLanguage();
-    useEffect(() => {
-		const dir = i18n.dir(i18n.language);
-		document.documentElement.dir = dir;
-	 // eslint-disable-next-line react-hooks/exhaustive-deps
-	 }, [language]);
-
 	const { t } = i18n;
     const navigate = useNavigate();
     const [tags, setTags] = useState([]);

@@ -11,7 +11,7 @@
 	"Don’t have an account?": "Don’t have an account?",
 	"Sign up": "Sign up",
 	"Confirm your password": "Confirm your password",
-    "Get started by creating your account": "Get started by creating your account",
+	"Get started by creating your account": "Get started by creating your account",
 	"Confirm password": "Confirm password",
 	"Email": "Email",
 	"Enter your email": "Enter your email",
@@ -28,9 +28,20 @@
 	"Enter event category": "Enter event category",
 	"Tags": "Tags",
 	"Location": "Location",
-	"Enter event location": "Enter event location"
+	"Enter event location": "Enter event location",
+	"Save Changes": "Save Changes",
+	"Cancel": "Cancel",
+	"Bio": "Bio",
+	"Your Posts": "Your Posts",
+	"Profile": "Profile",
+	"Feed": "Feed",
+	"Participate": "Participate",
+	"Edit": "Edit",
+	"Cancel participation": "Cancel participation",
+	"Show more...": "Show more...",
+	"Show less...": "Show less...",
+	"Search" : "Search"
+	
+
+	
 }
-
-
-
-
