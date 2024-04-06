@@ -109,7 +109,7 @@ const TopBar = ({ location }) => {
         <button className={styles.settingsButton} onClick={handleSettingsClick}>
           <SettingsIcon />
         </button>
-        <LocaleSwitcher />
+        
 
         <div className={styles.userSettings}>
           <div className={styles.userDetails}>

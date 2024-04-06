@@ -65,6 +65,10 @@
 
       .input-group {
         margin-bottom: 1rem;
+        min-width: 100%;
+        margin-top: 15px;
+       
+
 
         label {
           display: block;
@@ -73,12 +77,24 @@
           margin-bottom: 0.5rem;
         }
 
+        .password {
+          width: 100%;
+          font-size: 1rem;
+          border-radius: 20px;  
+         
+       
+          &::placeholder {
+            color: #aaa;
+          }
+        }
+
         input {
           width: 100%;
           padding: 1rem 0.5rem;
           font-size: 1rem;
-          border-radius: 20px;
+          border-radius: 20px;  
           border: 1px solid #ddd;
+       
           &::placeholder {
             color: #aaa;
           }

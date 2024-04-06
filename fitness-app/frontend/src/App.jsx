@@ -12,9 +12,17 @@ import Layout from "./pages/Layout/Layout.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useLanguage } from "./context/LanguageContext.js";
 import i18n from "./i18n/i18n.js";
-import { useEffect } from "react";
+import { useEffect,useRef } from "react";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import { PrimeReactProvider } from "primereact/api";
+import { Toast } from 'primereact/toast';
+
+
+	
 
 function App() {
+	const toastTR = useRef(null);
+	const toastTC = useRef(null);
 	const { language } = useLanguage();
 	useEffect(() => {
 		const dir = i18n.dir(i18n.language);
@@ -34,18 +42,19 @@ function App() {
 			name: "Login",
 			url: "/login",
 			idFound: <Navigate to="/" />,
-			idFailed: <Login />,
+			idFailed: <Login toastTR={toastTR} toastTC={toastTC}/>,
+
 		},
 		{
 			name: "Create Event",
 			url: "/create-event",
-			idFound: <CreateEvent />,
+			idFound: <CreateEvent toastTC={toastTC} />,
 			idFailed: <Navigate to="/login" />,
 		},
 		{
 			name: "Update Event",
 			url: "/update-event",
-			idFound: <UpdateEvent />,
+			idFound: <UpdateEvent toastTC={toastTC} />,
 			idFailed: <Navigate to="/login" />,
 		},
 		{
@@ -58,7 +67,7 @@ function App() {
 			name: "Register",
 			url: "/register",
 			idFound: <Navigate to="/" />,
-			idFailed: <Register />,
+			idFailed: <Register toastTR={toastTR} toastTC={toastTC} />,
 		},
 		{
 			url: "/layout",
@@ -83,6 +92,9 @@ function App() {
 	}
 
 	return (
+<PrimeReactProvider value={{ unstyled: false }}>
+<Toast ref={toastTC} position="top-center" /> 
+<Toast ref={toastTR} position="top-right" /> 
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
@@ -91,6 +103,7 @@ function App() {
 				</NotificationProvider>
 			</BrowserRouter>
 		</div>
+		</PrimeReactProvider>
 	);
 }
 
