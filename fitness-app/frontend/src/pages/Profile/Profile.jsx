@@ -63,7 +63,6 @@ const Profile = () => {
             <div className={styles.layout}>
                 {profileData && (
                     <>
-                        <NavBar />
                         <Calendar />
                         <div className={styles.profileInfo}>
                             <img src={profileData.avatar || logo} alt="Avatar" className={styles.avatar} />

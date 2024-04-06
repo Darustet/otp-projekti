@@ -1,5 +1,6 @@
 import "./App.scss";
-import NavBar from "./components/NavBar/NavBar.jsx";
+import NavBar from "./components/NavBar/newBar.jsx";
+
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 import UpdateEvent from "./pages/UpdateEvent/UpdateEvent.jsx";
 import Login from "./pages/Login/login.jsx";
@@ -16,6 +17,7 @@ import { useEffect,useRef } from "react";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { PrimeReactProvider } from "primereact/api";
 import { Toast } from 'primereact/toast';
+
 
 
 	
