@@ -17,14 +17,15 @@ export default function BasicDemo() {
 			label: "Home",
 			icon: () => <HomeIcon className={style["homeIcon"]} />,
 		},
-		{
-			label: "Logout",
-			icon: () => <LogoutIcon className={style["logout-icon"]} />,
-		},
+		
 		{
 			label: "Language",
 			icon: () => <LocaleSwitcher size={40} location={{ top: 50 }} />,
 		},
+        {
+            label: "Logout",
+            icon: () => <LogoutIcon className={style["logout-icon"]} />,
+        },
 	];
 	return (
 	
