@@ -6,6 +6,7 @@ import { useState, useEffect} from 'react';
 import styles from "./Feed.module.scss";
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import i18n from "../../i18n/i18n";
+import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
 
 
 
@@ -35,6 +36,8 @@ const NotificationFeed = () => {
     <>
     <TopBar location = {t("Feed")} />
     <Calendar />
+    <PostEventIcon />
+    
     <div className= {styles["container"]}>
       <div className= {styles["layout"]}>
         {list && Array.isArray(list) && list.map((event) => (
@@ -44,7 +47,10 @@ const NotificationFeed = () => {
         ))}        
       </div>
     </div>
+  
     </>
+   
+
   );
 };
 

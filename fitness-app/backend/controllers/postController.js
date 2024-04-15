@@ -3,7 +3,7 @@ const Post = require("../models/posts");
 
 const PostController = {
   createPost: async (req, res) => {
-    const { title, description, start, end, start_time, end_time, location, categories, images, tags } = req.body;
+    const { title, description, start, end, location, categories, images, tags } = req.body;
     const host = req.account; 
     const newPost = new Post({
       title,
