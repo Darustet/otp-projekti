@@ -8,6 +8,7 @@ import HomeIcon from "../Icons/HomeIcon/HomeIcon";
 import LangIcon from "../Icons/LangIcon/LangIcon";
 import LocaleSwitcher from "../../i18n/LocaleSwitcher";
 
+
 export default function NavBar() {
 	
 	const { loginState } = useAuthContext();

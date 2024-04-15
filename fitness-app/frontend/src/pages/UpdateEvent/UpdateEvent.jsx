@@ -26,7 +26,7 @@ function formatDate(dateString) {
 }
 
 
-const UpdateEvent = ({state}) => {
+const UpdateEvent = ({state, toastTC}) => {
 
     const { language } = useLanguage();
     useEffect(() => {
@@ -39,6 +39,7 @@ const UpdateEvent = ({state}) => {
 
     const navigate = useNavigate();
     const [tags, setTags] = useState([]);
+
     const { loginState } = useAuthContext();
     const [eventName, setEventName] = useState('');
     const [eventLocation, setEventLocation] = useState('');
@@ -90,12 +91,15 @@ const UpdateEvent = ({state}) => {
             });
             console.log(eventData);
             if (response.ok) {
+                toastTC.current.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
                 console.log('Event updated successfully');
                 navigate('/');
             } else {
+                toastTC.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
                 console.error('Failed to update event');
             }
         } catch (error) {
+            toastTC.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
             console.error('Error creating event:', error);
         }
     };
