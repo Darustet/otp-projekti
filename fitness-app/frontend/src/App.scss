@@ -59,20 +59,19 @@
     --color-utility-on-error: #fff;
 }
 
-*,
-*::before,
+*, *::before,
 *::after {
     box-sizing: border-box;
 }
 
-#root {
+/*#root {
     position: absolute;
     width: 100%;
     height: 100%;
     inset: 0;
     display: flex;
     flex-direction: column;
-}
+}*/
 
 body {
     margin: 0;
@@ -82,6 +81,20 @@ body {
     line-height: 1.5;
     color: var(--clr-secondary-600);
     //background-color: var(--color-secondary)
+}
+
+.app {
+    /*display: flex;
+    flex-direction: row;
+    justify-content: space-between;*/
+    margin-top: 16px;
+
+}
+
+#page-middle {
+    width: -webkit-fill-available;
+    //display: flex;
+    //flex-direction: column;
 }
 
 .shifted-header {

@@ -1,6 +1,7 @@
 import "./App.scss";
-import NavBar from "./components/NavBar/NavBar.jsx";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar.jsx";
 import Layout from "./pages/Layout/Layout.jsx";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 import UpdateEvent from "./pages/UpdateEvent/UpdateEvent.jsx";
@@ -12,7 +13,7 @@ import { NotificationProvider } from "./NotificationsData/Notification";
 import { useAuthContext } from "./context/AuthContext.js";
 import { useLanguage } from "./context/LanguageContext.js";
 import i18n from "./i18n/i18n.js";
-import { useEffect } from "react";
+import Calendar from './components/Calendar/Calendar';
 
 export default function App() {
     const { language } = useLanguage();
@@ -75,20 +76,22 @@ export default function App() {
 
 	function routing(data) {
 		return data.map((item, index) => {
-			if (item.isSimple) {
-				return <Route key={index} exact path={item.url} element={item.component} />
-			} else {
-				return <Route key={index} exact path={item.url} element={loginState.id ? item.idFound : item.idFailed} />
-			}
-        })
-	}
+            if (item.isSimple) return <Route key={index} exact path={item.url}
+											 element={item.component}/>
+			else return <Route key={index} exact path={item.url}
+							   element={loginState.id ? item.idFound : item.idFailed}/>;
+		})
+    }
 
 	return (
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
-					<NavBar />
-					<Routes>{routing(routeData)}</Routes>
+					<NavBar/>
+					<div id="page-middle">
+						<Routes>{routing(routeData)}</Routes>
+					</div>
+					{loginState.id && <Calendar />}
 				</NotificationProvider>
 			</BrowserRouter>
 		</div>
