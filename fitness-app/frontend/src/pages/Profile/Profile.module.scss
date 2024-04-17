@@ -4,15 +4,15 @@ $input-border-radius: 8px;
 
 
 .layout {
-	width: 60vw;
-    left: 13vw;
+	//width: 60vw;
+    //left: 13vw;
 	background-color: rgb(240, 242, 242);
     align-items: center;
     justify-content: center;
 	display: flex;
 	flex-direction: column;
-    position: absolute;
-    top: 90px;
+    //position: absolute;
+    //top: 90px;
     border-radius: 30px;
 
 }
@@ -31,14 +31,14 @@ $input-border-radius: 8px;
 
 
 .container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-content: flex-start;
+	//display: flex;
+	//flex-direction: column;
+	//justify-content: center;
+	//align-content: flex-start;
 	background-color: rgb(255, 255, 255);
     position: relative;
 	max-width: 800px;
-	margin: 0 auto;
+	margin: 77px 35vw 8px 158px;
 	padding: 20px;
 	font-family: "Arial", sans-serif;
     
@@ -100,9 +100,6 @@ $input-border-radius: 8px;
 	outline: none;
 	cursor: pointer;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	
-	
-
 
 	// Overwrite previous margin definition if needed
 	margin: 0;

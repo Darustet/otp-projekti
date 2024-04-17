@@ -6,10 +6,7 @@ import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
-import NavBar from '../../components/NavBar/NavBar';
 import i18n from "../../i18n/i18n.js";
-
-
 
 const CreateEvent = () => {
 	const { t } = i18n;
@@ -109,8 +106,7 @@ const CreateEvent = () => {
 
                         <FormTextElement className={formGroupStyle}
                                          innerText={t("Location")} id="event-location"
-                                         name="location"
-                                         placeholder= {t("Enter event location")}
+                                         name="location" placeholder= {t("Enter event location")}
                                          stateValue={location} handlerFunction={setLocation}
                         />
 

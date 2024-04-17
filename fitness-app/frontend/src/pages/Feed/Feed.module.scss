@@ -9,13 +9,15 @@
 }
 
 .container {
-  position: absolute;
-  top: 90px;
-  left: 13vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: flex-start;
+  //position: absolute;
+  //top: 90px;
+  //left: 13vw;
+  //display: flex;
+  margin: 77px 35vw 8px 158px;
+  padding: 20px;
+  //flex-direction: column;
+  //justify-content: center;
+  //align-content: flex-start;
   background-color: rgb(255, 255, 255);
   border-radius: 30px;
 }

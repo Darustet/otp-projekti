@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate,useLocation } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
-import NavBar from '../../components/NavBar/NavBar';
+//import NavBar from '../../components/NavBar/NavBar';
 import i18n from "../../i18n/i18n.js";
 import { useLanguage } from "../../context/LanguageContext.js";
 
