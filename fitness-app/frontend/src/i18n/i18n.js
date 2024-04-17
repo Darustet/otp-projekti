@@ -24,7 +24,7 @@ i18n.use(initReactI18next).init({
 		escapeValue: false,
 	},
 
-    lng : "ja",
+    //lng : "ja",
     supportedLngs: Object.keys(supportedLngs),
     resources: {
         fi: {

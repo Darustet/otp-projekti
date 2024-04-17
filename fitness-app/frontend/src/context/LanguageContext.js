@@ -3,7 +3,7 @@ import i18n from '../i18n/i18n';
 
 // Define the initial state
 const initialState = {
-  language: 'ja' // Default language is English
+  language: 'en' // Default language is English
 };
 
 // Define action types
