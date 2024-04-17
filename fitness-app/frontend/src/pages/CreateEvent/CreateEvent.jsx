@@ -8,7 +8,7 @@ import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import i18n from "../../i18n/i18n.js";
 
-const CreateEvent = () => {
+const CreateEvent = ({toastTC}) => {
 	const { t } = i18n;
     const navigate = useNavigate();
     const [tags, setTags] = useState([]);
@@ -45,12 +45,16 @@ const CreateEvent = () => {
             });
 
             if (response.ok) {
+                toastTC.current.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
                 console.log('Event created successfully');
                 navigate('/');
             } else {
+                toastTC.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
+
                 console.error('Failed to create event');
             }
         } catch (error) {
+            toastTC.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
             console.error('Error creating event:', error);
         }
     };

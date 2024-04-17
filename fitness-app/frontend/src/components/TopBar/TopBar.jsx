@@ -107,7 +107,7 @@ const TopBar = ({ location }) => {
                  onClick={handleSettingsClick}>
           <SettingsIcon/>
         </button>
-        <LocaleSwitcher />
+        
 
         <div className={styles.userSettings}>
           <div className={styles.userDetails}>

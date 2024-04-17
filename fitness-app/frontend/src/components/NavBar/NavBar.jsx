@@ -9,6 +9,7 @@ import logoutIcon from './LogoutIcon.svg';
 import SVGImg from '../Icons/SVGImg';
 import LocaleSwitcher from '../../i18n/LocaleSwitcher';
 
+
 export default function NavBar() {
 
 	const { loginState } = useAuthContext(),

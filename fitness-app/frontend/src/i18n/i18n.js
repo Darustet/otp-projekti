@@ -4,7 +4,6 @@ import en from "../locales/en.json";
 import fi from "../locales/fi.json";
 import ru from "../locales/ru.json";
 import ja from "../locales/ja.json";
-import ar from "../locales/ar.json";
 import swe from "../locales/swe.json";
 
 export const supportedLngs = {
@@ -12,7 +11,6 @@ export const supportedLngs = {
     ja: "Japanese (日本語)",
     ru: "Russian (Русский)",
     fi: "Finnish (Suomi)",
-    ar: "Arabic (العربية)",
     swe: "Swedish (Svenska)"
 
   };
@@ -42,9 +40,6 @@ i18n.use(initReactI18next).init({
             translation: ja,
         },
 
-        ar:{
-            translation: ar,
-        },
 
         swe:{
             translation: swe,

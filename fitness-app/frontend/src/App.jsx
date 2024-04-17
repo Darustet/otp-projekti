@@ -1,5 +1,6 @@
 import "./App.scss";
-import { useEffect } from "react";
+import NavBar from "./components/NavBar/newBar.jsx";
+import { useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import Layout from "./pages/Layout/Layout.jsx";
@@ -14,9 +15,18 @@ import { useAuthContext } from "./context/AuthContext.js";
 import { useLanguage } from "./context/LanguageContext.js";
 import i18n from "./i18n/i18n.js";
 import Calendar from './components/Calendar/Calendar';
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import { PrimeReactProvider } from "primereact/api";
+import { Toast } from 'primereact/toast';
+
+
+
+
 
 export default function App() {
-    const { language } = useLanguage();
+    const toastTR = useRef(null);
+	const toastTC = useRef(null);
+	const { language } = useLanguage();
     useEffect(() => {
         const dir = i18n.dir(i18n.language);
         document.documentElement.dir = dir;
@@ -33,18 +43,19 @@ export default function App() {
 			name: "Login",
 			url: "/login",
 			idFound: <Navigate to="/" />,
-			idFailed: <Login />,
+			idFailed: <Login toastTR={toastTR} toastTC={toastTC}/>,
+
 		},
 		{
 			name: "Create Event",
 			url: "/create-event",
-			idFound: <CreateEvent />,
+			idFound: <CreateEvent toastTC={toastTC} />,
 			idFailed: <Navigate to="/login" />,
 		},
 		{
 			name: "Update Event",
 			url: "/update-event",
-			idFound: <UpdateEvent />,
+			idFound: <UpdateEvent toastTC={toastTC} />,
 			idFailed: <Navigate to="/login" />,
 		},
 		{
@@ -57,7 +68,7 @@ export default function App() {
 			name: "Register",
 			url: "/register",
 			idFound: <Navigate to="/" />,
-			idFailed: <Register />,
+			idFailed: <Register toastTR={toastTR} toastTC={toastTC} />,
 		},
 		{
 			url: "/layout",
@@ -84,6 +95,9 @@ export default function App() {
     }
 
 	return (
+<PrimeReactProvider value={{ unstyled: false }}>
+<Toast ref={toastTC} position="top-center" />
+<Toast ref={toastTR} position="top-right" />
 		<div className="app">
 			<BrowserRouter>
 				<NotificationProvider>
@@ -95,5 +109,6 @@ export default function App() {
 				</NotificationProvider>
 			</BrowserRouter>
 		</div>
+		</PrimeReactProvider>
 	);
 }

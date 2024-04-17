@@ -6,16 +6,24 @@ import { useAuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo192.png";
 import style from './NotificationCard.module.scss';
 import i18n from '../../i18n/i18n';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const NotificationCard = ({event, source}) => {
   const [isShowMore, setIsShowMore] = useState(true);
   const toggleReadMore = () => setIsShowMore(show => !show);
   const { loginState } = useAuthContext();
-  const [buttonText, setButtonText] = useState(i18n.t('Participate'));
+  const [buttonText, setButtonText] = useState(('Participate'));
   const { t } = i18n;
   const shortDate = event.start.substring(0, 10);
   const [year, month, day] =  shortDate.split('-');
   const date = `${day}.${month}.${year}`;
+  const { language } = useLanguage();
+  useEffect(()  => {
+    setButtonText(buttonText);
+  }, [language]);
+
+   
+
   
 
 const joinEvent = async () => {

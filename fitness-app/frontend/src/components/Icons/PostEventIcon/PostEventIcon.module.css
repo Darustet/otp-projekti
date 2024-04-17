@@ -1,0 +1,15 @@
+.newPost {
+  background-size: cover;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 450px;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}/*# sourceMappingURL=PostEventIcon.module.css.map */
