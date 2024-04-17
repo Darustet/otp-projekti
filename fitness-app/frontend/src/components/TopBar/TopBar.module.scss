@@ -1,12 +1,15 @@
 .topBar {
 	position: fixed;
-    width: 59vw;
+	top: 16px;
+	left: 150px;
+	width: -webkit-fill-available;
+	height: fit-content;
+	margin-right: 35vw;
+	padding: 10px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 16px;
-    margin-left: 75px;
-    padding: 10px;
+	//margin-top: 16px;
     background-color: rgb(240, 242, 242); // Customize background color
     z-index: 1;
 

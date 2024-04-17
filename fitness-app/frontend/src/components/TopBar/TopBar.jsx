@@ -98,9 +98,9 @@ const TopBar = ({ location }) => {
 
   return (
       <div className={styles.topBar}>
-        <p className={styles.header}>{location}</p>
+        {/*<p className={styles.header}>{location}</p>*/}
         <div className={styles.searchContainer}>
-          <input type="text" placeholder= {t("Search" )} className={styles.searchInput} />
+          <input type="search" placeholder= {t("Search" )} className={styles.searchInput} />
         </div>
 
         <button className={styles.settingsButton}

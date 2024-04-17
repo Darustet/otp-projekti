@@ -70,18 +70,20 @@ const joinEvent = async () => {
   };
 
   function checkButton() {
-    if (source==="profile") {
-      return (event &&
-        <Link to={{ pathname: '/update-event' }} state={{ event }} style={{color: 'inherit', textDecoration: 'inherit'}}>
-          <button className={style.button}>{t("Edit")}</button>
-        </Link>
-      );
-    } else {
-      return (
-      <button onClick={handleClick} className={style.button}>{t(buttonText)}</button>
-      );
-    }
-    }
+      if (source === "profile") {
+          return (event &&
+              <Link to={{pathname: '/update-event'}} state={{event}}
+                    style={{color: 'inherit', textDecoration: 'inherit'}}>
+                  <button className={style.button}>{t("Edit")}</button>
+              </Link>
+          );
+      } else {
+          return (
+              <button onClick={handleClick} className={style.button}>{t(
+                  buttonText)}</button>
+          );
+      }
+  }
 
   return (
     <div key={event._id} className={style.wrapper}>

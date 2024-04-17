@@ -12,13 +12,11 @@ const calenderSettings = {
 };
 setOptions(calenderSettings)
 
-const Calendar = () => {
+export default function Calendar() {
 
 	const { language } = useLanguage();
-	console.log(language);
+	//console.log(language);
 	const [myEvents, setEvents] = useState([]),
-
-
 		[isToastOpen, setToastOpen] = useState(false),
 		[toastMessage, setToastMessage] = useState(),
 		[themeChecked, setThemeChecked] = useState(false);
@@ -28,8 +26,7 @@ const Calendar = () => {
 		() => ({
 			calendar: { type: "month" },
 			agenda: { type: "month" },
-		}),
-		[]
+		}),[]
 	);
 
 	const handleToastClose = useCallback((args) => {
@@ -98,26 +95,22 @@ const Calendar = () => {
 		// The empty dependency array means this effect will only run once when the component mounts
 	}, []);
 
-	return (
-		<aside className= {style["main-aside"]}>
-				{/*<button onClick={handleThemeChange}>
+	return <aside className= {style["main-aside"]}>
+		{/*<button onClick={handleThemeChange}>
 				{themeChecked ? "Light" : "Dark"}</button>*/}
-			<Eventcalendar className="eventcalendar"
-						   clickToCreate={false}
-						   dragToCreate={false}
-						   dragToMove={false}
-						   dragToResize={false}
-						   eventDelete={false}
-						   data={myEvents}
-						   view={myView}
-						   locale={locale[language]}
-						   onEventClick={handleEventClick}
-						   onEventDelete={handleEventLeave} 
-			/>
-			<Toast message={toastMessage} isOpen={isToastOpen}
-				   onClose={handleToastClose}/>
-		</aside>
-	);
-};
-
-export default Calendar;
+		<Eventcalendar className="eventcalendar"
+					   clickToCreate={false}
+					   dragToCreate={false}
+					   dragToMove={false}
+					   dragToResize={false}
+					   eventDelete={false}
+					   data={myEvents}
+					   view={myView}
+					   locale={locale[language]}
+					   onEventClick={handleEventClick}
+					   onEventDelete={handleEventLeave}
+		/>
+		<Toast message={toastMessage} isOpen={isToastOpen}
+			   onClose={handleToastClose}/>
+	</aside>
+}
