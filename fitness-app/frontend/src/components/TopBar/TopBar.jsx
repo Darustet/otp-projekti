@@ -4,18 +4,18 @@ import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
 import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
 import LocaleSwitcher from '../../i18n/LocaleSwitcher.jsx';
-
 import i18n from '../../i18n/i18n';
 
 
 
-const TopBar = ({ location }) => {
+const TopBar = ({ location, setSearchTerm }) => {
   const { t } = i18n;
   const [profileData, setProfileData] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const [updatedProfileData, setUpdatedProfileData] = useState({});
   const { loginState } = useAuthContext();
   const modalRef = useRef();
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -40,6 +40,19 @@ const TopBar = ({ location }) => {
   const handleSettingsClick = () => {
     setEditMode(true);
     setUpdatedProfileData({ ...profileData });
+  };
+
+  const handleSearchChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      // Do something with the searchValue, like sending it to a server or filtering data
+      setSearchTerm(searchValue);
+      console.log('Search value:', searchValue);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -99,11 +112,22 @@ const TopBar = ({ location }) => {
     };
   }, []);
 
+
+
   return (
       <div className={styles.topBar}>
         <p className={styles.header}>{location}</p>
         <div className={styles.searchContainer}>
-          <input type="text" placeholder= {t("Search" )} className={styles.searchInput} />
+          <form>
+            <input
+                type="text"
+                placeholder= {t("Search" )}
+                value={searchValue}
+                onChange={handleSearchChange}
+                className={styles.searchInput}ww
+                onKeyPress={handleKeyPress}
+            />
+          </form>
         </div>
 
         <button className={styles.settingsButton} onClick={handleSettingsClick}>
