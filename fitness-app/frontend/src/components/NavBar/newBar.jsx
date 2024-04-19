@@ -20,7 +20,7 @@ export default function BasicDemo() {
 		
 		{
 			label: "Language",
-			icon: () => <LocaleSwitcher size={40} location={{ top: 50 }} />,
+			icon: () => <LocaleSwitcher size={55} location={{ top: 50 }} />,
 		},
         {
             label: "Logout",
