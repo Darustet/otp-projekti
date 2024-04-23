@@ -1,8 +1,8 @@
 import "./App.scss";
-import NavBar from "./components/NavBar/newBar.jsx";
+import {default as NavBar} from "./components/NavBar/NewBar.jsx";
 import { useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar.jsx";
+//import NavBar from "./components/NavBar/NavBar.jsx";
 import Layout from "./pages/Layout/Layout.jsx";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 import UpdateEvent from "./pages/UpdateEvent/UpdateEvent.jsx";
@@ -18,10 +18,6 @@ import Calendar from './components/Calendar/Calendar';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { PrimeReactProvider } from "primereact/api";
 import { Toast } from 'primereact/toast';
-
-
-
-
 
 export default function App() {
     const toastTR = useRef(null);
@@ -95,20 +91,20 @@ export default function App() {
     }
 
 	return (
-<PrimeReactProvider value={{ unstyled: false }}>
-<Toast ref={toastTC} position="top-center" />
-<Toast ref={toastTR} position="top-right" />
-		<div className="app">
-			<BrowserRouter>
-				<NotificationProvider>
-					<NavBar/>
-					<div id="page-middle">
-						<Routes>{routing(routeData)}</Routes>
-					</div>
-					{loginState.id && <Calendar />}
-				</NotificationProvider>
-			</BrowserRouter>
-		</div>
+		<PrimeReactProvider value={{ unstyled: false }}>
+			<Toast ref={toastTC} position="top-center" />
+			<Toast ref={toastTR} position="top-right" />
+			<div className="app">
+				<BrowserRouter>
+					<NotificationProvider>
+						<NavBar/>
+						<div id="page-middle">
+							<Routes>{routing(routeData)}</Routes>
+						</div>
+						{loginState.id && <Calendar />}
+					</NotificationProvider>
+				</BrowserRouter>
+			</div>
 		</PrimeReactProvider>
 	);
 }
