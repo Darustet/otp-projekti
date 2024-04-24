@@ -2,16 +2,18 @@
 import Calendar from "../../components/Calendar/Calendar.jsx";
 import {NotificationCard} from "../../components/NotificationCard/NotificationCard";
 import { useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 import styles from "./Feed.module.scss";
 import TopBar from "../../components/TopBar/TopBar.jsx";
 import i18n from "../../i18n/i18n";
-import PostEventIcon from "../../components/Icons/PostEventIcon/PostEventIcon.jsx";
-
+import PostIcon from "../Profile/PostIcon.svg";
+import SVGImg from '../../components/Icons/SVGImg';
 
 export default function NotificationFeed() {
   const { t } = i18n;
   const [list, setList] = useState([]);
   //const searchInput = "Leikki";
+    const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
 
 const handleSearch = (term) => {
@@ -40,7 +42,6 @@ useEffect(() => {
   return (
     <>
     <TopBar location = {t("Feed")} setSearchTerm={handleSearch} />
-    <PostEventIcon />
 
     <div className={styles["container"]}>
       <div className={styles["layout"]}>
@@ -63,6 +64,9 @@ useEffect(() => {
                   )))}
       </div>
     </div>
+        <SVGImg svgFile={PostIcon} imgAlt="post icon"
+                styleClass="post-icon"
+                handlerFunction={navigate} stateValue="/create-event"/>
     </>
   );
 };

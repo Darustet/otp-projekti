@@ -75,7 +75,7 @@ export default function App() {
 			url: "*",
 			isSimple: true,
 			component: <div style={{width: "100%", margin: "32px 33%"}}>
-				<h1>€404 Page not found</h1>,
+				<h1>€404 Page not found</h1>
 				<a href="/">Return to home</a>
 			</div>
 		},

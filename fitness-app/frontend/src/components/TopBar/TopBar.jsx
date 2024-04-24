@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './TopBar.module.scss';
-import SettingsIcon from '../Icons/SettingsIcon/SettingsIcon';
 import logo from '../../images/logo192.png';
 import { useAuthContext } from '../../context/AuthContext.js';
 import LocaleSwitcher from '../../i18n/LocaleSwitcher.jsx';
 import i18n from '../../i18n/i18n';
+import SettingsIcon from "../Icons/SettingsIcon.svg";
+import SVGImg from '../Icons/SVGImg';
 
 
 
@@ -122,16 +123,15 @@ const TopBar = ({ location, setSearchTerm }) => {
                 placeholder= {t("Search" )}
                 value={searchValue}
                 onChange={handleSearchChange}
-                className={styles.searchInput}ww
+                className={styles.searchInput}
                 onKeyPress={handleKeyPress}
             />
           </form>
         </div>
 
-        <button className={styles.settingsButton}
-                 onClick={handleSettingsClick}>
-          <SettingsIcon/>
-        </button>
+        <SVGImg svgFile={SettingsIcon} imgAlt="settings gear-wheel icon"
+                styleClass="settingsIcon"
+                handlerFunction={handleSettingsClick}/>
         
 
         <div className={styles.userSettings}>
