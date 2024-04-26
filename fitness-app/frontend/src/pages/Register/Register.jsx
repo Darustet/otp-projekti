@@ -35,7 +35,7 @@ const Register = ({ toastTC, toastTR}) => {
   }
 
   if (password !== confirmPassword) {
-      console.log("passwordDontmatch");
+      console.log("password Doesnt match");
       toastTR.current.show({ severity: "error", summary: t("Error"), detail: t("Passwords do not match"), life: 3000 });
       e.preventDefault();
       return;

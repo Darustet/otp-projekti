@@ -70,7 +70,7 @@ export default function Profile() {
                     </div>
                 </div>}
                 <h2 className={styles.heading}>{t("Your Posts")}</h2>
-                    <div className={styles.eventsContainer}>
+                    <div className={styles.postsContainer}>
                         {posts.map((event) =>
                             <NotificationCard event={event} source={"profile"} />
                         )}

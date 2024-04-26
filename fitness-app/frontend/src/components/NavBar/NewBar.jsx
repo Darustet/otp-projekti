@@ -1,5 +1,4 @@
 import { Dock } from "primereact/dock";
-import { useState } from "react";
 import ProfileIcon from "./ProfileIcon.svg";
 import HomeIcon from "./HomeIcon.svg";
 import LogoutIcon from "./LogoutIcon.svg";

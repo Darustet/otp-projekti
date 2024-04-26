@@ -11,7 +11,7 @@ export default function Settings() {
         e.preventDefault()
     }
 
-    function handlSavePassword(e) {
+    function handleSavePassword(e) {
         e.preventDefault()
     }
 
@@ -31,7 +31,7 @@ export default function Settings() {
         </div>
         <div className={styles.settingsSection}>
             <h2>Change Password</h2>
-            <form className={styles.changePasswordForm} onSubmit={handlSavePassword}>
+            <form className={styles.changePasswordForm} onSubmit={handleSavePassword}>
                 <FormTextElement
                     id="newPassword"
                     inputType="password"

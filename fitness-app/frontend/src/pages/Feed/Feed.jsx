@@ -1,5 +1,4 @@
 "use client";
-import Calendar from "../../components/Calendar/Calendar.jsx";
 import {NotificationCard} from "../../components/NotificationCard/NotificationCard";
 import { useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';

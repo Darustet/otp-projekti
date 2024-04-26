@@ -90,13 +90,13 @@ const CreateEvent = ({toastTC}) => {
                                          stateValue={start} handlerFunction={setStart}/>
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText={t("End Date" )}id="event-end"
+                                         innerText={t("End Date" )} id="event-end"
                                          name="end" inputType="date"
                                          stateValue={end} handlerFunction={setEnd}
                         />
 
                         <FormTextElement className={formGroupStyle}
-                                         innerText= {t("Category" )}id="event-category"
+                                         innerText= {t("Category" )} id="event-category"
                                          name="category"
                                          placeholder= {t("Enter event category")}
                                          stateValue={category} handlerFunction={setCategory}
