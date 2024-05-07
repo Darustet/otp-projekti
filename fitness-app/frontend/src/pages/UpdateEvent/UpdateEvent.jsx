@@ -69,6 +69,14 @@ const UpdateEvent = ({state, toastTC}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Check if any required fields are empty
+        if (!eventName || !eventLocation || !start || !end || !category || !description || tags.length === 0) {
+            // Display error message indicating required fields
+            alert('Please fill in all required fields.');
+            return; // Prevent form submission
+        }
+
+        // All required fields are filled, proceed with form submission
         const eventData = {
             title: eventName,
             description,
@@ -103,6 +111,7 @@ const UpdateEvent = ({state, toastTC}) => {
             console.error('Error creating event:', error);
         }
     };
+
 
     const formGroupStyle = "input-group";
     return ( event &&
