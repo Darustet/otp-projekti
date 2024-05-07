@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
-//import X_icon from '../../components/Icons/XIcon/XIcon';
+import X_icon from './x-symbol.svg';
 import i18n from "../../i18n/i18n";
 import { Password } from "primereact/password";
 import { Divider } from "primereact/divider";
 import { InputText } from "primereact/inputtext";
 import { Toast } from "primereact/toast";
+import SVGImg from '../../components/Icons/SVGImg';
+import {useNavigate} from 'react-router-dom';
 
 const Register = ({ toastTC, toastTR}) => {
 	const { t } = i18n;
@@ -26,20 +28,21 @@ const Register = ({ toastTC, toastTR}) => {
 			</ul>
 		</>
 	);
+	const navigate = useNavigate()
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-    if (userTag === "" || password === "" || confirmPassword === "" || email === "") {
-      toastTR.current.show({severity:'warn', summary: t('Warning'), detail:t("fill in all fields"), life: 3000});
-      e.preventDefault();
-      return;
-  }
+		if (userTag === "" || password === "" || confirmPassword === "" || email === "") {
+			toastTR.current.show({severity:'warn', summary: t('Warning'), detail:t("fill in all fields"), life: 3000});
+			e.preventDefault();
+			return;
+		}
 
-  if (password !== confirmPassword) {
-      console.log("passwordDontmatch");
-      toastTR.current.show({ severity: "error", summary: t("Error"), detail: t("Passwords do not match"), life: 3000 });
-      e.preventDefault();
-      return;
-  }
+		if (password !== confirmPassword) {
+			console.log("password Doesnt match");
+			toastTR.current.show({ severity: "error", summary: t("Error"), detail: t("Passwords do not match"), life: 3000 });
+			e.preventDefault();
+			return;
+		}
 
 		const registrationData = {
 			userTag,
@@ -60,14 +63,15 @@ const Register = ({ toastTC, toastTR}) => {
 			if (response.ok) {
 				// Registration successful, you can redirect or show a success message
 				console.log("Registration successful!");
-        toastTC.current.show({severity:'success', summary: 'Success', detail:"Registration successful!", life: 3000});
+				toastTC.current.show({severity:'success', summary: 'Success', detail:"Registration successful!", life: 3000});
+				navigate('/login');
 			} else {
 				// Registration failed, handle errors
-        toastTR.current.show({severity:'error', summary: 'Error', detail:'Registration failed', life: 3000});
+				toastTR.current.show({severity:'error', summary: 'Error', detail:'Registration failed', life: 3000});
 				console.error("Registration failed");
 			}
 		} catch (error) {
-     toastTR.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
+			toastTR.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
 			console.error("Error during registration:", error);
 		}
 	};
@@ -77,6 +81,9 @@ const Register = ({ toastTC, toastTR}) => {
 			<div className={styles["register-page"]}>
 				<div className={styles["register-container"]}>
 					<div className={styles["register-content"]}>
+						<SVGImg svgFile={X_icon} imgAlt="close icon"
+								styleClass="x-icon"
+								handlerFunction={navigate} stateValue="/login"/>
 						<header className={styles["register-header"]}>
 							<h1>{t("register")}</h1>
 

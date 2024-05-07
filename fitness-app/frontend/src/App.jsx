@@ -2,7 +2,6 @@ import "./App.scss";
 import {default as NavBar} from "./components/NavBar/NewBar.jsx";
 import { useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-//import NavBar from "./components/NavBar/NavBar.jsx";
 import Layout from "./pages/Layout/Layout.jsx";
 import CreateEvent from "./pages/CreateEvent/CreateEvent";
 import UpdateEvent from "./pages/UpdateEvent/UpdateEvent.jsx";

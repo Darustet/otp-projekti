@@ -1,5 +1,4 @@
 import { Dock } from "primereact/dock";
-import { useState } from "react";
 import ProfileIcon from "./ProfileIcon.svg";
 import HomeIcon from "./HomeIcon.svg";
 import LogoutIcon from "./LogoutIcon.svg";
@@ -13,6 +12,7 @@ import {useNavigate} from 'react-router-dom';
 export default function BasicDemo() {
 	const navigate = useNavigate(),
 		{dispatch} = useAuthContextDispatch()
+
 	function logoutDispatch() {
 		dispatch({type: "LOGOUT"})
 		localStorage.removeItem("Token")

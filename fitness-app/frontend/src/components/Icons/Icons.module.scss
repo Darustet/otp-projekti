@@ -1,5 +1,5 @@
 // Profile, Home
-.settingsIcon, .profileIcon, .homeIcon, .logout-icon, .post-icon, .closeIcon, .lang-icon {
+.x-icon, .settingsIcon, .profileIcon, .homeIcon, .logout-icon, .post-icon, .closeIcon, .lang-icon {
   width: 43px;
   height: 43px;
   cursor: pointer;
@@ -50,3 +50,7 @@
     visibility: hidden;
     transition: all 0.3s ease-in-out;
 }*/
+
+.x-icon {
+  position: static;
+}

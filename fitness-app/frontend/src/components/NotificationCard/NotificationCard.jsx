@@ -14,12 +14,15 @@ export const NotificationCard = ({event, source}) => {
   const { loginState } = useAuthContext();
   const [buttonText, setButtonText] = useState(('Participate'));
   const { t } = i18n;
-  const shortDate = event.start.substring(0, 10);
-  const [year, month, day] =  shortDate.split('-');
-  const date = `${day}.${month}.${year}`;
+  const [shortDate, setShortDate] = useState(event.start)
   const { language } = useLanguage();
   useEffect(()  => {
-    setButtonText(buttonText);
+    //setButtonText(buttonText);
+    if(event.start) {
+        const dateSection = event.start.substring(0, 10);
+        const [year, month, day] = dateSection.split('-');
+        setShortDate(`${day}.${month}.${year}`);
+    }
   }, [language]);
 
    
@@ -101,7 +104,7 @@ const joinEvent = async () => {
           <img className={style.profileImage} src={event.host?.profilePicture || logo} alt="Profile" />
         </div>
         <div className={style.timeAndLocation}>
-          <span className={style.headerText}>{date}, {event.location}</span>
+          <span className={style.headerText}>{shortDate}, {event.location}</span>
         </div>
         <div className={style.content}>
           <DescriptionText>  {isShowMore ? (event?.description || "").slice(0, 50) : event.description} </DescriptionText>
