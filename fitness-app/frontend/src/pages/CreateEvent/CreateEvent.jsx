@@ -49,7 +49,7 @@ const CreateEvent = ({toastTC}) => {
                 console.log('Event created successfully');
                 navigate('/');
             } else {
-                toastTC.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
+                toastTC.current.show({severity:'error', summary: 'Error', detail:'Fill out missing information', life: 3000});
 
                 console.error('Failed to create event');
             }
