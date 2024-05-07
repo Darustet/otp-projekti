@@ -18,9 +18,8 @@ export default function Calendar() {
 	//console.log(language);
 	const [myEvents, setEvents] = useState([]),
 		[isToastOpen, setToastOpen] = useState(false),
-		[toastMessage, setToastMessage] = useState(),
-		[themeChecked, setThemeChecked] = useState(false);
-		const { loginState } = useAuthContext();
+		[toastMessage, setToastMessage] = useState()
+	const { loginState } = useAuthContext();
 
 	const myView = useMemo(
 		() => ({
@@ -55,16 +54,6 @@ export default function Calendar() {
 		const eventId = args.event.id;
 		handleLeaveEvent(eventId);
 	}, [handleLeaveEvent]);
-	
-
-	function handleThemeChange() {
-		setThemeChecked(!themeChecked);
-		const newThemeVariant = (themeChecked ? "dark" : "light");
-		setOptions({
-			...calenderSettings,
-			themeVariant: newThemeVariant
-		});
-	}
 
 	useEffect(() => {
 		console.log(loginState.token)
@@ -75,10 +64,7 @@ export default function Calendar() {
 					"Authorization": loginState.token,
 					"Content-Type": "application/json",
 				},
-			})	
-
-
-
+			})
 			.then(response => {
 				if (response.ok) {
 					return response.json(); // Parse the JSON data from the response
@@ -96,8 +82,6 @@ export default function Calendar() {
 	}, []);
 
 	return <aside className= {style["main-aside"]}>
-		{/*<button onClick={handleThemeChange}>
-				{themeChecked ? "Light" : "Dark"}</button>*/}
 		<Eventcalendar className="eventcalendar"
 					   clickToCreate={false}
 					   dragToCreate={false}

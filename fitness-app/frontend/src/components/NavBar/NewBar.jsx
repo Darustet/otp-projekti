@@ -12,6 +12,7 @@ import {useNavigate} from 'react-router-dom';
 export default function BasicDemo() {
 	const navigate = useNavigate(),
 		{dispatch} = useAuthContextDispatch()
+
 	function logoutDispatch() {
 		dispatch({type: "LOGOUT"})
 		localStorage.removeItem("Token")
