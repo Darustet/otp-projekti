@@ -45,7 +45,7 @@ const CreateEvent = ({toastTC}) => {
             });
 
             if (response.ok) {
-                toastTC.current.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
+                toastTC.current.show({severity:'success', summary: 'Success', detail:'Event created successfully', life: 3000});
                 console.log('Event created successfully');
                 navigate('/');
             } else {
