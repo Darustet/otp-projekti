@@ -53,7 +53,7 @@ function Login({ toastTC, toastTR}) {
 				const data = await response.json();
 				// Save the token in local storage
 				localStorage.setItem("Token", data.accessToken);
-				toastTC.current.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
+				toastTC.current.show({severity:'success', summary: 'Success', detail:'You are signed in', life: 3000});
 				dispatch({
 					type: "LOGIN",
 					_id: data.accessToken,
