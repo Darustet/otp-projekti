@@ -24,15 +24,14 @@ i18n.use(initReactI18next).init({
 		escapeValue: false,
 	},
 
-	//lng : "ja",
-	supportedLngs: Object.keys(supportedLngs),
-	resources: {
-		fi: {
-			translation: fi,
-		},
-		en: {
-			translation: en,
-		},
+    supportedLngs: Object.keys(supportedLngs),
+    resources: {
+        fi: {
+            translation: fi,
+        },
+        en: {
+            translation: en,
+        },
 
 		ru: {
 			translation: ru,
