@@ -42,7 +42,16 @@
 	"Show less...": "Show less...",
 	"Search" : "Search by category",
 	"fill in all fields":"fill in all fields",
-	"Warning": "Warning"
+	"Delete Event": "Delete Event",
+	"Event deleted": "Event deleted",
+	"Event updated": "Event updated",
+	"No internet connection": "No internet connection",
+	"Success": "Success",
+	"Error": "Error",
+	"Event created successfully": "Event created successfully",
+	"Please fill in all required fields": "Please fill in all required fields",
+	"Profile updated": "Profile updated"
+	
 
 	
 

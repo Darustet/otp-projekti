@@ -64,16 +64,36 @@ const UpdateEvent = ({state, toastTC}) => {
         setDescription(event.description);
     }, [event]);
 
+const handleDelete = async () => {
+    try {
+        const response = await fetch('http://localhost:4000/api/posts/' + event._id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: loginState.token,
+            },
+
+            
+        });
+        if (response.ok) {
+            toastTC.current.show({severity:'success', summary: t('Success'), detail:t('Event deleted'), life: 3000});
+            console.log('Event deleted successfully');
+            navigate('/');
+        }} catch (error) {
+            toastTC.current.show({severity:'error', summary: t('Error'), detail:t('No internet connection'), life: 3000});
+            console.error('Error deleting event:', error);
+        }
+    };
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Check if any required fields are empty
-        if (!eventName || !eventLocation || !start || !end || !category || !description || tags.length === 0) {
+        if (!eventName || !eventLocation || !start || !end || !category || !description) {
             // Display error message indicating required fields
-            alert('Please fill in all required fields.');
-            return; // Prevent form submission
+            toastTC.current.show({severity:'error', summary: t('Error'), detail:t(t('Please fill in all required fields')), life: 3000});
+            return;
         }
 
         // All required fields are filled, proceed with form submission
@@ -99,15 +119,15 @@ const UpdateEvent = ({state, toastTC}) => {
             });
             console.log(eventData);
             if (response.ok) {
-                toastTC.current.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
+                toastTC.current.show({severity:'success', summary: t('Success'), detail:t('Event updated'), life: 3000});
                 console.log('Event updated successfully');
                 navigate('/');
             } else {
-                toastTC.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
+                toastTC.current.show({severity:'error', summary: t('Error'), detail:t('No internet connection'), life: 3000});
                 console.error('Failed to update event');
             }
         } catch (error) {
-            toastTC.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
+            toastTC.current.show({severity:'error', summary: t('Error'), detail:t('No internet connection'), life: 3000});
             console.error('Error creating event:', error);
         }
     };
@@ -168,10 +188,15 @@ const UpdateEvent = ({state, toastTC}) => {
                                          stateValue={eventLocation} handlerFunction={setEventLocation}
                         />
 
+
                         <button type="submit" className="update-event-button">
                         {t("Create Event")}
                         </button>
+
                     </form>
+                    <button onClick={handleDelete} className="deletePost">
+                        {t("Delete Event")}
+                        </button>
                 </div>
             </div>
         </div>

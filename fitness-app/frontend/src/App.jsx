@@ -31,7 +31,7 @@ export default function App() {
 		{
 			name: "Feed",
 			url: "/",
-			idFound: <Feed />,
+			idFound: <Feed toastTR={toastTR} toastTC={toastTC}/>,
 			idFailed: <Navigate to="/login" />,
 		},
 		{
@@ -56,7 +56,7 @@ export default function App() {
 		{
 			name: "Profile",
 			url: "/profile",
-			idFound: <Profile />,
+			idFound: <Profile toastTR={toastTR} toastTC={toastTC}/>,
 			idFailed: <Navigate to="/login" />,
 		},
 		{

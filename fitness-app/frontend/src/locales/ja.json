@@ -41,7 +41,16 @@
     "Show less...": "もっと少なく表示...",
     "Search" : "カテゴリから探す",
     "fill in all fields" : "すべてのフィールドに入力してください",
-    "Warning" : "警告"
+    "Warning" : "警告",
+    "Delete Event" : "イベントを削除",
+    "Event deleted": "イベントが削除されました",
+    "Event updated": "イベントが更新されました",
+    "No internet connection": "インターネット接続がありません",
+    "Success": "成功",
+    "Error": "エラー",
+    "Event created successfully": "イベントが正常に作成されました",
+    "Please fill in all required fields": "すべての必須フィールドに入力してください",
+    "Profile updated": "プロフィールが更新されました"
 
 
 }

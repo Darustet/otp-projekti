@@ -39,6 +39,16 @@
 	"Cancel participation":"إلغاء المشاركة",
 	"Show more...": "عرض المزيد...",
 	"Show less...": "عرض أقل...",
-	"Search" : "البحث حسب الفئة"
+	"Search" : "البحث حسب الفئة",
+	"Delete Event": "حذف الحدث",
+	"Event deleted": "تم حذف الحدث",
+	"Event updated": "تم تحديث الحدث",
+	"No internet connection": "لا يوجد اتصال بالإنترنت",
+	"Success": "نجاح",
+	"Error": "خطأ",
+	"Event created successfully": "تم إنشاء الحدث بنجاح",
+	"Please fill in all required fields": "يرجى ملء جميع الحقول المطلوبة",
+	"Profile updated": "تم تحديث الملف الشخصي"
+	
 
 }

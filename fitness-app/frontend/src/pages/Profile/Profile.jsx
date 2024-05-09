@@ -14,7 +14,7 @@ import SettingsIcon from "../../../src/components/Icons/SettingsIcon.svg";
 import { useRef } from "react";
 
 
-export default function Profile() {
+export default function Profile({toastTC}) {
     const modalRef = useRef();
     const [editMode, setEditMode] = useState(false);
     const [updatedProfileData, setUpdatedProfileData] = useState({});
@@ -67,6 +67,7 @@ export default function Profile() {
       const data = await res.json();
       setProfileData(data);
       setEditMode(false);
+      toastTC.current.show({severity:'success', summary: t('Success'), detail:t('Profile updated'), life: 3000});
     } catch (error) {
       console.error("Error updating profile data:", error);
     }

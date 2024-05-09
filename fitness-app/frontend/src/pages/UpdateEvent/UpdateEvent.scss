@@ -21,6 +21,7 @@
 		background: #ffffff;
 		border-radius: 50px;
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		margin-right: 35vw;
 
 		header {
 			text-align: center;
@@ -89,5 +90,20 @@
 			max-height: 100px;
 		}
 
+	}
+}
+.deletePost {
+	margin-top: 1rem;
+	padding: 1rem 2rem;
+	width: 100%;
+	font-size: 1rem;
+	border-radius: 20px;
+	background-color: rgb(216, 103, 103);
+	border: 1px solid#f50000;
+	color: var(--white);
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	&:hover {
+		background-color: var(--clr-accent-500);
 	}
 }

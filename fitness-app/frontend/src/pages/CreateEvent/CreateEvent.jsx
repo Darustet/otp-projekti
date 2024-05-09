@@ -45,16 +45,16 @@ const CreateEvent = ({toastTC}) => {
             });
 
             if (response.ok) {
-                toastTC.current.show({severity:'success', summary: 'Success', detail:'Event created successfully', life: 3000});
+                toastTC.current.show({severity:'success', summary: t('Success'), detail:t('Event created successfully'), life: 3000});
                 console.log('Event created successfully');
                 navigate('/');
             } else {
-                toastTC.current.show({severity:'error', summary: 'Error', detail:'Fill out missing information', life: 3000});
+                toastTC.current.show({severity:'error', summary: t('Error'), detail:t('Please fill in all required fields'), life: 3000});
 
                 console.error('Failed to create event');
             }
         } catch (error) {
-            toastTC.current.show({severity:'error', summary: 'Error', detail:'No internet connection', life: 3000});
+            toastTC.current.show({severity:'error', summary: t('Error'), detail:t('No internet connection'), life: 3000});
             console.error('Error creating event:', error);
         }
     };

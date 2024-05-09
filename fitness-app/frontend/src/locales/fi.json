@@ -41,5 +41,14 @@
 	"Show less...": "Näytä vähemmän...",
 	"Search" : "Hae",
 	"fill in all fields": "täytä kaikki kentät",
-	"warning": "varoitus"
+	"warning": "varoitus",
+	"Delete Event": "Poista Tapahtuma",
+	"Event deleted": "Tapahtuma poistettu",
+	"Event updated": "Tapahtuma päivitetty",
+	"No internet connection": "Ei internet-yhteyttä",
+	"Success": "Onnistui",
+	"Error": "Virhe",
+	"Event created successfully": "Tapahtuma luotu onnistuneesti",
+	"Please fill in all required fields": "Täytä kaikki pakolliset kentät",
+	"Profile updated": "Profiili päivitetty"
 }

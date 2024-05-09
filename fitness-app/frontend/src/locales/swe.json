@@ -41,7 +41,16 @@
 	"Show less...": "Visa mindre...",
 	"Search" : "Sök",
 	"fill in all fields": "fyll i alla fält",
-	"Warning": "Varning"
+	"Warning": "Varning",
+	"Delete Event": "Ta bort händelse",
+	"Event deleted": "Händelse borttagen",
+	"Event updated": "Händelse uppdaterad",
+	"No internet connection": "Ingen internetanslutning",
+	"Success": "Lyckades",
+	"Error": "Fel",
+	"Event created successfully": "Händelse skapad",
+	"Please fill in all required fields": "Fyll i alla obligatoriska fält",
+	"Profile updated": "Profil uppdaterad"
 	
 	
 }

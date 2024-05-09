@@ -37,5 +37,14 @@
 	"Show less...": "Показать меньше...",
 	"Search" : "Поиск",
 	"fill in all fields": "заполните все поля",
-    "Warning": "Предупреждение"
+    "Warning": "Предупреждение",
+	"Delete Event": "Удалить событие",
+	"Event deleted": "Событие удалено",
+	"Event updated": "Событие обновлено",
+	"No internet connection": "Нет подключения к интернету",
+	"Success": "Успех",
+	"Error": "Ошибка",
+	"Event created successfully": "Событие успешно создано",
+	"Please fill in all required fields": "Пожалуйста, заполните все обязательные поля",
+	"Profile updated": "Профиль обновлен"
 }
