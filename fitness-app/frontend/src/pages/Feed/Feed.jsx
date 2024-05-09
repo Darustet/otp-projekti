@@ -63,9 +63,11 @@ useEffect(() => {
                   )))}
       </div>
     </div>
+    <div className={styles.newPost}>
         <SVGImg svgFile={PostIcon} imgAlt="post icon"
                 styleClass="post-icon"
                 handlerFunction={navigate} stateValue="/create-event"/>
+    </div>
     </>
   );
 };

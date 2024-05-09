@@ -1,7 +1,7 @@
 .register-page {
   display: flex;
   min-height: 100vh;
-  color: #fff; // Change as per your design
+  background-color: #f0f0f2; // Change as per your design
 
   .image-container {
     flex: 1;
@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     padding: 50px; // Adjust as necessary
-    background: #fff; // Change as per your design
+// Change as per your design
     // ... rest of your styles for the register-container
   }
 
@@ -177,3 +177,4 @@
     }
   }
 }
+

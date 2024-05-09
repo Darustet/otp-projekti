@@ -17,3 +17,6 @@ Ohjelmistotuotantoprojekti 1/2, Ryhmä 5
 PROJEKTIN VISIO
 
 Projektin visiona on kehittää verkkosivusto, joka toimii yhteisönä matalan kynnyksen urheilutapahtumien jakamiseen. Sivusto mahdollistaa käyttäjille liikuntaseuran etsimisen luomalla ja selaten ilmoituksia erilaisista harrastetapahtumista. Tavoitteena on kannustaa ihmisiä liikkumaan ja tutustumaan samalla lähialueensa asukkaisiin. Palvelu tarjoaa toiminnallisuudet käyttäjätilien hallinnointiin, tapahtumien luontiin ja hakuun sekä tapahtumien näyttämiseen kartalla, edistäen näin helppoa osallistumista ja yhteisöllisyyttä. Projektin ainutlaatuisuus verrattuna olemassa oleviin palveluihin, kuten Facebookin ryhmiin tai kaupungin järjestämiin palveluihin, on sen avoimuus ja saavutettavuus, mikä tekee siitä ihanteellisen alustan kaikenikäisille ja -kuntoisille liikunnan etsijöille, riippumatta lajista tai paikasta.
+
+
+

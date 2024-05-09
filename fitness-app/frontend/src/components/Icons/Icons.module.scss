@@ -1,10 +1,15 @@
 // Profile, Home
-.x-icon, .settingsIcon, .profileIcon, .homeIcon, .logout-icon, .post-icon, .closeIcon, .lang-icon {
+.settingsIcon, .profileIcon, .homeIcon, .logout-icon, .post-icon, .closeIcon, .lang-icon {
   width: 43px;
   height: 43px;
   cursor: pointer;
 }
-
+.x-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  
+}
 .closeIcon {
   display: inline-block;
   transition: color 0.3s ease;
@@ -17,7 +22,6 @@
 .post-icon {
   background-size: cover;
   border-radius: 50%;
-  position: fixed;
   bottom: 20px;
   right: 20px;
   width: 50px;

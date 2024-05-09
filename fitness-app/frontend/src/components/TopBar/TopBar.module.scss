@@ -1,35 +1,39 @@
 .topBar {
 	position: fixed;
-	top: 16px;
-	left: 150px;
+	top: 0px;
+	left: 173px;
 	width: -webkit-fill-available;
-	height: fit-content;
-	margin-right: 35vw;
+	height: 62px;
+	margin-right: 34vw;
 	padding: 10px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	//margin-top: 16px;
-    background-color: rgb(240, 242, 242); // Customize background color
-    z-index: 1;
+	background-color: rgb(247, 247, 247, 1); // Customize background color
+	z-index: 1;
+	border-bottom: 1px solid rgb(204, 204, 204);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 
-  .header {
-    margin: 0 0 0 20px;
-    font-size: 25px;
-  }
+	.header {
+		margin: 0 0 0 20px;
+		font-size: 25px;
+	}
 
 	.searchContainer {
-		width: fit-content;
+		width: 400px;
+		margin-right: auto;
+		margin-left: auto;
 	}
 	.searchContainer .searchInput {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    width: 100%; /* Responsive width */
-    max-width: 600px; /* Optional: to prevent it from getting too long */
-    box-sizing: border-box;
-}
-
+		padding: 8px;
+		border: 1px solid #ccc;
+		border-radius: 20px;
+		width: 100%; /* Responsive width */
+		max-width: 600px; /* Optional: to prevent it from getting too long */
+		box-sizing: border-box;
+	}
 
 	.userSettings {
 		display: flex;
@@ -54,28 +58,28 @@
 		}
 	}
 
-  .settingsButton {
-    cursor: pointer;
-    background: none;
-    border: none;
-    // Additional styles for the settings button or its icon could be added here
-  }
+	.settingsButton {
+		cursor: pointer;
+		background: none;
+		border: none;
+		// Additional styles for the settings button or its icon could be added here
+	}
 }
 
 .editProfileModal {
-    position: fixed;
-    top: 50%;
-    //left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    max-width: 400px;
-    width: 100%;
-    max-height: 80%;
-    overflow-y: auto;
+	position: fixed;
+	top: 50%;
+	//left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+	max-width: 400px;
+	width: 100%;
+	max-height: 80%;
+	overflow-y: auto;
 
 	&.absolute {
 		position: absolute;

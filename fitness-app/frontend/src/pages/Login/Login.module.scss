@@ -1,9 +1,14 @@
 .login-page {
 	display: flex;
-	min-height: 100vh;
+	
 	background: var(--clr-primary-500); 
-
+	overflow-y:hidden;
+	height:100%;
+ 
   
+  
+ 
+
 	.image-container {
 	  flex: 1;
 	  background: url('../../images/picture.png') no-repeat center center;
