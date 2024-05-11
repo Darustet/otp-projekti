@@ -68,9 +68,13 @@ $input-border-radius: 8px;
 }
 
 .postsContainer {
-	display: grid;
-	grid-gap: 20px;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 20px;
+	
+
+
 }
 
 .post {

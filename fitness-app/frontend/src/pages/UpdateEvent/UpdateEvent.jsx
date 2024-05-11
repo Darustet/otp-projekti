@@ -190,7 +190,7 @@ const handleDelete = async () => {
 
 
                         <button type="submit" className="update-event-button">
-                        {t("Create Event")}
+                        {t("Update Event")}
                         </button>
 
                     </form>

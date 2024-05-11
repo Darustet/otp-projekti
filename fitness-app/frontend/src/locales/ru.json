@@ -46,5 +46,6 @@
 	"Error": "Ошибка",
 	"Event created successfully": "Событие успешно создано",
 	"Please fill in all required fields": "Пожалуйста, заполните все обязательные поля",
-	"Profile updated": "Профиль обновлен"
+	"Profile updated": "Профиль обновлен",
+	"Update Event"	: "Обновить событие"
 }

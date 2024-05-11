@@ -50,5 +50,6 @@
 	"Error": "Virhe",
 	"Event created successfully": "Tapahtuma luotu onnistuneesti",
 	"Please fill in all required fields": "Täytä kaikki pakolliset kentät",
-	"Profile updated": "Profiili päivitetty"
+	"Profile updated": "Profiili päivitetty",
+	"Update Event": "Päivitä Tapahtuma"
 }

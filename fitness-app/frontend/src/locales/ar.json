@@ -48,7 +48,8 @@
 	"Error": "خطأ",
 	"Event created successfully": "تم إنشاء الحدث بنجاح",
 	"Please fill in all required fields": "يرجى ملء جميع الحقول المطلوبة",
-	"Profile updated": "تم تحديث الملف الشخصي"
+	"Profile updated": "تم تحديث الملف الشخصي",
+	"Update Event"	: "تحديث الحدث"
 	
 
 }
